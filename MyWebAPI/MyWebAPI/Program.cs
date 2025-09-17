@@ -1,3 +1,5 @@
+﻿using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+IConfigurationRoot cf = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).Build();
+builder.Services.AddDbContext<MyWebAPI.ModelFromDB.QuanLyThuVien>(options => options.UseSqlServer(cf.GetConnectionString("cnn")));
 
 var app = builder.Build();
 

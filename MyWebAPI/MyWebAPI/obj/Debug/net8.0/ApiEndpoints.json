@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "MyWebAPI.Controllers.SachController",
-    "Method": "getAll",
+    "Method": "GetAll",
     "RelativePath": "api/Sach",
     "HttpMethod": "GET",
     "IsController": true,
@@ -18,7 +18,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "sachVM",
+        "Name": "input",
         "Type": "MyWebAPI.Models.SachVM",
         "IsRequired": true
       }
@@ -27,7 +27,7 @@
   },
   {
     "ContainingType": "MyWebAPI.Controllers.SachController",
-    "Method": "getById",
+    "Method": "GetById",
     "RelativePath": "api/Sach/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -51,11 +51,11 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
-        "Name": "sachVM",
+        "Name": "input",
         "Type": "MyWebAPI.Models.SachVM",
         "IsRequired": true
       }
@@ -63,24 +63,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MyWebAPI.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
+    "ContainingType": "MyWebAPI.Controllers.SachController",
+    "Method": "Delete",
+    "RelativePath": "api/Sach/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[MyWebAPI.WeatherForecast, MyWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
   }
 ]

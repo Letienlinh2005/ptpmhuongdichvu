@@ -11,12 +11,32 @@
       "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\models\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\modelfromdb\\phat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\modelfromdb\\phat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\mywebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\mywebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\modelfromdb\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\modelfromdb\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\modelfromdb\\quanlythuvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\modelfromdb\\quanlythuvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\modelfromdb\\phieumuon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\modelfromdb\\phieumuon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\modelfromdb\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\modelfromdb\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -27,12 +47,12 @@
       "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\mywebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\mywebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\webapi .net5\\mywebapi\\mywebapi\\mywebapi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\mywebapi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,32 +62,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SachController.cs",
-              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Controllers\\SachController.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\SachController.cs",
-              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Controllers\\SachController.cs",
-              "RelativeToolTip": "MyWebAPI\\Controllers\\SachController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Sach.cs",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\Sach.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\ModelFromDB\\Sach.cs",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\Sach.cs",
+              "RelativeToolTip": "MyWebAPI\\ModelFromDB\\Sach.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAUwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T02:21:52.937Z",
+              "WhenOpened": "2025-09-15T16:19:23.221Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MyWebAPI",
-              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\MyWebAPI.csproj",
-              "RelativeDocumentMoniker": "MyWebAPI\\MyWebAPI.csproj",
-              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\MyWebAPI.csproj",
-              "RelativeToolTip": "MyWebAPI\\MyWebAPI.csproj",
+              "DocumentIndex": 2,
+              "Title": "Phat.cs",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\Phat.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\ModelFromDB\\Phat.cs",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\Phat.cs",
+              "RelativeToolTip": "MyWebAPI\\ModelFromDB\\Phat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T16:19:21.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PhieuMuon.cs",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\PhieuMuon.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\ModelFromDB\\PhieuMuon.cs",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\PhieuMuon.cs",
+              "RelativeToolTip": "MyWebAPI\\ModelFromDB\\PhieuMuon.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-15T02:19:20.081Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T16:19:11.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "QuanLyThuVien.cs",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\QuanLyThuVien.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\ModelFromDB\\QuanLyThuVien.cs",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\QuanLyThuVien.cs",
+              "RelativeToolTip": "MyWebAPI\\ModelFromDB\\QuanLyThuVien.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T16:17:25.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "MyWebAPI\\appsettings.Development.json",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\appsettings.Development.json",
+              "RelativeToolTip": "MyWebAPI\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-15T16:13:04.872Z",
               "EditorCaption": ""
             },
             {
@@ -78,7 +137,7 @@
               "RelativeDocumentMoniker": "MyWebAPI\\Models\\Sach.cs",
               "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Models\\Sach.cs",
               "RelativeToolTip": "MyWebAPI\\Models\\Sach.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T02:19:47.784Z",
               "EditorCaption": ""
@@ -86,6 +145,74 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\Program.cs",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Program.cs",
+              "RelativeToolTip": "MyWebAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T02:09:02.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SachController.cs",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Controllers\\SachController.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\SachController.cs",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Controllers\\SachController.cs",
+              "RelativeToolTip": "MyWebAPI\\Controllers\\SachController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAIwCQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T02:21:52.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TaiKhoan.cs",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\TaiKhoan.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\ModelFromDB\\TaiKhoan.cs",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\ModelFromDB\\TaiKhoan.cs",
+              "RelativeToolTip": "MyWebAPI\\ModelFromDB\\TaiKhoan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T16:19:23.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MyWebAPI.csproj",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\MyWebAPI.csproj",
+              "RelativeDocumentMoniker": "MyWebAPI\\MyWebAPI.csproj",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\MyWebAPI.csproj",
+              "RelativeToolTip": "MyWebAPI\\MyWebAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-15T15:40:10.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MyWebAPI",
+              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\MyWebAPI.csproj",
+              "RelativeDocumentMoniker": "MyWebAPI\\MyWebAPI.csproj",
+              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\MyWebAPI.csproj",
+              "RelativeToolTip": "MyWebAPI\\MyWebAPI.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-15T15:38:25.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "launchSettings.json",
               "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "MyWebAPI\\Properties\\launchSettings.json",
@@ -98,54 +225,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\WeatherForecastController.cs",
-              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "MyWebAPI\\Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T02:10:18.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "MyWebAPI\\appsettings.json",
               "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\appsettings.json",
               "RelativeToolTip": "MyWebAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-15T02:10:00.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\WeatherForecast.cs",
-              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\WeatherForecast.cs",
-              "RelativeToolTip": "MyWebAPI\\WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T02:09:26.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Program.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\Program.cs",
-              "ToolTip": "E:\\WebAPI .net5\\MyWebAPI\\MyWebAPI\\Program.cs",
-              "RelativeToolTip": "MyWebAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T02:09:02.989Z",
               "EditorCaption": ""
             }
           ]
