@@ -1,0 +1,39 @@
+﻿body {
+}
+#header{
+    height : 130px
+}
+#nav{
+    width: 60%;
+    height:100%;
+    margin: auto;
+}
+#logo, #nav-left{
+    float: left;
+    width: 50%;
+    height:100%;
+    text-align: center
+}
+#login, #search{
+    height:50%;
+    width: 100%
+}
+#login-btn {
+    background-color: #e57343;
+    border: 0px;
+    padding: 6px 9px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin: 25px;
+    cursor: pointer;
+    font-size: 13px;     
+}
+#search-btn {
+    font-size: 13px;
+    border: 0px;
+    box-shadow: 2px 2px 2px 2px grey;
+    padding: 8px 10px
+}
