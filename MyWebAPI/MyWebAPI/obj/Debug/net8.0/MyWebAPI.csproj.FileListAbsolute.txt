@@ -17,7 +17,6 @@ E:\WebAPI .net5\MyWebAPI\MyWebAPI\obj\Debug\net8.0\MyWebAPI.AssemblyInfo.cs
 E:\WebAPI .net5\MyWebAPI\MyWebAPI\obj\Debug\net8.0\MyWebAPI.csproj.CoreCompileInputs.cache
 E:\WebAPI .net5\MyWebAPI\MyWebAPI\obj\Debug\net8.0\MyWebAPI.MvcApplicationPartsAssemblyInfo.cs
 E:\WebAPI .net5\MyWebAPI\MyWebAPI\obj\Debug\net8.0\MyWebAPI.MvcApplicationPartsAssemblyInfo.cache
-E:\WebAPI .net5\MyWebAPI\MyWebAPI\obj\Debug\net8.0\MyWebAPI.sourcelink.json
 E:\WebAPI .net5\MyWebAPI\MyWebAPI\obj\Debug\net8.0\rjimswa.dswa.cache.json
 E:\WebAPI .net5\MyWebAPI\MyWebAPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 E:\WebAPI .net5\MyWebAPI\MyWebAPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -171,3 +170,4 @@ E:\WebAPI .net5\MyWebAPI\MyWebAPI\bin\Debug\net8.0\runtimes\browser\lib\net8.0\S
 E:\WebAPI .net5\MyWebAPI\MyWebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 E:\WebAPI .net5\MyWebAPI\MyWebAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 E:\WebAPI .net5\MyWebAPI\MyWebAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+E:\WebAPI .net5\MyWebAPI\MyWebAPI\bin\Debug\net8.0\MyWebAPI.staticwebassets.runtime.json

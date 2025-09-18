@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using System.Data;
 using MyWebAPI.Models;
 
 namespace MyWebAPI.Controllers
@@ -14,14 +15,16 @@ namespace MyWebAPI.Controllers
             _connStr = config.GetConnectionString("DefaultConnection")!;
         }
 
+        // GET api/sach
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var list = new List<SachVM>();
             using var con = new SqlConnection(_connStr);
             await con.OpenAsync();
-            var cmd = new SqlCommand(
-                "SELECT MaSach, TieuDe, TacGia, NamXuatBan, MaTheLoai FROM Sach", con);
+            using var cmd = new SqlCommand("sp_GetAllSach", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
             using var rd = await cmd.ExecuteReaderAsync();
             while (await rd.ReadAsync())
             {
@@ -37,14 +40,16 @@ namespace MyWebAPI.Controllers
             return Ok(list);
         }
 
+        // GET api/sach/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
             using var con = new SqlConnection(_connStr);
             await con.OpenAsync();
-            var cmd = new SqlCommand(
-                "SELECT MaSach, TieuDe, TacGia, NamXuatBan, MaTheLoai FROM Sach WHERE MaSach=@id", con);
-            cmd.Parameters.AddWithValue("@id", id);
+            using var cmd = new SqlCommand("sp_GetSachById", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MaSach", id);
+
             using var rd = await cmd.ExecuteReaderAsync();
             if (await rd.ReadAsync())
             {
@@ -61,54 +66,68 @@ namespace MyWebAPI.Controllers
             return NotFound(new { message = "Không tìm thấy sách" });
         }
 
+        // POST api/sach
         [HttpPost]
         public async Task<IActionResult> Create(SachVM input)
         {
             var newId = input.MaSach ?? "S" + Guid.NewGuid().ToString("N")[..7].ToUpper();
             using var con = new SqlConnection(_connStr);
             await con.OpenAsync();
-            var cmd = new SqlCommand(
-                @"INSERT INTO Sach (MaSach, TieuDe, TacGia, NamXuatBan, MaTheLoai)
-                  VALUES (@id,@t,@tg,@n,@tl)", con);
-            cmd.Parameters.AddWithValue("@id", newId);
-            cmd.Parameters.AddWithValue("@t", input.TenSach);
-            cmd.Parameters.AddWithValue("@tg", input.TacGia);
-            cmd.Parameters.AddWithValue("@n", (object?)input.NamXuatBan ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@tl", (object?)input.TheLoai ?? DBNull.Value);
-            var rows = await cmd.ExecuteNonQueryAsync();
-            if (rows > 0)
+            using var cmd = new SqlCommand("sp_InsertSach", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@MaSach", newId);
+            cmd.Parameters.AddWithValue("@TieuDe", input.TenSach);
+            cmd.Parameters.AddWithValue("@TacGia", input.TacGia);
+            cmd.Parameters.AddWithValue("@NamXuatBan", (object?)input.NamXuatBan ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MaTheLoai", (object?)input.TheLoai ?? DBNull.Value);
+
+            try
             {
-                input.MaSach = newId;
-                return Ok(new { message = "Thêm thành công", data = input });
+                var rows = await cmd.ExecuteNonQueryAsync();
+                if (rows > 0)
+                {
+                    input.MaSach = newId;
+                    return Ok(new { message = "Thêm thành công", data = input });
+                }
+                return StatusCode(500, new { message = "Không thêm được" });
             }
-            return StatusCode(500, new { message = "Không thêm được" });
+            catch (SqlException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
+        // PUT api/sach/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, SachVM input)
         {
             using var con = new SqlConnection(_connStr);
             await con.OpenAsync();
-            var cmd = new SqlCommand(
-                @"UPDATE Sach SET TieuDe=@t, TacGia=@tg, NamXuatBan=@n, MaTheLoai=@tl
-                  WHERE MaSach=@id", con);
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@t", input.TenSach);
-            cmd.Parameters.AddWithValue("@tg", input.TacGia);
-            cmd.Parameters.AddWithValue("@n", (object?)input.NamXuatBan ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@tl", (object?)input.TheLoai ?? DBNull.Value);
+            using var cmd = new SqlCommand("sp_UpdateSach", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@MaSach", id);
+            cmd.Parameters.AddWithValue("@TieuDe", input.TenSach);
+            cmd.Parameters.AddWithValue("@TacGia", input.TacGia);
+            cmd.Parameters.AddWithValue("@NamXuatBan", (object?)input.NamXuatBan ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MaTheLoai", (object?)input.TheLoai ?? DBNull.Value);
+
             var rows = await cmd.ExecuteNonQueryAsync();
             if (rows > 0) return Ok(new { message = "Cập nhật thành công" });
             return NotFound(new { message = "Không tìm thấy sách" });
         }
 
+        // DELETE api/sach/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             using var con = new SqlConnection(_connStr);
             await con.OpenAsync();
-            var cmd = new SqlCommand("DELETE FROM Sach WHERE MaSach=@id", con);
-            cmd.Parameters.AddWithValue("@id", id);
+            using var cmd = new SqlCommand("sp_DeleteSach", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MaSach", id);
+
             var rows = await cmd.ExecuteNonQueryAsync();
             if (rows > 0) return Ok(new { message = "Xoá thành công" });
             return NotFound(new { message = "Không tìm thấy sách" });

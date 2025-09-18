@@ -2,9 +2,91 @@
   "openapi": "3.0.1",
   "info": {
     "title": "MyWebAPI",
-    "version": "1.0"
+    "version": "v1"
   },
   "paths": {
+    "/api/BanDoc": {
+      "get": {
+        "tags": [
+          "BanDoc"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "BanDoc"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BanDoc"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BanDoc"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BanDoc"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BanDoc/{id}": {
+      "put": {
+        "tags": [
+          "BanDoc"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BanDoc"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BanDoc"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BanDoc"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Sach": {
       "get": {
         "tags": [
@@ -126,10 +208,60 @@
           }
         }
       }
+    },
+    "/api/TaiKhoan": {
+      "get": {
+        "tags": [
+          "TaiKhoan"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "BanDoc": {
+        "type": "object",
+        "properties": {
+          "maBanDoc": {
+            "type": "string",
+            "nullable": true
+          },
+          "hoTen": {
+            "type": "string",
+            "nullable": true
+          },
+          "soThe": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "dienThoai": {
+            "type": "string",
+            "nullable": true
+          },
+          "hanThe": {
+            "type": "string",
+            "format": "date"
+          },
+          "trangThaiThe": {
+            "type": "string",
+            "nullable": true
+          },
+          "duNo": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "SachVM": {
         "type": "object",
         "properties": {
