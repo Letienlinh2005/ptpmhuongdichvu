@@ -1,4 +1,4 @@
 wwwroot\index.html
+wwwroot\signUp.html
 wwwroot\style_header.css
 wwwroot\style_signup.css
-wwwroot\Signup.html

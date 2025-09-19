@@ -1,23 +1,28 @@
-﻿body {
+﻿﻿body {
 }
-#header{
-    height : 130px
+
+#header {
+    height: 130px
 }
-#nav{
+
+#nav {
     width: 60%;
-    height:100%;
+    height: 100%;
     margin: auto;
 }
-#logo, #nav-left{
+
+#logo, #nav-left {
     float: left;
     width: 50%;
-    height:100%;
+    height: 100%;
     text-align: center
 }
-#login, #search{
-    height:50%;
+
+#login, #search {
+    height: 50%;
     width: 100%
 }
+
 #login-btn {
     background-color: #e57343;
     border: 0px;
@@ -29,8 +34,9 @@
     float: right;
     margin: 25px;
     cursor: pointer;
-    font-size: 13px;     
+    font-size: 13px;
 }
+
 #search-btn {
     font-size: 13px;
     border: 0px;
