@@ -345,3 +345,4 @@ E:\WebAPI .net5\ptpmhuongdichvu\MyWebAPI\obj\Debug\net8.0\refint\MyWebAPI.dll
 E:\WebAPI .net5\ptpmhuongdichvu\MyWebAPI\obj\Debug\net8.0\MyWebAPI.pdb
 E:\WebAPI .net5\ptpmhuongdichvu\MyWebAPI\obj\Debug\net8.0\MyWebAPI.genruntimeconfig.cache
 E:\WebAPI .net5\ptpmhuongdichvu\MyWebAPI\obj\Debug\net8.0\ref\MyWebAPI.dll
+E:\WebAPI .net5\ptpmhuongdichvu\MyWebAPI\bin\Debug\net8.0\BCrypt.Net-Next.dll

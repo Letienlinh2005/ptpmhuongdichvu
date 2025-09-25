@@ -9,6 +9,17 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyWebAPI", Version = "v1" });
 });
 
+// Thêm CORS nếu frontend và backend khác domain
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -19,11 +30,16 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyWebAPI v1");
     });
 }
-app.UseStaticFiles();
 
+// Thứ tự middleware rất quan trọng
+app.UseHttpsRedirection();
+app.UseStaticFiles();           // Serve static files từ wwwroot
+app.UseRouting();
+app.UseCors("AllowAll");        // Nếu cần CORS
+app.UseAuthorization();
+app.MapControllers();           // Map API controllers
+
+// Fallback phải đặt cuối cùng
 app.MapFallbackToFile("index.html");
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
 app.Run();

@@ -7,7 +7,6 @@ using System.Data;
 
 namespace MyWebAPI.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TaiKhoanController : ControllerBase
@@ -33,10 +32,9 @@ namespace MyWebAPI.Controllers
                 list.Add(new Models.TaiKhoan
                 {
                     maTaiKhoan = rd.GetString(0),
-                    tenTaiKhoan = rd.GetString(1),
+                    tenDangNhap = rd.GetString(1),
                     matKhau = rd.GetString(2),
-                    vaiTro = rd.GetString(3),
-                    maBanDoc = rd.IsDBNull(4) ? null : rd.GetString(4)
+                    vaiTro = rd.GetString(3)
                 });
             }
             return Ok(list);
@@ -58,10 +56,9 @@ namespace MyWebAPI.Controllers
                 taiKhoan = new Models.TaiKhoan
                 {
                     maTaiKhoan = rd.GetString(0),
-                    tenTaiKhoan = rd.GetString(1),
+                    tenDangNhap = rd.GetString(1),
                     matKhau = rd.GetString(2),
-                    vaiTro = rd.GetString(3),
-                    maBanDoc = rd.IsDBNull(4) ? null : rd.GetString(4)
+                    vaiTro = rd.GetString(3)
                 };
             }
             if (taiKhoan == null)
@@ -73,23 +70,31 @@ namespace MyWebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Models.TaiKhoan taiKhoan)
         {
+            var newId = taiKhoan.maTaiKhoan ?? "TK" + Guid.NewGuid().ToString("N")[..7].ToUpper();
             using var con = new SqlConnection(_connStr);
             await con.OpenAsync();
-            using var cmd = new SqlCommand("sp_CreateTaiKhoan", con);
+            using var cmd = new SqlCommand("sp_Register", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@MaTaiKhoan", taiKhoan.maTaiKhoan);
-            cmd.Parameters.AddWithValue("@TenTaiKhoan", taiKhoan.tenTaiKhoan);
-            cmd.Parameters.AddWithValue("@MatKhau", taiKhoan.matKhau);
+            cmd.Parameters.AddWithValue("@MaTaiKhoan", newId);
+            cmd.Parameters.AddWithValue("@TenDangNhap", taiKhoan.tenDangNhap);
+            cmd.Parameters.AddWithValue("@MatKhau", BCrypt.Net.BCrypt.HashPassword(taiKhoan.matKhau, 10));
             cmd.Parameters.AddWithValue("@VaiTro", taiKhoan.vaiTro);
-            if (taiKhoan.maBanDoc != null)
-                cmd.Parameters.AddWithValue("@MaBanDoc", taiKhoan.maBanDoc);
-            else
-                cmd.Parameters.AddWithValue("@MaBanDoc", DBNull.Value);
-            var rowsAffected = await cmd.ExecuteNonQueryAsync();
-            if (rowsAffected > 0)
-                return CreatedAtAction(nameof(GetById), new { id = taiKhoan.maTaiKhoan }, taiKhoan);
-            else
-                return BadRequest();
+            
+            try
+            {
+                var rows = await cmd.ExecuteNonQueryAsync();
+                if (rows > 0)
+                {
+                    taiKhoan.maTaiKhoan = newId;
+                    return Ok(new { message = "Thêm thành công", data = taiKhoan });
+                }
+                return StatusCode(500, new { message = "Không thêm được" });
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+
         }
 
         // PUT api/taikhoan/{id}
@@ -101,13 +106,9 @@ namespace MyWebAPI.Controllers
             using var cmd = new SqlCommand("sp_UpdateTaiKhoan", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@MaTaiKhoan", id);
-            cmd.Parameters.AddWithValue("@TenTaiKhoan", taiKhoan.tenTaiKhoan);
-            cmd.Parameters.AddWithValue("@MatKhau", taiKhoan.matKhau);
+            cmd.Parameters.AddWithValue("@TenDangNhap", taiKhoan.tenDangNhap);
+            cmd.Parameters.AddWithValue("@MatKhau", BCrypt.Net.BCrypt.HashPassword(taiKhoan.matKhau, 10));
             cmd.Parameters.AddWithValue("@VaiTro", taiKhoan.vaiTro);
-            if (taiKhoan.maBanDoc != null)
-                cmd.Parameters.AddWithValue("@MaBanDoc", taiKhoan.maBanDoc);
-            else
-                cmd.Parameters.AddWithValue("@MaBanDoc", DBNull.Value);
             var rowsAffected = await cmd.ExecuteNonQueryAsync();
             if (rowsAffected > 0)
                 return NoContent();

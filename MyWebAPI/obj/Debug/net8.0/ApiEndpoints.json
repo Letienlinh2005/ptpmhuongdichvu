@@ -79,6 +79,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MyWebAPI.Controllers.DangNhapController",
+    "Method": "Login",
+    "RelativePath": "api/DangNhap/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "MyWebAPI.Controllers.DangNhapController\u002BLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MyWebAPI.Controllers.SachController",
     "Method": "GetAll",
     "RelativePath": "api/Sach",
@@ -165,6 +181,75 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyWebAPI.Controllers.TaiKhoanController",
+    "Method": "Create",
+    "RelativePath": "api/TaiKhoan",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taiKhoan",
+        "Type": "MyWebAPI.Models.TaiKhoan",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyWebAPI.Controllers.TaiKhoanController",
+    "Method": "GetById",
+    "RelativePath": "api/TaiKhoan/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyWebAPI.Controllers.TaiKhoanController",
+    "Method": "Update",
+    "RelativePath": "api/TaiKhoan/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "taiKhoan",
+        "Type": "MyWebAPI.Models.TaiKhoan",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyWebAPI.Controllers.TaiKhoanController",
+    "Method": "Delete",
+    "RelativePath": "api/TaiKhoan/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]
