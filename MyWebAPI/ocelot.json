@@ -1,0 +1,81 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/bandoc",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/BanDoc",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7286
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/bandoc/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/BanDoc/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7286
+        }
+      ],
+      "Priority": 1
+    },
+    {
+      "UpstreamPathTemplate": "/api/sach",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/Sach",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7241
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/sach/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/Sach/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7241
+        }
+      ],
+      "Priority": 1
+    },
+    {
+      "UpstreamPathTemplate": "/api/taikhoan",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/TaiKhoan",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7110
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/taikhoan/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/TaiKhoan",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7110
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:44358"
+  }
+}

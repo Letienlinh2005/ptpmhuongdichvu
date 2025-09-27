@@ -1,4 +1,7 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.OpenApi.Models;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,13 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyWebAPI", Version = "v1" });
 });
+
+// Đọc ocelot.json (hot reload khi DEV)
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+
+builder.Services.AddOcelot(builder.Configuration);
 
 // Thêm CORS nếu frontend và backend khác domain
 builder.Services.AddCors(options =>
@@ -22,6 +32,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -33,13 +44,14 @@ if (app.Environment.IsDevelopment())
 
 // Thứ tự middleware rất quan trọng
 app.UseHttpsRedirection();
-app.UseStaticFiles();           // Serve static files từ wwwroot
+//app.UseStaticFiles();           // Serve static files từ wwwroot
 app.UseRouting();
 app.UseCors("AllowAll");        // Nếu cần CORS
-app.UseAuthorization();
+//app.UseAuthorization();
 app.MapControllers();           // Map API controllers
 
 // Fallback phải đặt cuối cùng
-app.MapFallbackToFile("index.html");
+//app.MapFallbackToFile("index.html");
+await app.UseOcelot();
 
 app.Run();
