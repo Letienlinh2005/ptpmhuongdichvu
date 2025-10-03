@@ -76,6 +76,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:44358"
+    "BaseUrl": "https://localhost:7150"
   }
 }

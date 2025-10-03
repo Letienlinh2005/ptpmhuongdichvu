@@ -1,5 +1,10 @@
-wwwroot\index.html
+wwwroot\AddBD.html
+wwwroot\admin.html
+wwwroot\FixBD.html
 wwwroot\Javascript\index.js
+wwwroot\Readermanagement.html
 wwwroot\Signup.html
-wwwroot\style_header.css
+wwwroot\style_AddBD.css
+wwwroot\style_admin.css
+wwwroot\style_Readermanagement.css
 wwwroot\style_signup.css
