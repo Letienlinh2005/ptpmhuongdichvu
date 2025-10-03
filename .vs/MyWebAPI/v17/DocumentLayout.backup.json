@@ -7,12 +7,56 @@
       "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|solutionrelative:api_taikhoan\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|solutionrelative:api_taikhoan\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|e:\\th_api\\api_sach\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|solutionrelative:api_sach\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{445D3E95-08A8-4E4B-AD30-7EA1F0446DE9}|API_BanDoc\\API_BanDoc.csproj|e:\\th_api\\api_bandoc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{445D3E95-08A8-4E4B-AD30-7EA1F0446DE9}|API_BanDoc\\API_BanDoc.csproj|solutionrelative:api_bandoc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\mywebapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\mywebapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|solutionrelative:api_taikhoan\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|solutionrelative:api_taikhoan\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|solutionrelative:api_taikhoan\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|solutionrelative:api_taikhoan\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\controllers\\bandoccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\controllers\\bandoccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|e:\\th_api\\api_sach\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -21,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|e:\\th_api\\api_sach\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|solutionrelative:api_sach\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|solutionrelative:api_taikhoan\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,14 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|e:\\th_api\\api_sach\\api_sach.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|solutionrelative:api_sach\\api_sach.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|solutionrelative:api_taikhoan\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|e:\\th_api\\api_taikhoan\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8F3A59B5-F12F-4739-8CAF-A0D4ACDF76B5}|API_TaiKhoan\\API_TaiKhoan.csproj|solutionrelative:api_taikhoan\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -63,32 +95,8 @@
       "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\controllers\\dangnhapcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|e:\\th_api\\api_sach\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|solutionrelative:api_sach\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{445D3E95-08A8-4E4B-AD30-7EA1F0446DE9}|API_BanDoc\\API_BanDoc.csproj|e:\\th_api\\api_bandoc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{445D3E95-08A8-4E4B-AD30-7EA1F0446DE9}|API_BanDoc\\API_BanDoc.csproj|solutionrelative:api_bandoc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{445D3E95-08A8-4E4B-AD30-7EA1F0446DE9}|API_BanDoc\\API_BanDoc.csproj|e:\\th_api\\api_bandoc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{445D3E95-08A8-4E4B-AD30-7EA1F0446DE9}|API_BanDoc\\API_BanDoc.csproj|solutionrelative:api_bandoc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1337EC95-A8D9-41F7-98EF-9A1E895644A6}|API_Sach\\API_Sach.csproj|e:\\th_api\\api_sach\\models\\sachmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -121,10 +129,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\mywebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\mywebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|e:\\th_api\\mywebapi\\controllers\\bandoccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37FDB52B-829D-4BAC-8DCF-643CD6D22FAF}|MyWebAPI\\MyWebAPI.csproj|solutionrelative:mywebapi\\controllers\\bandoccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{445D3E95-08A8-4E4B-AD30-7EA1F0446DE9}|API_BanDoc\\API_BanDoc.csproj|e:\\th_api\\api_bandoc\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -165,85 +169,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "API_TaiKhoan\\appsettings.Development.json",
-              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\appsettings.Development.json",
-              "RelativeToolTip": "API_TaiKhoan\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\Program.cs",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\Program.cs",
+              "RelativeToolTip": "MyWebAPI\\Program.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwDcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T02:09:02.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\TH_API\\API_BanDoc\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "API_BanDoc\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\TH_API\\API_BanDoc\\Properties\\launchSettings.json",
+              "RelativeToolTip": "API_BanDoc\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAswCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-27T10:00:53.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T07:26:52.511Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\Program.cs",
-              "RelativeDocumentMoniker": "API_TaiKhoan\\Program.cs",
-              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\Program.cs",
-              "RelativeToolTip": "API_TaiKhoan\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T09:55:04.197Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TaiKhoanController.cs",
-              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\Controllers\\TaiKhoanController.cs",
-              "RelativeDocumentMoniker": "API_TaiKhoan\\Controllers\\TaiKhoanController.cs",
-              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\Controllers\\TaiKhoanController.cs",
-              "RelativeToolTip": "API_TaiKhoan\\Controllers\\TaiKhoanController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwAUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T09:53:32.541Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\TH_API\\API_Sach\\appsettings.json",
-              "RelativeDocumentMoniker": "API_Sach\\appsettings.json",
-              "ToolTip": "E:\\TH_API\\API_Sach\\appsettings.json",
-              "RelativeToolTip": "API_Sach\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-27T07:26:02.003Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\appsettings.json",
-              "RelativeDocumentMoniker": "API_TaiKhoan\\appsettings.json",
-              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\appsettings.json",
-              "RelativeToolTip": "API_TaiKhoan\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-27T09:56:12.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
               "Title": "launchSettings.json",
               "DocumentMoniker": "E:\\TH_API\\API_Sach\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "API_Sach\\Properties\\launchSettings.json",
               "ToolTip": "E:\\TH_API\\API_Sach\\Properties\\launchSettings.json",
               "RelativeToolTip": "API_Sach\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAswCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-27T08:26:42.539Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T08:26:42.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "API_TaiKhoan\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\Properties\\launchSettings.json",
+              "RelativeToolTip": "API_TaiKhoan\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAswB8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-27T09:56:17.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "MyWebAPI\\appsettings.Development.json",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\appsettings.Development.json",
+              "RelativeToolTip": "MyWebAPI\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-15T16:13:04.872Z"
             },
             {
               "$type": "Document",
@@ -251,159 +237,28 @@
               "Title": "ocelot.json",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\ocelot.json",
               "RelativeDocumentMoniker": "MyWebAPI\\ocelot.json",
-              "ToolTip": "E:\\TH_API\\MyWebAPI\\ocelot.json*",
-              "RelativeToolTip": "MyWebAPI\\ocelot.json*",
-              "ViewState": "AgIAACkAAAAAAAAAAADwvzcAAAAwAAAAAAAAAA==",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\ocelot.json",
+              "RelativeToolTip": "MyWebAPI\\ocelot.json",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFoAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-27T07:13:59.544Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "MyWebAPI\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "MyWebAPI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-15T02:17:09.731Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "E:\\TH_API\\API_Sach\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "API_Sach\\appsettings.Development.json",
-              "ToolTip": "E:\\TH_API\\API_Sach\\appsettings.Development.json",
-              "RelativeToolTip": "API_Sach\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-27T10:00:59.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "TaiKhoan.cs",
-              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\Models\\TaiKhoan.cs",
-              "RelativeDocumentMoniker": "API_TaiKhoan\\Models\\TaiKhoan.cs",
-              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\Models\\TaiKhoan.cs",
-              "RelativeToolTip": "API_TaiKhoan\\Models\\TaiKhoan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T09:53:58.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\TH_API\\API_Sach\\Program.cs",
-              "RelativeDocumentMoniker": "API_Sach\\Program.cs",
-              "ToolTip": "E:\\TH_API\\API_Sach\\Program.cs",
-              "RelativeToolTip": "API_Sach\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T08:41:41.525Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "API_Sach",
-              "DocumentMoniker": "E:\\TH_API\\API_Sach\\API_Sach.csproj",
-              "RelativeDocumentMoniker": "API_Sach\\API_Sach.csproj",
-              "ToolTip": "E:\\TH_API\\API_Sach\\API_Sach.csproj",
-              "RelativeToolTip": "API_Sach\\API_Sach.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-27T10:00:14.315Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "API_TaiKhoan\\Properties\\launchSettings.json",
-              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\Properties\\launchSettings.json",
-              "RelativeToolTip": "API_TaiKhoan\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-27T09:56:17.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TaiKhoan.cs",
-              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Models\\TaiKhoan.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\Models\\TaiKhoan.cs",
-              "ToolTip": "E:\\TH_API\\MyWebAPI\\Models\\TaiKhoan.cs",
-              "RelativeToolTip": "MyWebAPI\\Models\\TaiKhoan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T08:04:14.73Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "TaiKhoanController.cs",
-              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Controllers\\TaiKhoanController.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\TaiKhoanController.cs",
-              "ToolTip": "E:\\TH_API\\MyWebAPI\\Controllers\\TaiKhoanController.cs",
-              "RelativeToolTip": "MyWebAPI\\Controllers\\TaiKhoanController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAswIQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T08:23:33.024Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SachController.cs",
-              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Controllers\\SachController.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\SachController.cs",
-              "ToolTip": "E:\\TH_API\\MyWebAPI\\Controllers\\SachController.cs",
-              "RelativeToolTip": "MyWebAPI\\Controllers\\SachController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T08:39:33.766Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "E:\\TH_API\\API_BanDoc\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "API_BanDoc\\Properties\\launchSettings.json",
-              "ToolTip": "E:\\TH_API\\API_BanDoc\\Properties\\launchSettings.json",
-              "RelativeToolTip": "API_BanDoc\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-27T07:26:52.511Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DangNhapController.cs",
-              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Controllers\\DangNhapController.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\DangNhapController.cs",
-              "ToolTip": "E:\\TH_API\\MyWebAPI\\Controllers\\DangNhapController.cs",
-              "RelativeToolTip": "MyWebAPI\\Controllers\\DangNhapController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T07:49:52.498Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\TH_API\\API_BanDoc\\appsettings.json",
-              "RelativeDocumentMoniker": "API_BanDoc\\appsettings.json",
-              "ToolTip": "E:\\TH_API\\API_BanDoc\\appsettings.json",
-              "RelativeToolTip": "API_BanDoc\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-27T07:22:51.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "MyWebAPI\\appsettings.json",
@@ -411,51 +266,203 @@
               "RelativeToolTip": "MyWebAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-15T02:10:00.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T02:10:00.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TaiKhoanController.cs",
+              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\Controllers\\TaiKhoanController.cs",
+              "RelativeDocumentMoniker": "API_TaiKhoan\\Controllers\\TaiKhoanController.cs",
+              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\Controllers\\TaiKhoanController.cs",
+              "RelativeToolTip": "API_TaiKhoan\\Controllers\\TaiKhoanController.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAkwBYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T09:53:32.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "API_TaiKhoan\\appsettings.Development.json",
+              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\appsettings.Development.json",
+              "RelativeToolTip": "API_TaiKhoan\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-27T10:00:53.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TaiKhoan.cs",
+              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\Models\\TaiKhoan.cs",
+              "RelativeDocumentMoniker": "API_TaiKhoan\\Models\\TaiKhoan.cs",
+              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\Models\\TaiKhoan.cs",
+              "RelativeToolTip": "API_TaiKhoan\\Models\\TaiKhoan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T09:53:58.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BanDocController.cs",
+              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Controllers\\BanDocController.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\BanDocController.cs",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\Controllers\\BanDocController.cs",
+              "RelativeToolTip": "MyWebAPI\\Controllers\\BanDocController.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAkwA8AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T08:39:32.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\appsettings.json",
+              "RelativeDocumentMoniker": "API_TaiKhoan\\appsettings.json",
+              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\appsettings.json",
+              "RelativeToolTip": "API_TaiKhoan\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-27T09:56:12.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MyWebAPI.http",
+              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\MyWebAPI.http",
+              "RelativeDocumentMoniker": "MyWebAPI\\MyWebAPI.http",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\MyWebAPI.http",
+              "RelativeToolTip": "MyWebAPI\\MyWebAPI.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-10-02T08:52:16.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\TH_API\\API_Sach\\appsettings.json",
+              "RelativeDocumentMoniker": "API_Sach\\appsettings.json",
+              "ToolTip": "E:\\TH_API\\API_Sach\\appsettings.json",
+              "RelativeToolTip": "API_Sach\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-27T07:26:02.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\TH_API\\API_TaiKhoan\\Program.cs",
+              "RelativeDocumentMoniker": "API_TaiKhoan\\Program.cs",
+              "ToolTip": "E:\\TH_API\\API_TaiKhoan\\Program.cs",
+              "RelativeToolTip": "API_TaiKhoan\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T09:55:04.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "E:\\TH_API\\API_Sach\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "API_Sach\\appsettings.Development.json",
+              "ToolTip": "E:\\TH_API\\API_Sach\\appsettings.Development.json",
+              "RelativeToolTip": "API_Sach\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-27T10:00:59.861Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "MyWebAPI\\appsettings.Development.json",
-              "ToolTip": "E:\\TH_API\\MyWebAPI\\appsettings.Development.json",
-              "RelativeToolTip": "MyWebAPI\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-15T16:13:04.872Z",
-              "EditorCaption": ""
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\TH_API\\API_Sach\\Program.cs",
+              "RelativeDocumentMoniker": "API_Sach\\Program.cs",
+              "ToolTip": "E:\\TH_API\\API_Sach\\Program.cs",
+              "RelativeToolTip": "API_Sach\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T08:41:41.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "API_Sach.csproj",
+              "DocumentMoniker": "E:\\TH_API\\API_Sach\\API_Sach.csproj",
+              "RelativeDocumentMoniker": "API_Sach\\API_Sach.csproj",
+              "ToolTip": "E:\\TH_API\\API_Sach\\API_Sach.csproj",
+              "RelativeToolTip": "API_Sach\\API_Sach.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-27T10:00:14.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TaiKhoan.cs",
+              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Models\\TaiKhoan.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\Models\\TaiKhoan.cs",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\Models\\TaiKhoan.cs",
+              "RelativeToolTip": "MyWebAPI\\Models\\TaiKhoan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T08:04:14.73Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "MyWebAPI\\Properties\\launchSettings.json",
-              "ToolTip": "E:\\TH_API\\MyWebAPI\\Properties\\launchSettings.json",
-              "RelativeToolTip": "MyWebAPI\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-15T02:17:09.731Z",
-              "EditorCaption": ""
+              "Title": "TaiKhoanController.cs",
+              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Controllers\\TaiKhoanController.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\TaiKhoanController.cs",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\Controllers\\TaiKhoanController.cs",
+              "RelativeToolTip": "MyWebAPI\\Controllers\\TaiKhoanController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAswIQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T08:23:33.024Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 21,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Program.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\Program.cs",
-              "ToolTip": "E:\\TH_API\\MyWebAPI\\Program.cs",
-              "RelativeToolTip": "MyWebAPI\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAIBJwB8AAAAAAAAAAAAAAA==",
+              "Title": "SachController.cs",
+              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Controllers\\SachController.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\SachController.cs",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\Controllers\\SachController.cs",
+              "RelativeToolTip": "MyWebAPI\\Controllers\\SachController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T02:09:02.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T08:39:33.766Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 22,
+              "Title": "DangNhapController.cs",
+              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Controllers\\DangNhapController.cs",
+              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\DangNhapController.cs",
+              "ToolTip": "E:\\TH_API\\MyWebAPI\\Controllers\\DangNhapController.cs",
+              "RelativeToolTip": "MyWebAPI\\Controllers\\DangNhapController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T07:49:52.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\TH_API\\API_BanDoc\\appsettings.json",
+              "RelativeDocumentMoniker": "API_BanDoc\\appsettings.json",
+              "ToolTip": "E:\\TH_API\\API_BanDoc\\appsettings.json",
+              "RelativeToolTip": "API_BanDoc\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-27T07:22:51.875Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "SachModel.cs",
               "DocumentMoniker": "E:\\TH_API\\API_Sach\\Models\\SachModel.cs",
               "RelativeDocumentMoniker": "API_Sach\\Models\\SachModel.cs",
@@ -463,12 +470,11 @@
               "RelativeToolTip": "API_Sach\\Models\\SachModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T08:09:48.666Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T08:09:48.666Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "SachController.cs",
               "DocumentMoniker": "E:\\TH_API\\API_Sach\\Controllers\\SachController.cs",
               "RelativeDocumentMoniker": "API_Sach\\Controllers\\SachController.cs",
@@ -476,12 +482,11 @@
               "RelativeToolTip": "API_Sach\\Controllers\\SachController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T08:07:44.581Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T08:07:44.581Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "BanDocController.cs",
               "DocumentMoniker": "E:\\TH_API\\API_BanDoc\\Controllers\\BanDocController.cs",
               "RelativeDocumentMoniker": "API_BanDoc\\Controllers\\BanDocController.cs",
@@ -489,12 +494,11 @@
               "RelativeToolTip": "API_BanDoc\\Controllers\\BanDocController.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAQwCIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T07:16:42.651Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T07:16:42.651Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "index.js",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\wwwroot\\Javascript\\index.js",
               "RelativeDocumentMoniker": "MyWebAPI\\wwwroot\\Javascript\\index.js",
@@ -502,12 +506,11 @@
               "RelativeToolTip": "MyWebAPI\\wwwroot\\Javascript\\index.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-09-20T07:42:34.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T07:42:34.422Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "Sach.cs",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Models\\Sach.cs",
               "RelativeDocumentMoniker": "MyWebAPI\\Models\\Sach.cs",
@@ -515,12 +518,11 @@
               "RelativeToolTip": "MyWebAPI\\Models\\Sach.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T02:19:47.784Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T02:19:47.784Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "BanDoc.cs",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Models\\BanDoc.cs",
               "RelativeDocumentMoniker": "MyWebAPI\\Models\\BanDoc.cs",
@@ -528,12 +530,11 @@
               "RelativeToolTip": "MyWebAPI\\Models\\BanDoc.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T08:07:27.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T08:07:27.674Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\TH_API\\API_BanDoc\\Program.cs",
               "RelativeDocumentMoniker": "API_BanDoc\\Program.cs",
@@ -541,12 +542,11 @@
               "RelativeToolTip": "API_BanDoc\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T07:21:03.475Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T07:21:03.475Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "MyWebAPI.csproj",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\MyWebAPI.csproj",
               "RelativeDocumentMoniker": "MyWebAPI\\MyWebAPI.csproj",
@@ -554,12 +554,11 @@
               "RelativeToolTip": "MyWebAPI\\MyWebAPI.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-27T08:57:25.469Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T08:57:25.469Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "E:\\TH_API\\API_BanDoc\\appsettings.Development.json",
               "RelativeDocumentMoniker": "API_BanDoc\\appsettings.Development.json",
@@ -567,36 +566,21 @@
               "RelativeToolTip": "API_BanDoc\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-27T07:24:15.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T07:24:15.542Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "BanDocController.cs",
-              "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\Controllers\\BanDocController.cs",
-              "RelativeDocumentMoniker": "MyWebAPI\\Controllers\\BanDocController.cs",
-              "ToolTip": "E:\\TH_API\\MyWebAPI\\Controllers\\BanDocController.cs",
-              "RelativeToolTip": "MyWebAPI\\Controllers\\BanDocController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T08:39:32.747Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAPsUAAAAAAAAAAAtwBEVAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-09-27T08:35:19.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T08:35:19.512Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "BanDoc.cs",
               "DocumentMoniker": "E:\\TH_API\\API_BanDoc\\Models\\BanDoc.cs",
               "RelativeDocumentMoniker": "API_BanDoc\\Models\\BanDoc.cs",
@@ -604,24 +588,22 @@
               "RelativeToolTip": "API_BanDoc\\Models\\BanDoc.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T07:18:25.607Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T07:18:25.607Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "MyWebAPI",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\MyWebAPI.csproj",
               "RelativeDocumentMoniker": "MyWebAPI\\MyWebAPI.csproj",
               "ToolTip": "E:\\TH_API\\MyWebAPI\\MyWebAPI.csproj",
               "RelativeToolTip": "MyWebAPI\\MyWebAPI.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-15T15:38:25.838Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T15:38:25.838Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "Signup.html",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\wwwroot\\Signup.html",
               "RelativeDocumentMoniker": "MyWebAPI\\wwwroot\\Signup.html",
@@ -629,25 +611,23 @@
               "RelativeToolTip": "MyWebAPI\\wwwroot\\Signup.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-09-19T08:54:59.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-19T08:54:59.397Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "index.html",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "MyWebAPI\\wwwroot\\index.html",
               "ToolTip": "E:\\TH_API\\MyWebAPI\\wwwroot\\index.html",
               "RelativeToolTip": "MyWebAPI\\wwwroot\\index.html",
-              "ViewState": "AgIAAF0AAAAAAAAAAIBpwIIAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAABxwIIAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-09-18T07:57:37.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:57:37.031Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "style_signup.css",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\wwwroot\\style_signup.css",
               "RelativeDocumentMoniker": "MyWebAPI\\wwwroot\\style_signup.css",
@@ -655,12 +635,11 @@
               "RelativeToolTip": "MyWebAPI\\wwwroot\\style_signup.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-09-19T08:55:52.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-19T08:55:52.116Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "style_header.css",
               "DocumentMoniker": "E:\\TH_API\\MyWebAPI\\wwwroot\\style_header.css",
               "RelativeDocumentMoniker": "MyWebAPI\\wwwroot\\style_header.css",
@@ -668,8 +647,7 @@
               "RelativeToolTip": "MyWebAPI\\wwwroot\\style_header.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-09-19T08:55:28.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-19T08:55:28.808Z"
             }
           ]
         }

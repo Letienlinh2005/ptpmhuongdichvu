@@ -219,6 +219,25 @@
         }
       }
     },
+    "/": {
+      "get": {
+        "tags": [
+          "MyWebAPI"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/outputcache/{region}": {
       "delete": {
         "tags": [
