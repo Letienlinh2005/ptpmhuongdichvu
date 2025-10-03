@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EDTGptjO3w4=",
+  "dgSpecHash": "N8FyJB+ifDc=",
   "success": true,
   "projectFilePath": "E:\\TH_API\\MyWebAPI\\MyWebAPI.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\Le Linh\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Le Linh\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Le Linh\\.nuget\\packages\\ipaddressrange\\6.2.0\\ipaddressrange.6.2.0.nupkg.sha512",
+    "C:\\Users\\Le Linh\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.20\\microsoft.aspnetcore.authentication.jwtbearer.8.0.20.nupkg.sha512",
     "C:\\Users\\Le Linh\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.15\\microsoft.aspnetcore.jsonpatch.8.0.15.nupkg.sha512",
     "C:\\Users\\Le Linh\\.nuget\\packages\\microsoft.aspnetcore.middlewareanalysis\\8.0.15\\microsoft.aspnetcore.middlewareanalysis.8.0.15.nupkg.sha512",
     "C:\\Users\\Le Linh\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.15\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.15.nupkg.sha512",

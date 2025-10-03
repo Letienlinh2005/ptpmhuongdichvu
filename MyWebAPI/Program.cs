@@ -1,57 +1,89 @@
-﻿using Microsoft.AspNetCore.HttpsPolicy;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+// Swagger + bearer support
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyWebAPI", Version = "v1" });
-});
-
-// Đọc ocelot.json (hot reload khi DEV)
-builder.Configuration
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-
-builder.Services.AddOcelot(builder.Configuration);
-
-// Thêm CORS nếu frontend và backend khác domain
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
+    var scheme = new OpenApiSecurityScheme
     {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        Description = "Nhập token dạng: Bearer {token}"
+    };
+    c.AddSecurityDefinition("Bearer", scheme);
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        [scheme] = new List<string>()
     });
 });
 
-var app = builder.Build();
+// Ocelot
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+builder.Services.AddOcelot(builder.Configuration);
 
+// CORS
+builder.Services.AddCors(o => o.AddPolicy("AllowAll",
+    p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+
+// ===== JWT =====
+var jwt = builder.Configuration.GetSection("Jwt");
+var keyBytes = Encoding.UTF8.GetBytes(jwt["Key"]!);
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(o =>
+    {
+        o.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwt["Issuer"],
+            ValidAudience = jwt["Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+            ClockSkew = TimeSpan.Zero
+        };
+    });
+
+builder.Services.AddAuthorization();
+
+var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyWebAPI v1");
-    });
+    app.UseSwaggerUI();
 }
 
-// Thứ tự middleware rất quan trọng
 app.UseHttpsRedirection();
-//app.UseStaticFiles();           // Serve static files từ wwwroot
 app.UseRouting();
-app.UseCors("AllowAll");        // Nếu cần CORS
-//app.UseAuthorization();
-app.MapControllers();           // Map API controllers
+app.UseCors("AllowAll");
 
-// Fallback phải đặt cuối cùng
-//app.MapFallbackToFile("index.html");
-await app.UseOcelot();
+app.UseAuthentication();   // << phải trước UseAuthorization
+app.UseAuthorization();
+
+app.MapGet("/", () => "Gateway OK");
+//app.MapControllers();      // << bật vì bạn có DangNhapController trong MyWebAPI
+
+await app.UseOcelot();     // << để cuối
 
 app.Run();

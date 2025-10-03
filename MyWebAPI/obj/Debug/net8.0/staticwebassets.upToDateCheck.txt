@@ -1,10 +1,10 @@
+wwwroot\Javascript\index.js
+wwwroot\Signup.html
+wwwroot\style_signup.css
 wwwroot\AddBD.html
 wwwroot\admin.html
 wwwroot\FixBD.html
-wwwroot\Javascript\index.js
 wwwroot\Readermanagement.html
-wwwroot\Signup.html
 wwwroot\style_AddBD.css
 wwwroot\style_admin.css
 wwwroot\style_Readermanagement.css
-wwwroot\style_signup.css

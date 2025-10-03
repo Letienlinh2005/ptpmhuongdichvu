@@ -1,2 +1,0 @@
-E:\TH_API\MyWebAPI\wwwroot\index.html
-E:\TH_API\MyWebAPI\wwwroot\style_header.css

@@ -1,0 +1,6 @@
+@API_DangNhap_HostAddress = http://localhost:5181
+
+GET {{API_DangNhap_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
