@@ -1,5 +1,0 @@
-wwwroot\index.html
-wwwroot\Javascript\index.js
-wwwroot\Signup.html
-wwwroot\style_header.css
-wwwroot\style_signup.css
