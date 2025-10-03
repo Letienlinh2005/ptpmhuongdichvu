@@ -1,0 +1,7 @@
+wwwroot\AddBD.html
+wwwroot\admin.html
+wwwroot\FixBD.html
+wwwroot\Readermanagement.html
+wwwroot\style_AddBD.css
+wwwroot\style_admin.css
+wwwroot\style_Readermanagement.css

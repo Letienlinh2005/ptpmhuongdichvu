@@ -1,0 +1,6 @@
+@API_TheLoai_HostAddress = http://localhost:5073
+
+GET {{API_TheLoai_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
