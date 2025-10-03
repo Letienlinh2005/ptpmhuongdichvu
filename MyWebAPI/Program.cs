@@ -5,9 +5,6 @@ using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -19,9 +16,6 @@ builder.Services.AddSwaggerGen(c =>
 builder.Configuration
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-
-var ocelotPath = Path.Combine(builder.Environment.ContentRootPath, "ocelot.json");
-Console.WriteLine($"[Gateway] Ocelot config path = {ocelotPath} | Exists = {File.Exists(ocelotPath)}");
 
 builder.Services.AddOcelot(builder.Configuration);
 
@@ -48,13 +42,16 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-
+// Thứ tự middleware rất quan trọng
 app.UseHttpsRedirection();
-
+//app.UseStaticFiles();           // Serve static files từ wwwroot
 app.UseRouting();
-app.UseCors("AllowAll");        
-app.MapGet("/", () => "Gateway OK");
+app.UseCors("AllowAll");        // Nếu cần CORS
+//app.UseAuthorization();
+app.MapControllers();           // Map API controllers
 
+// Fallback phải đặt cuối cùng
+//app.MapFallbackToFile("index.html");
 await app.UseOcelot();
 
 app.Run();

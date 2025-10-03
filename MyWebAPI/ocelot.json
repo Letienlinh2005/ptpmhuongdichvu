@@ -1,6 +1,5 @@
 {
   "Routes": [
-    // -------- BanDoc (HTTPS 7286) --------
     {
       "UpstreamPathTemplate": "/api/bandoc",
       "UpstreamHttpMethod": [ "GET", "POST" ],
@@ -11,13 +10,12 @@
           "Host": "localhost",
           "Port": 7286
         }
-      ],
-      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+      ]
     },
     {
-      "UpstreamPathTemplate": "/api/bandoc/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-      "DownstreamPathTemplate": "/api/BanDoc/{everything}",
+      "UpstreamPathTemplate": "/api/bandoc/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/BanDoc/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -25,11 +23,8 @@
           "Port": 7286
         }
       ],
-      "Priority": 1,
-      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+      "Priority": 1
     },
-
-    // -------- Sach (HTTPS 7241) --------
     {
       "UpstreamPathTemplate": "/api/sach",
       "UpstreamHttpMethod": [ "GET", "POST" ],
@@ -40,13 +35,12 @@
           "Host": "localhost",
           "Port": 7241
         }
-      ],
-      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+      ]
     },
     {
-      "UpstreamPathTemplate": "/api/sach/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-      "DownstreamPathTemplate": "/api/Sach/{everything}",
+      "UpstreamPathTemplate": "/api/sach/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/Sach/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -54,11 +48,8 @@
           "Port": 7241
         }
       ],
-      "Priority": 1,
-      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+      "Priority": 1
     },
-
-    // -------- TaiKhoan (HTTPS 7110) --------
     {
       "UpstreamPathTemplate": "/api/taikhoan",
       "UpstreamHttpMethod": [ "GET", "POST" ],
@@ -69,25 +60,22 @@
           "Host": "localhost",
           "Port": 7110
         }
-      ],
-      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+      ]
     },
     {
-      "UpstreamPathTemplate": "/api/taikhoan/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-      "DownstreamPathTemplate": "/api/TaiKhoan/{everything}",
+      "UpstreamPathTemplate": "/api/taikhoan/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/TaiKhoan",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 7110
         }
-      ],
-      "Priority": 1,
-      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+      ]
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7150"
+    "BaseUrl": "https://localhost:44358"
   }
 }
