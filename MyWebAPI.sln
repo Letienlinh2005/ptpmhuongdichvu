@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_TheLoai", "API_TheLoai\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_KeSach", "API_KeSach\API_KeSach.csproj", "{D0BE9838-11C5-4832-958A-0B8BCD88B759}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_BanSao", "API_BanSao\API_BanSao.csproj", "{ACAB315D-6331-4CB8-B925-1EFE37A799FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{D0BE9838-11C5-4832-958A-0B8BCD88B759}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0BE9838-11C5-4832-958A-0B8BCD88B759}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0BE9838-11C5-4832-958A-0B8BCD88B759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACAB315D-6331-4CB8-B925-1EFE37A799FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACAB315D-6331-4CB8-B925-1EFE37A799FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACAB315D-6331-4CB8-B925-1EFE37A799FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACAB315D-6331-4CB8-B925-1EFE37A799FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
