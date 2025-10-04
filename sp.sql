@@ -147,6 +147,59 @@ BEGIN
   WHERE TenDangNhap = @TenDangNhap;
 END
 GO
+-- Bản sao
+CREATE PROCEDURE sp_GetAllBanSao
+AS
+BEGIN
+	SELECT MaBanSao, MaVach, MaSach, MaKe, TrangThai
+	FROM BanSao
+END
+
+CREATE PROCEDURE sp_GetBanSaoById
+	@MaBanSao NVARCHAR(20)
+AS
+BEGIN
+	SELECT MaBanSao, MaVach, MaSach, MaKe, TrangThai
+	FROM BanSao
+	WHERE MaBanSao = @MaBanSao
+END
+
+CREATE PROCEDURE sp_InsertBanSao
+	@MaBanSao NVARCHAR(20),
+	@MaVach NVARCHAR(64),
+	@MaSach NVARCHAR(20),
+	@MaKe NVARCHAR(20),
+	@TrangThai NVARCHAR(20)
+AS
+BEGIN
+	INSERT INTO BanSao(MaBanSao, MaVach, MaSach, MaKe, TrangThai)
+	VALUES(@MaBanSao,@MaVach, @MaSach, @MaKe, @TrangThai)
+END
+
+CREATE PROCEDURE sp_UpdateBanSao
+	@MaBanSao NVARCHAR(20),
+	@MaVach NVARCHAR(64),
+	@MaSach NVARCHAR(20),
+	@MaKe NVARCHAR(20),
+	@TrangThai NVARCHAR(20)
+AS
+BEGIN
+	UPDATE BanSao
+	SET MaBanSao = @MaBanSao,
+		MaVach = @MaVach,
+		MaSach = @MaSach,
+		MaKe = @MaKe,
+		TrangThai = @TrangThai
+	WHERE MaBanSao = @MaBanSao;
+END
+
+CREATE PROCEDURE sp_DeleteBanSao
+	@MaBanSao NVARCHAR(20)
+AS
+BEGIN
+	DELETE FROM BanSao
+	WHERE MaBanSao = @MaBanSao;
+END
 
 EXEC sp_Login letienlinh2005
 

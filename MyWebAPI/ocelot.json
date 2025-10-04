@@ -79,6 +79,14 @@
           "Host": "localhost",
           "Port": 7110
         }
+<<<<<<< HEAD
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/bansao",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/BanSao",
+=======
       ],
       "Priority": 1,
       "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
@@ -87,10 +95,21 @@
       "UpstreamPathTemplate": "/api/dangnhap/login",
       "UpstreamHttpMethod": [ "POST" ],
       "DownstreamPathTemplate": "/api/DangNhap/login",
+>>>>>>> c214ea77ef1a2505f4c00b5dc42546b0ca6ba474
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
+<<<<<<< HEAD
+          "Port": 7198
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/BaoSao/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/BaoSao",
+=======
           "Port": 7121
         }
       ],
@@ -101,15 +120,22 @@
       "UpstreamPathTemplate": "/api/dangnhap/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "DownstreamPathTemplate": "/api/DangNhap/{everything}",
+>>>>>>> c214ea77ef1a2505f4c00b5dc42546b0ca6ba474
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
+<<<<<<< HEAD
+          "Port": 7198
+        }
+      ]
+=======
           "Port": 7121
         }
       ],
       "Priority": 2,
       "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+>>>>>>> c214ea77ef1a2505f4c00b5dc42546b0ca6ba474
     }
   ],
   "GlobalConfiguration": { "BaseUrl": "https://localhost:7150" }
