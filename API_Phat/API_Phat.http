@@ -1,0 +1,6 @@
+@API_Phat_HostAddress = http://localhost:5258
+
+GET {{API_Phat_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
