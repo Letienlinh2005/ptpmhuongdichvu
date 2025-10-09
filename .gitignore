@@ -485,3 +485,6 @@ $RECYCLE.BIN/
 MyWebAPI/wwwroot/
 bin/
 obj/
+
+**/appsettings.json
+**/appsettings.Development.json
