@@ -10,8 +10,16 @@
     <PackageReference Include="JWT" Version="11.0.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Library.BLL\Library_BLL.csproj" />
+    <ProjectReference Include="..\Library.DTO\Library_DTO.csproj" />
+    <ProjectReference Include="..\MyWebAPI.DLL\MyWebAPI.BLL.csproj" />
+    <ProjectReference Include="..\MyWebAPI.DTO\MyWebAPI.DTO.csproj" />
   </ItemGroup>
 
 </Project>
