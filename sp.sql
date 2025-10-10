@@ -200,6 +200,59 @@ BEGIN
 	DELETE FROM BanSao
 	WHERE MaBanSao = @MaBanSao;
 END
+-- KeSach
+CREATE PROCEDURE sp_GetAllKeSach
+AS
+BEGIN
+	SELECT MaKe, ViTri
+	FROM KeSach
+END
+GO
+CREATE PROCEDURE sp_GetKeSachById
+	@MaKe NVARCHAR(20)
+AS
+BEGIN
+	SELECT MaKe, ViTri
+	FROM KeSach
+	WHERE MaKe = @MaKe	
+END
+GO
+CREATE PROCEDURE sp_CreateKeSach
+	@MaKe NVARCHAR(20),
+	@ViTri NVARCHAR(100)
+	
+AS
+BEGIN
+	INSERT INTO KeSach(MaKe, ViTri)
+	VALUES(@MaKe, @ViTri)
+END
+GO
+CREATE PROCEDURE sp_UpdateKeSach
+	@MaKe NVARCHAR(20),
+	@ViTri NVARCHAR(100)
+AS
+BEGIN
+	UPDATE KeSach
+	SET MaKe = @MaKe,
+		ViTri = @ViTri
+	WHERE MaKe = @MaKe;
+END
+GO
+CREATE PROCEDURE sp_DeleteKeSach
+	@MaKe NVARCHAR(20)
+AS
+BEGIN
+	DELETE FROM KeSach
+	WHERE MaKe = @MaKe;
+END
+GO
+
+
+
+
+
+
+
 
 EXEC sp_Login letienlinh2005
 
