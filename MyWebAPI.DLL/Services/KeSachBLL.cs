@@ -82,6 +82,10 @@ namespace MyWebAPI.BLL.Services
         {
             try
             {
+                // Validate (tùy ý bắt buộc vị trí)
+                // if (string.IsNullOrWhiteSpace(request.viTri))
+                //     return new ResponseDTO<KeSachDTO> { Success = false, Message = "Vị trí không được để trống" };
+
                 var newId = request.maKe ?? "KE" + Guid.NewGuid().ToString("N")[..7].ToUpperInvariant();
 
                 var rows = await _repo.CreateAsync(request, newId);
@@ -131,6 +135,9 @@ namespace MyWebAPI.BLL.Services
         {
             try
             {
+                // Validate nếu cần
+                // if (string.IsNullOrWhiteSpace(request.viTri)) ...
+
                 var rows = await _repo.UpdateAsync(maKe, request);
                 if (rows > 0)
                 {

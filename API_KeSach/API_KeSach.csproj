@@ -15,4 +15,9 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyWebAPI.DLL\MyWebAPI.BLL.csproj" />
+    <ProjectReference Include="..\MyWebAPI.DTO\MyWebAPI.DTO.csproj" />
+  </ItemGroup>
+
 </Project>
