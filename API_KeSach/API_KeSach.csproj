@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\MyWebAPI.DLL\MyWebAPI.BLL.csproj" />
+    <ProjectReference Include="..\MyWebAPI.DTO\MyWebAPI.DTO.csproj" />
   </ItemGroup>
 
 </Project>
