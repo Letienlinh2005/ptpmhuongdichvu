@@ -9,16 +9,17 @@ namespace MyWebAPI.DTO
         public string? MoTa { get; set; }
     }
 
-    public class CreateTheLoaiDTO
+    public class CreateTheLoaiRequest
     {
         public string? MaTheLoai { get; set; }
         public string TenTheLoai { get; set; } = null!;
         public string? MoTa { get; set; }
 
     }
-    public class UpdateTheLoaiDTO
+    public class UpdateTheLoaiRequest
     {
         public string TenTheLoai { get; set; } = null!;
         public string? MoTa { get; set; }
     }
+
 }

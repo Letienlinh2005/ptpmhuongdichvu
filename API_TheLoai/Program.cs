@@ -12,7 +12,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddScoped<ITheLoaiRepository>(provider =>
     new TheLoaiRepository(connectionString));
 
-builder.Services.AddScoped<ITheLoaiService, TheLoauService>();
+builder.Services.AddScoped<ITheLoaiService, TheLoaiService>();
 
 var app = builder.Build();
 

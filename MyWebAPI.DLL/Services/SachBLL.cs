@@ -63,7 +63,7 @@ namespace MyWebAPI.BLL.Services
                 return new ResponseDTO<SachDTO>
                 {
                     Success = true,
-                    Message = "Lấy thông tin thành công",
+                    Message = "Lấy thông tin sách thành công",
                     Data = sach
                 };
             }
@@ -160,7 +160,6 @@ namespace MyWebAPI.BLL.Services
         {
             try
             {
-                // Validate input
                 if (string.IsNullOrWhiteSpace(request.TenSach))
                 {
                     return new ResponseDTO<bool>

@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using MyWebAPI.BLL.Services;
+using MyWebAPI.DTO;
 
 namespace API_TheLoai.Controllers
 {
@@ -8,7 +9,7 @@ namespace API_TheLoai.Controllers
     public class TheLoaiController : ControllerBase
     {
         private readonly ITheLoaiService _theLoaiService;
-        public TheLoaiController(ITheLoaiService theLoaiService)
+        public TheLoaiController(TheLoaiService theLoaiService)
         {
             _theLoaiService = theLoaiService;
         }

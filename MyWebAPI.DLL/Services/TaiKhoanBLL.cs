@@ -84,7 +84,6 @@ namespace MyWebAPI.BLL.Services
         {
             try
             {
-                // Validate input
                 if (string.IsNullOrWhiteSpace(request.TenDangNhap))
                 {
                     return new ResponseDTO<TaiKhoanDTO>
@@ -115,10 +114,8 @@ namespace MyWebAPI.BLL.Services
                     };
                 }
 
-                // Generate new ID if not provided
                 var newId = request.MaTaiKhoan ?? "TK" + Guid.NewGuid().ToString("N")[..7].ToUpper();
 
-                // Hash password
                 var hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.MatKhau, 10);
 
                 var rows = await _taiKhoanRepository.CreateAsync(request, newId, hashedPassword);
@@ -172,7 +169,6 @@ namespace MyWebAPI.BLL.Services
         {
             try
             {
-                // Validate input
                 if (string.IsNullOrWhiteSpace(request.TenDangNhap))
                 {
                     return new ResponseDTO<bool>
@@ -203,7 +199,6 @@ namespace MyWebAPI.BLL.Services
                     };
                 }
 
-                // Hash password
                 var hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.MatKhau, 10);
 
                 var rows = await _taiKhoanRepository.UpdateAsync(maTaiKhoan, request, hashedPassword);
