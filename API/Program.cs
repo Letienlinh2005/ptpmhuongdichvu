@@ -20,13 +20,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-builder.Services.AddScoped<IPhieuMuonRepository>(provider =>
-    new PhieuMuonRepository(connectionString));
-builder.Services.AddScoped<IPhieuMuonService, PhieuMuonService>();
+//builder.Services.AddScoped<IPhieuMuonRepository>(provider =>
+//    new PhieuMuonRepository(connectionString));
+//builder.Services.AddScoped<IPhieuMuonService, PhieuMuonService>();
 
-builder.Services.AddScoped<IBanDocRepository>(provider =>
-    new BanDocRepository(connectionString));
-builder.Services.AddScoped<IBanDocService, BanDocService>();
+//builder.Services.AddScoped<IBanDocRepository>(provider =>
+//    new BanDocRepository(connectionString));
+//builder.Services.AddScoped<IBanDocService, BanDocService>();
 
 builder.Services.AddScoped<ISachRepository>(provider =>
     new SachRepository(connectionString));
