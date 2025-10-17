@@ -486,5 +486,5 @@ MyWebAPI/wwwroot/
 bin/
 obj/
 
-**/appsettings.json
-**/appsettings.Development.json
+# **/appsettings.json
+# **/appsettings.Development.json
