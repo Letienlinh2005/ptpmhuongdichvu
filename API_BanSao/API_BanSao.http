@@ -1,6 +1,0 @@
-@API_BanSao_HostAddress = http://localhost:5004
-
-GET {{API_BanSao_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

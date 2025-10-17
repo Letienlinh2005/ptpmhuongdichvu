@@ -13,7 +13,7 @@ namespace MyWebAPI.DTO
         public string MaBanDoc { get; set; }
         public DateTime NgayMuon { get; set; }
 
-        public DateTime? HanTra { get; set; }
+        public int HanTra { get; set; }
         public DateTime? NgayTra { get; set; }
 
         public int SoLanGiaHan { get; set; }
@@ -28,7 +28,7 @@ namespace MyWebAPI.DTO
         public string MaBanSao { get; set; }
         public string MaBanDoc { get; set; }
         public DateTime NgayMuon { get; set; }
-        public DateTime? HanTra { get; set; }
+        public int HanTra { get; set; }
         public DateTime? NgayTra { get; set; }
         public int SoLanGiaHan { get; set; }
         public string TrangThai { get; set; }
@@ -39,7 +39,7 @@ namespace MyWebAPI.DTO
         public string MaBanSao { get; set; }
         public string MaBanDoc { get; set; }
         public DateTime NgayMuon { get; set; }
-        public DateTime? HanTra { get; set; }
+        public int HanTra { get; set; }
         public DateTime? NgayTra { get; set; }
         public int SoLanGiaHan { get; set; }
         public string TrangThai { get; set; }

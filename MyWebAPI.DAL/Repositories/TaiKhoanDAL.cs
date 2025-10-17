@@ -4,7 +4,6 @@ using MyWebAPI.DTO;
 
 namespace MyWebAPI.DAL.Repositories
 {
-    // Interface - Định nghĩa các methods
     public interface ITaiKhoanRepository
     {
         Task<List<TaiKhoanDTO>> GetAllAsync();
@@ -14,7 +13,6 @@ namespace MyWebAPI.DAL.Repositories
         Task<int> DeleteAsync(string maTaiKhoan);
     }
 
-    // Implementation - Class thực thi
     public class TaiKhoanRepository : ITaiKhoanRepository
     {
         private readonly string _connStr;

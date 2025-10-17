@@ -78,11 +78,11 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("AllowAll");
 
-app.UseAuthentication();   // << phải trước UseAuthorization
+app.UseAuthentication();   
 app.UseAuthorization();
 
 app.MapGet("/", () => "Gateway OK");
 
-await app.UseOcelot();     // << để cuối
+await app.UseOcelot();     
 
 app.Run();

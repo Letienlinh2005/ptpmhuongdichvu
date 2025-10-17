@@ -39,7 +39,7 @@ namespace MyWebAPI.DAL.Repositories
                         MaBanSao = rd.GetString(1),
                         MaBanDoc = rd.GetString(2),
                         NgayMuon = rd.GetDateTime(3),
-                        HanTra = rd.GetDateTime(4),
+                        HanTra = rd.GetInt32(4),
                         NgayTra = rd.GetDateTime(5),
                         SoLanGiaHan = rd.GetInt32(6),
                         TrangThai = rd.GetString(7)
@@ -65,7 +65,7 @@ namespace MyWebAPI.DAL.Repositories
                         MaBanSao = rd.GetString(1),
                         MaBanDoc = rd.GetString(2),
                         NgayMuon = rd.GetDateTime(3),
-                        HanTra = rd.GetDateTime(4),
+                        HanTra = rd.GetInt32(4),
                         NgayTra = rd.GetDateTime(5),
                         SoLanGiaHan = rd.GetInt32(6),
                         TrangThai = rd.GetString(7)

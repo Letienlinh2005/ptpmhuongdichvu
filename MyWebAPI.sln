@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebAPI.BLL", "MyWebAPI.DL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebAPI.DAL", "MyWebAPI.DAL\MyWebAPI.DAL.csproj", "{B623C07D-06FA-4AEE-8798-7389E15C0DB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{24D40A11-3FB5-4BA7-BA8F-4A5959F10A7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{B623C07D-06FA-4AEE-8798-7389E15C0DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B623C07D-06FA-4AEE-8798-7389E15C0DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B623C07D-06FA-4AEE-8798-7389E15C0DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24D40A11-3FB5-4BA7-BA8F-4A5959F10A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D40A11-3FB5-4BA7-BA8F-4A5959F10A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D40A11-3FB5-4BA7-BA8F-4A5959F10A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D40A11-3FB5-4BA7-BA8F-4A5959F10A7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

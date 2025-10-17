@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using MyWebAPI.DAL.Repositories;
 using MyWebAPI.DTO;
-using static MyWebAPI.DAL.Repositories.PhieuMuonDAL;
+
 
 namespace MyWebAPI.BLL.Services
 {
@@ -142,7 +142,7 @@ namespace MyWebAPI.BLL.Services
                         Data = false
                     };
                 }
-                
+
                 var updated = await _phieuMuonRepository.UpdateAsync(maPhieuMuon, existing);
                 if (updated)
                 {
