@@ -247,10 +247,62 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE sp_ThanhToan
+  @MaPhieuMuon NVARCHAR(20),
+  @NgayTraThucTe DATETIME = NULL,
+  @PhiTreHanMoiNgay DECIMAL(12,2) 
+AS
+BEGIN
+  SET NOCOUNT ON;
+  SET XACT_ABORT ON;
 
+  BEGIN TRY
+    BEGIN TRAN;
 
+    DECLARE @MaBanDoc NVARCHAR(20),
+            @MaSach NVARCHAR(20),
+            @HanTra DATETIME,
+            @NgayTra DATETIME,
+            @DaysLate INT,
+            @SoTien DECIMAL(12,2);
 
+    SELECT @MaBanDoc = MaBanDoc,
+           @MaSach   = MaSach,
+           @HanTra   = HanTra
+    FROM PhieuMuon WITH (UPDLOCK, ROWLOCK)
+    WHERE MaPhieuMuon = @MaPhieuMuon;
 
+    IF @MaBanDoc IS NULL
+      THROW 50001, N'Không tìm thấy phiếu mượn.', 1;
+
+    SET @NgayTra = ISNULL(@NgayTraThucTe, SYSUTCDATETIME());
+
+    UPDATE PhieuMuon
+    SET NgayTraThucTe = @NgayTra,
+        TrangThai     = N'Đã trả'
+    WHERE MaPhieuMuon = @MaPhieuMuon;
+
+    -- Quy tắc đếm ngày trễ: tính theo mốc nửa đêm (floor). Nếu muốn "trễ 1 giờ cũng tính 1 ngày", xem Cách 1B bên dưới.
+    SET @DaysLate = DATEDIFF(DAY, @HanTra, @NgayTra);
+    IF @DaysLate < 0 SET @DaysLate = 0;
+
+    IF @DaysLate > 0
+    BEGIN
+      SET @SoTien = @DaysLate * @PhiTreHanMoiNgay;
+
+      INSERT INTO Phat(MaPhat, MaPhieuMuon, SoTien, LyDo, NgayTinh, TrangThai, MaThanhToan)
+      VALUES(CONCAT('PP', FORMAT(SYSUTCDATETIME(), 'yyyyMMddHHmmssfff')),
+            @MaPhieuMuon, @SoTien, N'Trễ hạn', SYSUTCDATETIME(), N'Chưa trả', NULL);
+    END
+
+    COMMIT;
+  END TRY
+  BEGIN CATCH
+    IF XACT_STATE() <> 0 ROLLBACK;
+    THROW;
+  END CATCH
+END
+GO
 
 
 
