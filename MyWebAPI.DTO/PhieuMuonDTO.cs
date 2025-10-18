@@ -29,9 +29,13 @@ namespace MyWebAPI.DTO
         public string MaBanDoc { get; set; }
         public DateTime NgayMuon { get; set; }
         public DateTime HanTra { get; set; }
+<<<<<<< HEAD
         public DateTime? NgayTraThucTe { get; set; }
         public int SoLanGiaHan { get; set; }
         public string TrangThai { get; set; }
+=======
+
+>>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
     }
 
     public class UpdatePhieuMuonRequest
