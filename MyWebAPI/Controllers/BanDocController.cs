@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Diagnostics.Metrics;
-
 using System.Net.WebSockets;
 
 namespace MyWebAPI.Controllers

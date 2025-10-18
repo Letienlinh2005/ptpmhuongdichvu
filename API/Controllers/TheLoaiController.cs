@@ -9,7 +9,7 @@ namespace API_TheLoai.Controllers
     public class TheLoaiController : ControllerBase
     {
         private readonly ITheLoaiService _theLoaiService;
-        public TheLoaiController(TheLoaiService theLoaiService)
+        public TheLoaiController(ITheLoaiService theLoaiService)
         {
             _theLoaiService = theLoaiService;
         }

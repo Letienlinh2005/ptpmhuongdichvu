@@ -39,8 +39,8 @@ namespace MyWebAPI.DAL.Repositories
                         MaBanSao = rd.GetString(1),
                         MaBanDoc = rd.GetString(2),
                         NgayMuon = rd.GetDateTime(3),
-                        HanTra = rd.GetInt32(4),
-                        NgayTra = rd.GetDateTime(5),
+                        HanTra = rd.GetDateTime(4),
+                        NgayTraThucTe = rd.GetDateTime(5),
                         SoLanGiaHan = rd.GetInt32(6),
                         TrangThai = rd.GetString(7)
                     });
@@ -65,8 +65,8 @@ namespace MyWebAPI.DAL.Repositories
                         MaBanSao = rd.GetString(1),
                         MaBanDoc = rd.GetString(2),
                         NgayMuon = rd.GetDateTime(3),
-                        HanTra = rd.GetInt32(4),
-                        NgayTra = rd.GetDateTime(5),
+                        HanTra = rd.GetDateTime(4),
+                        NgayTraThucTe = rd.GetDateTime(5),
                         SoLanGiaHan = rd.GetInt32(6),
                         TrangThai = rd.GetString(7)
                     };
@@ -78,14 +78,14 @@ namespace MyWebAPI.DAL.Repositories
             {
                 using var con = new SqlConnection(_connStr);
                 await con.OpenAsync();
-                using var cmd = new SqlCommand("sp_CreatePhieuMuon", con);
+                using var cmd = new SqlCommand("sp_TaoPhieuMuon", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MaPhieuMuon", phieuMuon.MaPhieuMuon);
                 cmd.Parameters.AddWithValue("@MaBanSao", phieuMuon.MaBanSao);
                 cmd.Parameters.AddWithValue("@MaBanDoc", phieuMuon.MaBanDoc);
                 cmd.Parameters.AddWithValue("@NgayMuon", phieuMuon.NgayMuon);
                 cmd.Parameters.AddWithValue("@HanTra", phieuMuon.HanTra);
-                cmd.Parameters.AddWithValue("@NgayTra", phieuMuon.NgayTra);
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
                 cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
                 cmd.Parameters.AddWithValue("@TrangThai", phieuMuon.TrangThai);
                 var rowsAffected = await cmd.ExecuteNonQueryAsync();
@@ -103,7 +103,7 @@ namespace MyWebAPI.DAL.Repositories
                 cmd.Parameters.AddWithValue("@MaBanDoc", phieuMuon.MaBanDoc);
                 cmd.Parameters.AddWithValue("@NgayMuon", phieuMuon.NgayMuon);
                 cmd.Parameters.AddWithValue("@HanTra", phieuMuon.HanTra);
-                cmd.Parameters.AddWithValue("@NgayTra", phieuMuon.NgayTra);
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
                 cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
                 cmd.Parameters.AddWithValue("@TrangThai", phieuMuon.TrangThai);
                 var rowsAffected = await cmd.ExecuteNonQueryAsync();

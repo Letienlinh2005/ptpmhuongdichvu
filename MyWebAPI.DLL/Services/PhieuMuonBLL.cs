@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using MyWebAPI.DAL.Repositories;
 using MyWebAPI.DTO;
+using static MyWebAPI.DAL.Repositories.PhieuMuonDAL;
 
 
 namespace MyWebAPI.BLL.Services
@@ -87,7 +88,7 @@ namespace MyWebAPI.BLL.Services
                     MaBanDoc = request.MaBanDoc,
                     NgayMuon = request.NgayMuon,
                     HanTra = request.HanTra,
-                    NgayTra = request.NgayTra,
+                    NgayTraThucTe = request.NgayTraThucTe,
                     SoLanGiaHan = 0,
                     TrangThai = "Đang mượn"
                 };
