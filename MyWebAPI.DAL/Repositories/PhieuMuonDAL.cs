@@ -40,11 +40,7 @@ namespace MyWebAPI.DAL.Repositories
                         MaBanDoc = rd.GetString(2),
                         NgayMuon = rd.GetDateTime(3),
                         HanTra = rd.GetDateTime(4),
-<<<<<<< HEAD
-                        NgayTraThucTe = rd.GetDateTime(5),
-=======
                         NgayTraThucTe = rd.IsDBNull(5) ? (DateTime?)null : rd.GetDateTime(5),
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
                         SoLanGiaHan = rd.GetInt32(6),
                         TrangThai = rd.GetString(7)
                     });
@@ -70,11 +66,7 @@ namespace MyWebAPI.DAL.Repositories
                         MaBanDoc = rd.GetString(2),
                         NgayMuon = rd.GetDateTime(3),
                         HanTra = rd.GetDateTime(4),
-<<<<<<< HEAD
-                        NgayTraThucTe = rd.GetDateTime(5),
-=======
                         NgayTraThucTe = rd.IsDBNull(5) ? (DateTime?)null : rd.GetDateTime(5),
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
                         SoLanGiaHan = rd.GetInt32(6),
                         TrangThai = rd.GetString(7)
                     };
@@ -93,12 +85,9 @@ namespace MyWebAPI.DAL.Repositories
                 cmd.Parameters.AddWithValue("@MaBanDoc", phieuMuon.MaBanDoc);
                 cmd.Parameters.AddWithValue("@NgayMuon", phieuMuon.NgayMuon);
                 cmd.Parameters.AddWithValue("@HanTra", phieuMuon.HanTra);
-<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
                 cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
                 cmd.Parameters.AddWithValue("@TrangThai", phieuMuon.TrangThai);
-=======
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
                 var rowsAffected = await cmd.ExecuteNonQueryAsync();
                 return rowsAffected >= 0;
             }
@@ -114,11 +103,7 @@ namespace MyWebAPI.DAL.Repositories
                 cmd.Parameters.AddWithValue("@MaBanDoc", phieuMuon.MaBanDoc);
                 cmd.Parameters.AddWithValue("@NgayMuon", phieuMuon.NgayMuon);
                 cmd.Parameters.AddWithValue("@HanTra", phieuMuon.HanTra);
-<<<<<<< HEAD
-                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
-=======
                 cmd.Parameters.AddWithValue("@NgayTraThucTe",(object?)phieuMuon.NgayTraThucTe ?? DBNull.Value);
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
                 cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
                 cmd.Parameters.AddWithValue("@TrangThai",(object?)phieuMuon.TrangThai ?? DBNull.Value);
                 var rowsAffected = await cmd.ExecuteNonQueryAsync();

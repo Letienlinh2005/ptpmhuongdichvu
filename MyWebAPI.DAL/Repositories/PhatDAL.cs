@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebAPI.BLL
+namespace MyWebAPI.DAL.Repositories
 {
-    public class PhatBLL
+    public class PhatDAL
     {
     }
 }
