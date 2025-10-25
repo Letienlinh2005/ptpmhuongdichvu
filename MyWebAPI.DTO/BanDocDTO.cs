@@ -8,7 +8,7 @@
         public string SoThe { get; set; } = default!;
         public string Email { get; set; } = default!;
         public string DienThoai { get; set; } = default!;
-        public DateOnly HanThe { get; set; }
+        public DateTime HanThe { get; set; }
         public string TrangThaiThe { get; set; } = default!;
         public decimal DuNo { get; set; }
     }
@@ -21,7 +21,7 @@
         public string SoThe { get; set; } = default!;
         public string Email { get; set; } = default!;
         public string DienThoai { get; set; } = default!;
-        public DateOnly HanThe { get; set; }
+        public DateTime HanThe { get; set; }
         public string TrangThaiThe { get; set; } = default!;
         public decimal DuNo { get; set; }
     }
@@ -33,7 +33,7 @@
         public string SoThe { get; set; } = default!;
         public string Email { get; set; } = default!;
         public string DienThoai { get; set; } = default!;
-        public DateOnly HanThe { get; set; }
+        public DateTime HanThe { get; set; }
         public string TrangThaiThe { get; set; } = default!;
         public decimal DuNo { get; set; }
     }

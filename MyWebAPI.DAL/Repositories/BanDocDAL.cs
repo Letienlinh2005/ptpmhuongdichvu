@@ -42,7 +42,7 @@ namespace MyWebAPI.DAL.Repositories
                     SoThe = rd.GetString(2),
                     Email = rd.GetString(3),
                     DienThoai = rd.GetString(4),
-                    HanThe = DateOnly.FromDateTime(rd.GetDateTime(5)),
+                    HanThe = rd.GetDateTime(5),
                     TrangThaiThe = rd.GetString(6),
                     DuNo = rd.GetDecimal(7)
                 });
@@ -68,7 +68,7 @@ namespace MyWebAPI.DAL.Repositories
                     SoThe = rd.GetString(2),
                     Email = rd.GetString(3),
                     DienThoai = rd.GetString(4),
-                    HanThe = DateOnly.FromDateTime(rd.GetDateTime(5)),
+                    HanThe = rd.GetDateTime(5),
                     TrangThaiThe = rd.GetString(6),
                     DuNo = rd.GetDecimal(7)
                 };
@@ -88,7 +88,7 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@SoThe", banDoc.SoThe);
             cmd.Parameters.AddWithValue("@Email", banDoc.Email);
             cmd.Parameters.AddWithValue("@DienThoai", banDoc.DienThoai);
-            cmd.Parameters.AddWithValue("@HanThe", banDoc.HanThe.ToDateTime(new TimeOnly(0, 0)));
+            cmd.Parameters.AddWithValue("@HanThe", banDoc.HanThe);
             cmd.Parameters.AddWithValue("@TrangThaiThe", banDoc.TrangThaiThe);
             cmd.Parameters.AddWithValue("@DuNo", banDoc.DuNo);
 
@@ -107,7 +107,7 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@SoThe", banDoc.SoThe);
             cmd.Parameters.AddWithValue("@Email", banDoc.Email);
             cmd.Parameters.AddWithValue("@DienThoai", banDoc.DienThoai);
-            cmd.Parameters.AddWithValue("@HanThe", banDoc.HanThe.ToDateTime(new TimeOnly(0, 0)));
+            cmd.Parameters.AddWithValue("@HanThe", banDoc.HanThe);
             cmd.Parameters.AddWithValue("@TrangThaiThe", banDoc.TrangThaiThe);
             cmd.Parameters.AddWithValue("@DuNo", banDoc.DuNo);
 
