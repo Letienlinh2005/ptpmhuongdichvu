@@ -1,7 +1,12 @@
+
+﻿using MyWebAPI.BLL.Services;
+
 ﻿using MyWebAPI.BLL;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DAL;
 ﻿using MyWebAPI.BLL.Services;
+
+
 using MyWebAPI.DAL.Repositories;
 using static MyWebAPI.DAL.Repositories.PhieuMuonDAL;
 
@@ -29,6 +34,11 @@ builder.Services.AddScoped<ITheLoaiService, TheLoaiService>();
 builder.Services.AddScoped<IKeSachRepository>(_ => new KeSachRepository(connectionString));
 builder.Services.AddScoped<IKeSachService, KeSachService>();
 
+builder.Services.AddScoped<IPhieuMuonRepository>(_ => new PhieuMuonRepository(connectionString));
+builder.Services.AddScoped<IPhieuMuonService, PhieuMuonService>();
+
+builder.Services.AddScoped<IBanDocRepository>(_ => new BanDocRepository(connectionString));
+builder.Services.AddScoped<IBanDocService, BanDocService>();
 
 builder.Services.AddScoped<IDatChoStorage>(_ => new SqlDatChoStorage(connectionString));
 builder.Services.AddScoped<IDatChoService, DatChoService>();
@@ -43,6 +53,7 @@ builder.Services.AddScoped<IPhieuMuonRepository>(_ => new PhieuMuonRepository(co
 builder.Services.AddScoped<IPhieuMuonService, PhieuMuonService>();
 builder.Services.AddScoped<IBanDocRepository>(_ => new BanDocRepository(connectionString));
 builder.Services.AddScoped<IBanDocService, BanDocService>();
+
 
 var app = builder.Build();
 

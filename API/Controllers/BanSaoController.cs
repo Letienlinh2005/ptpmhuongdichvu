@@ -1,3 +1,4 @@
+
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -6,9 +7,7 @@ using MyWebAPI.DTO;
 using System.Data;
 using System.Reflection;
 
-
-
-namespace API_BanSao.Controllers
+namespace MyWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -32,6 +31,7 @@ namespace API_BanSao.Controllers
 
             return StatusCode(500, response);
         }
+
         // GET api/bansao/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
@@ -43,6 +43,7 @@ namespace API_BanSao.Controllers
 
             return NotFound(response);
         }
+
         // POST api/bansao
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateBanSaoRequest request)
@@ -57,6 +58,7 @@ namespace API_BanSao.Controllers
 
             return BadRequest(response);
         }
+
         // PUT api/bansao/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateBanSaoRequest request)
@@ -71,6 +73,7 @@ namespace API_BanSao.Controllers
 
             return NotFound(response);
         }
+
         // DELETE api/bansao/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)

@@ -88,6 +88,9 @@ namespace MyWebAPI.DAL.Repositories
                 cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
                 cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
                 cmd.Parameters.AddWithValue("@TrangThai", phieuMuon.TrangThai);
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
+                cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
+                cmd.Parameters.AddWithValue("@TrangThai", phieuMuon.TrangThai);
                 var rowsAffected = await cmd.ExecuteNonQueryAsync();
                 return rowsAffected >= 0;
             }
@@ -103,6 +106,10 @@ namespace MyWebAPI.DAL.Repositories
                 cmd.Parameters.AddWithValue("@MaBanDoc", phieuMuon.MaBanDoc);
                 cmd.Parameters.AddWithValue("@NgayMuon", phieuMuon.NgayMuon);
                 cmd.Parameters.AddWithValue("@HanTra", phieuMuon.HanTra);
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", (object?)phieuMuon.NgayTraThucTe ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
+                cmd.Parameters.AddWithValue("@TrangThai", (object?)phieuMuon.TrangThai ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
                 cmd.Parameters.AddWithValue("@NgayTraThucTe",(object?)phieuMuon.NgayTraThucTe ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
                 cmd.Parameters.AddWithValue("@TrangThai",(object?)phieuMuon.TrangThai ?? DBNull.Value);

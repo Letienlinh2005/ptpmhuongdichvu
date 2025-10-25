@@ -29,7 +29,6 @@ namespace MyWebAPI.DTO
         public string MaBanDoc { get; set; }
         public DateTime NgayMuon { get; set; }
         public DateTime HanTra { get; set; }
-
         public DateTime? NgayTraThucTe { get; set; }
         public int SoLanGiaHan { get; set; }
         public string TrangThai { get; set; }
