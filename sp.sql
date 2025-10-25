@@ -247,10 +247,209 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE sp_ThanhToan
+  @MaPhieuMuon NVARCHAR(20),
+  @NgayTraThucTe DATETIME = NULL,
+  @PhiTreHanMoiNgay DECIMAL(12,2) 
+AS
+BEGIN
+  SET NOCOUNT ON;
+  SET XACT_ABORT ON;
+
+  BEGIN TRY
+    BEGIN TRAN;
+
+<<<<<<< HEAD
+/* ====== INDEX cần có cho DatCho ====== */
+IF NOT EXISTS (
+  SELECT 1 FROM sys.indexes
+  WHERE name = 'UX_DatCho_Pending' AND object_id = OBJECT_ID('dbo.DatCho')
+)
+BEGIN
+  CREATE UNIQUE INDEX UX_DatCho_Pending
+  ON dbo.DatCho (MaBanDoc, MaSach, TrangThai)
+  WHERE TrangThai = N'Chờ hàng';
+END
+GO
+
+IF NOT EXISTS (
+  SELECT 1 FROM sys.indexes
+  WHERE name = 'IX_DatCho_SachTrangThai' AND object_id = OBJECT_ID('dbo.DatCho')
+)
+BEGIN
+  CREATE INDEX IX_DatCho_SachTrangThai
+  ON dbo.DatCho (MaSach, TrangThai, NgayTao);
+END
+GO
+
+/* ====== STORED PROCEDURES cho Storage ====== */
+
+-- Thêm đặt chỗ (ID do ứng dụng phát sinh)
+CREATE OR ALTER PROCEDURE dbo.sp_DatCho_Insert
+  @MaDatCho NVARCHAR(20),
+  @MaSach    NVARCHAR(20),
+  @MaBanDoc  NVARCHAR(20)
+AS
+BEGIN
+  SET NOCOUNT ON;
+  INSERT INTO dbo.DatCho(MaDatCho, MaSach, MaBanDoc, TrangThai)
+  VALUES(@MaDatCho, @MaSach, @MaBanDoc, N'Chờ hàng');
+END
+GO
+
+-- Lấy theo Id
+CREATE OR ALTER PROCEDURE dbo.sp_DatCho_GetById
+  @MaDatCho NVARCHAR(20)
+AS
+BEGIN
+  SET NOCOUNT ON;
+  SELECT * FROM dbo.DatCho WHERE MaDatCho = @MaDatCho;
+END
+GO
+
+-- Danh sách (lọc tuỳ chọn)
+CREATE OR ALTER PROCEDURE dbo.sp_DatCho_List
+  @MaBanDoc  NVARCHAR(20) = NULL,
+  @MaSach    NVARCHAR(20) = NULL,
+  @TrangThai NVARCHAR(20) = NULL
+AS
+BEGIN
+  SET NOCOUNT ON;
+  SELECT *
+  FROM dbo.DatCho
+  WHERE (@MaBanDoc  IS NULL OR MaBanDoc  = @MaBanDoc)
+    AND (@MaSach    IS NULL OR MaSach    = @MaSach)
+    AND (@TrangThai IS NULL OR TrangThai = @TrangThai)
+  ORDER BY NgayTao ASC; -- FIFO
+END
+GO
+
+-- Hủy đặt chỗ ('Chờ hàng' hoặc 'Đang giữ')
+CREATE OR ALTER PROCEDURE dbo.sp_DatCho_Cancel
+  @MaDatCho NVARCHAR(20)
+AS
+BEGIN
+  SET NOCOUNT ON;
+  UPDATE dbo.DatCho
+  SET TrangThai = N'Đã hủy', GiuDen = NULL
+  WHERE MaDatCho = @MaDatCho
+    AND TrangThai IN (N'Chờ hàng', N'Đang giữ');
+END
+GO
+
+-- Chuyển người đầu hàng của 1 cuốn sách sang 'Đang giữ' trong X giờ
+-- Trả về MaDatCho được set ready, NULL nếu chưa ai chờ
+CREATE OR ALTER PROCEDURE dbo.sp_DatCho_SetReady
+  @MaSach      NVARCHAR(20),
+  @GiuTrongGio INT = 48
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  DECLARE @Id NVARCHAR(20);
+
+  SELECT TOP 1 @Id = MaDatCho
+  FROM dbo.DatCho WITH (UPDLOCK, ROWLOCK)
+  WHERE MaSach = @MaSach AND TrangThai = N'Chờ hàng'
+  ORDER BY NgayTao ASC;
+
+  IF @Id IS NOT NULL
+  BEGIN
+    UPDATE dbo.DatCho
+    SET TrangThai = N'Đang giữ',
+        GiuDen    = DATEADD(HOUR, @GiuTrongGio, SYSUTCDATETIME())
+    WHERE MaDatCho = @Id;
+
+    SELECT @Id AS MaDatChoReady;
+  END
+  ELSE
+    SELECT CAST(NULL AS NVARCHAR(20)) AS MaDatChoReady;
+END
+GO
+
+-- Chuyển tất cả 'Đang giữ' quá hạn -> 'Hết hạn'
+CREATE OR ALTER PROCEDURE dbo.sp_DatCho_ExpireReady
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  UPDATE dbo.DatCho
+  SET TrangThai = N'Hết hạn',
+      GiuDen    = NULL
+  WHERE TrangThai = N'Đang giữ'
+    AND GiuDen IS NOT NULL
+    AND GiuDen < SYSUTCDATETIME();
+
+  SELECT @@ROWCOUNT AS SoDongCapNhat;
+END
+GO
 
 
+USE QuanLyThuVien;
 
+-- Xem có sách/bạn đọc chưa
+SELECT TOP 20 MaSach, TieuDe FROM dbo.Sach ORDER BY MaSach;        -- phải thấy ít nhất 1 mã
+SELECT TOP 20 MaBanDoc, HoTen FROM dbo.BanDoc ORDER BY MaBanDoc;    -- phải thấy ít nhất 1 mã
 
+-- Thể loại (Sach.MaTheLoai FK -> TheLoai.MaTheLoai)
+IF NOT EXISTS (SELECT 1 FROM TheLoai WHERE MaTheLoai='TL01')
+  INSERT INTO TheLoai(MaTheLoai, TenTheLoai) VALUES('TL01', N'Sách tham khảo');
+
+-- Sách
+IF NOT EXISTS (SELECT 1 FROM Sach WHERE MaSach='S001')
+  INSERT INTO Sach(MaSach, TieuDe, TacGia, MaTheLoai, NamXuatBan, NgonNgu, TomTat)
+  VALUES('S001', N'Lập trình C# cơ bản', N'Nguyễn Văn A', 'TL01', 2024, N'vi', N'Sách mẫu');
+
+-- Bạn đọc (chú ý SoThe UNIQUE 10 ký tự, TrangThaiThe theo CHECK)
+IF NOT EXISTS (SELECT 1 FROM BanDoc WHERE MaBanDoc='BD05')
+  INSERT INTO BanDoc(MaBanDoc, SoThe, HoTen, Email, DienThoai, HanThe, TrangThaiThe, DuNo)
+  VALUES('BD05','ST00000005',N'Phạm B','b@example.com','0900000005','2026-12-31',N'Hoạt động',0);
+=======
+    DECLARE @MaBanDoc NVARCHAR(20),
+            @MaSach NVARCHAR(20),
+            @HanTra DATETIME,
+            @NgayTra DATETIME,
+            @DaysLate INT,
+            @SoTien DECIMAL(12,2);
+
+    SELECT @MaBanDoc = MaBanDoc,
+           @MaSach   = MaSach,
+           @HanTra   = HanTra
+    FROM PhieuMuon WITH (UPDLOCK, ROWLOCK)
+    WHERE MaPhieuMuon = @MaPhieuMuon;
+>>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
+
+    IF @MaBanDoc IS NULL
+      THROW 50001, N'Không tìm thấy phiếu mượn.', 1;
+
+    SET @NgayTra = ISNULL(@NgayTraThucTe, SYSUTCDATETIME());
+
+    UPDATE PhieuMuon
+    SET NgayTraThucTe = @NgayTra,
+        TrangThai     = N'Đã trả'
+    WHERE MaPhieuMuon = @MaPhieuMuon;
+
+    -- Quy tắc đếm ngày trễ: tính theo mốc nửa đêm (floor). Nếu muốn "trễ 1 giờ cũng tính 1 ngày", xem Cách 1B bên dưới.
+    SET @DaysLate = DATEDIFF(DAY, @HanTra, @NgayTra);
+    IF @DaysLate < 0 SET @DaysLate = 0;
+
+    IF @DaysLate > 0
+    BEGIN
+      SET @SoTien = @DaysLate * @PhiTreHanMoiNgay;
+
+      INSERT INTO Phat(MaPhat, MaPhieuMuon, SoTien, LyDo, NgayTinh, TrangThai, MaThanhToan)
+      VALUES(CONCAT('PP', FORMAT(SYSUTCDATETIME(), 'yyyyMMddHHmmssfff')),
+            @MaPhieuMuon, @SoTien, N'Trễ hạn', SYSUTCDATETIME(), N'Chưa trả', NULL);
+    END
+
+    COMMIT;
+  END TRY
+  BEGIN CATCH
+    IF XACT_STATE() <> 0 ROLLBACK;
+    THROW;
+  END CATCH
+END
+GO
 
 
 

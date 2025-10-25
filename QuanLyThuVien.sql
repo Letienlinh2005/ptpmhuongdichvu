@@ -54,7 +54,7 @@ CREATE TABLE PhieuMuon (
 	MaBanDoc NVARCHAR(20) NOT NULL,
 	NgayMuon DATE NOT NULL,
 	HanTra DATE NOT NULL,
-	NgayTra DATE NOT NULL,
+	NgayTraThuTe DATE NOT NULL,
 	SoLanGiaHan INT NOT NULL DEFAULT(0) CHECK(SoLanGiaHan >= 0),
 	TrangThai NVARCHAR(10) CHECK(TrangThai IN(N'Đang mở', N'Đã đóng')),
 
