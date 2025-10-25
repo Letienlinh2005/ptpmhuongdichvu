@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../css/style_admin.css">
+    <link rel="stylesheet" href="../font/themify-icons-font/themify-icons/themify-icons.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body{
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        #Admin{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="Admin">
+        <div id="header" class="admin">
+            <div id="header-left">
+                <p  class = "tx-white mg-5px">Admin</p>
+            </div>
+            <div id="header-right">
+                <label class="f13px">Admin</label>
+                <button id="Logout"><a href="../html/index.html" style="text-decoration: none; color: white;">Đăng xuất</a></button>
+
+            </div>
+        </div>
+        <div id="left">
+            <ul id="list-manage">
+                <button onclick="loadPage('../html/Readermanagement.html')"><li>Quản lý bạn đọc </li></button>
+                <button onclick="loadPage('')"><li>Quản lý sách </li></button>
+                <button onclick="loadPage('')"><li>Quản lý cho thuê </li></button>
+                <button onclick="loadPage('')"><li>Quản lý đặt chỗ</li></button>
+                <button onclick="loadPage('')"><li>Lập phiếu thanh toán</li></button>
+
+            </ul>
+        </div>
+        <div id="right">
+            <div id="content">Chọn menu bên trái để xem nội dung</div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('#list-manage li a').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelectorAll('#list-manage li').forEach(li => li.classList.remove('active'));
+                this.parentElement.classList.add('active');
+            });
+        });
+        function loadPage(page) {
+            fetch(page)
+                .then(res => res.text())
+                .then(html => {
+                    document.getElementById('content').innerHTML = html;
+                })
+                .catch(err => {
+                    document.getElementById('content').innerHTML = "<p style='color:red'>Không tải được trang.</p>";
+                });
+        }
+    </script>
+
+</body>
+</html>
