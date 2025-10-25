@@ -20,7 +20,7 @@ namespace API_PhieuMuon.Controllers
             var response = await _phieuMuonService.GetAllAsync();
 
             if (response.Success)
-                return Ok(response);    
+                return Ok(response);
             return StatusCode(500, response);
         }
 

@@ -1,134 +1,84 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Data;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc;
+using MyWebAPI.BLL.Services;
+using MyWebAPI.DTO;
 
-
-namespace API_BanSao.Controllers
+namespace MyWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class BanSaoController : ControllerBase
     {
-        private readonly string _connStr;
-        public BanSaoController(IConfiguration config)
+        private readonly IBanSaoService _banSaoService;
+
+        public BanSaoController(IBanSaoService banSaoService)
         {
-            _connStr = config.GetConnectionString("DefaultConnection")!;
+            _banSaoService = banSaoService;
         }
-        //Get api/BanSao
+
+        // GET api/bansao
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var list = new List<Models.BanSaoModel>();
-            using var con = new SqlConnection(_connStr);
-            await con.OpenAsync();
-            using var cmd = new SqlCommand("sp_GetAllBanDoc", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            var response = await _banSaoService.GetAllAsync();
 
-            using var rd = await cmd.ExecuteReaderAsync();
-            while (await rd.ReadAsync())
-            {
-                list.Add(new Models.BanSaoModel
-                {
-                    maBanSao = rd.GetString(0),
-                    maVach = rd.GetString(1),
-                    maSach = rd.GetString(2),
-                    maKe = rd.GetString(3),
-                    trangThai = rd.GetString(4)
-                });
-            }
-            return Ok(list);
+            if (response.Success)
+                return Ok(response);
+
+            return StatusCode(500, response);
         }
-        // GET api/BanSao/{id}
+
+        // GET api/bansao/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
-            using var con = new SqlConnection(_connStr);
-            await con.OpenAsync();
-            using var cmd = new SqlCommand("sp_GetBanSaoById", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@MaBanSao", id);
+            var response = await _banSaoService.GetByIdAsync(id);
 
-            using var rd = await cmd.ExecuteReaderAsync();
-            if (await rd.ReadAsync())
-            {
-                var sach = new Models.BanSaoModel
-                {
-                    maBanSao = rd.GetString(0),
-                    maVach = rd.GetString(1),
-                    maSach = rd.GetString(2),
-                    maKe = rd.GetString(3),
-                    trangThai = rd.GetString(4)
-                };
-                return Ok(sach);
-            }
-            return NotFound(new { message = "Không tìm thấy bản sao" });
+            if (response.Success)
+                return Ok(response);
+
+            return NotFound(response);
         }
 
-        // POST api/BanSao
+        // POST api/bansao
         [HttpPost]
-        public async Task<IActionResult> Create(Models.BanSaoModel input)
+        public async Task<IActionResult> Create([FromBody] CreateBanSaoRequest request)
         {
-            var newId = input.maBanSao ?? "BS" + Guid.NewGuid().ToString("N")[..7].ToUpper();
-            using var con = new SqlConnection(_connStr);
-            await con.OpenAsync();
-            using var cmd = new SqlCommand("sp_InsertBanSao", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            cmd.Parameters.AddWithValue("@MaBanSao", newId);
-            cmd.Parameters.AddWithValue("@MaVach", input.maVach);
-            cmd.Parameters.AddWithValue("@MaSach", input.maSach);
-            cmd.Parameters.AddWithValue("@MaKe", (object?)input.maKe ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@TrangThai", (object?)input.trangThai ?? DBNull.Value);
+            var response = await _banSaoService.CreateAsync(request);
 
-            try
-            {
-                var rows = await cmd.ExecuteNonQueryAsync();
-                if (rows > 0)
-                {
-                    input.maBanSao = newId;
-                    return Ok(new { message = "Thêm thành công", data = input });
-                }
-                return StatusCode(500, new { message = "Không thêm được" });
-            }
-            catch (SqlException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
+            if (response.Success)
+                return Ok(response);
+
+            return BadRequest(response);
         }
-        // PUT api/BanSao/{id}
+
+        // PUT api/bansao/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, [FromBody] Models.BanSaoModel input)
+        public async Task<IActionResult> Update(string id, [FromBody] UpdateBanSaoRequest request)
         {
-            using var con = new SqlConnection(_connStr);
-            await con.OpenAsync();
-            using var cmd = new SqlCommand("sp_UpdateBanSao", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            cmd.Parameters.AddWithValue("@MaBanSao", id);
-            cmd.Parameters.AddWithValue("@MaVach", input.maVach);
-            cmd.Parameters.AddWithValue("@MaSach", input.maSach);
-            cmd.Parameters.AddWithValue("@MaKe", (object?)input.maKe ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@TrangThai", (object?)input.trangThai ?? DBNull.Value);
+            var response = await _banSaoService.UpdateAsync(id, request);
 
-            var rows = await cmd.ExecuteNonQueryAsync();
-            if (rows > 0) return Ok(new { message = "Cập nhật thành công" });
-            return NotFound(new { message = "Không tìm thấy bản sao" });
+            if (response.Success)
+                return Ok(response);
+
+            return NotFound(response);
         }
-        // DELETE api/BanSao/{id}
+
+        // DELETE api/bansao/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            using var con = new SqlConnection(_connStr);
-            await con.OpenAsync();
-            using var cmd = new SqlCommand("sp_DeleteBanSao", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@MaBanSao", id);
+            var response = await _banSaoService.DeleteAsync(id);
 
-            var rows = await cmd.ExecuteNonQueryAsync();
-            if (rows > 0) return Ok(new { message = "Xoá thành công" });
-            return NotFound(new { message = "Không tìm thấy bản sao" });
+            if (response.Success)
+                return Ok(response);
+
+            return NotFound(response);
         }
-
     }
 }

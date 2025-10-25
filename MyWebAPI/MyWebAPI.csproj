@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Helpers\**" />
+    <Compile Remove="Middleware\**" />
+    <Compile Remove="Services\**" />
+    <Content Remove="Helpers\**" />
+    <Content Remove="Middleware\**" />
+    <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Helpers\**" />
+    <EmbeddedResource Remove="Middleware\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Helpers\**" />
+    <None Remove="Middleware\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="JWT" Version="11.0.0" />
@@ -25,12 +40,6 @@
     <PackageReference Include="Ocelot" Version="24.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Middleware\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>

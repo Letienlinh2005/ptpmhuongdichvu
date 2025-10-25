@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using MyWebAPI.DAL.Repositories;
 using MyWebAPI.DTO;
+using static MyWebAPI.DAL.Repositories.PhieuMuonDAL;
 
 
 namespace MyWebAPI.BLL.Services
@@ -86,10 +87,7 @@ namespace MyWebAPI.BLL.Services
                     MaBanSao = request.MaBanSao,
                     MaBanDoc = request.MaBanDoc,
                     NgayMuon = request.NgayMuon,
-                    HanTra = request.HanTra,
-                    NgayTra = request.NgayTra,
-                    SoLanGiaHan = 0,
-                    TrangThai = "Đang mượn"
+                    HanTra = request.HanTra
                 };
                 var result = await _phieuMuonRepository.CreateAsync(newPhieuMuon);
                 if (result)
@@ -170,7 +168,6 @@ namespace MyWebAPI.BLL.Services
                 };
             }
         }
-
         public async Task<ResponseDTO<bool>> DeleteAsync(string maPhieuMuon)
         {
             try
@@ -213,4 +210,4 @@ namespace MyWebAPI.BLL.Services
             }
         }
     }
-}
+}   
