@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 ﻿using MyWebAPI.BLL;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DAL;
+=======
+
+﻿using MyWebAPI.BLL.Services;
+
+﻿using MyWebAPI.BLL;
+using MyWebAPI.BLL.Services;
+using MyWebAPI.DAL;
+﻿using MyWebAPI.BLL.Services;
+
+
+>>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
 using MyWebAPI.DAL.Repositories;
 using static MyWebAPI.BLL.Services.PhatBLL;
 using static MyWebAPI.DAL.Repositories.PhatDAL;
@@ -39,6 +51,15 @@ builder.Services.AddScoped<IBanDocService, BanDocService>();
 builder.Services.AddScoped<IDatChoStorage>(_ => new SqlDatChoStorage(connectionString));
 builder.Services.AddScoped<IDatChoService, DatChoService>();
 
+<<<<<<< HEAD
+=======
+// Nếu cần thêm các module khác, mở comment và đăng ký tại đây:
+builder.Services.AddScoped<IPhieuMuonRepository>(_ => new PhieuMuonRepository(connectionString));
+builder.Services.AddScoped<IPhieuMuonService, PhieuMuonService>();
+builder.Services.AddScoped<IBanDocRepository>(_ => new BanDocRepository(connectionString));
+builder.Services.AddScoped<IBanDocService, BanDocService>();
+// Nếu cần thêm các module khác, mở comment và đăng ký tại đây:
+>>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
 builder.Services.AddScoped<IPhieuMuonRepository>(_ => new PhieuMuonRepository(connectionString));
 builder.Services.AddScoped<IPhieuMuonService, PhieuMuonService>();
 
@@ -63,4 +84,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+<<<<<<< HEAD
 app.Run();
+=======
+
+app.Run();
+
+
+
+
+>>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2

@@ -97,9 +97,20 @@ namespace MyWebAPI.DAL.Repositories
                 cmd.Parameters.AddWithValue("@MaBanDoc", phieuMuon.MaBanDoc);
                 cmd.Parameters.AddWithValue("@NgayMuon", phieuMuon.NgayMuon);
                 cmd.Parameters.AddWithValue("@HanTra", phieuMuon.HanTra);
+<<<<<<< HEAD
 
                 await cmd.ExecuteNonQueryAsync();
                 return true;
+=======
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
+                cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
+                cmd.Parameters.AddWithValue("@TrangThai", phieuMuon.TrangThai);
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
+                cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
+                cmd.Parameters.AddWithValue("@TrangThai", phieuMuon.TrangThai);
+                var rowsAffected = await cmd.ExecuteNonQueryAsync();
+                return rowsAffected >= 0;
+>>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
             }
 
             public async Task<bool> UpdateAsync(string maPhieuMuon, PhieuMuonDTO phieuMuon)
@@ -119,9 +130,18 @@ namespace MyWebAPI.DAL.Repositories
                 cmd.Parameters.AddWithValue("@NgayTraThucTe", (object?)phieuMuon.NgayTraThucTe ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
                 cmd.Parameters.AddWithValue("@TrangThai", (object?)phieuMuon.TrangThai ?? DBNull.Value);
+<<<<<<< HEAD
 
                 var rows = await cmd.ExecuteNonQueryAsync();
                 return rows > 0 || rows == -1; 
+=======
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
+                cmd.Parameters.AddWithValue("@NgayTraThucTe",(object?)phieuMuon.NgayTraThucTe ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
+                cmd.Parameters.AddWithValue("@TrangThai",(object?)phieuMuon.TrangThai ?? DBNull.Value);
+                var rowsAffected = await cmd.ExecuteNonQueryAsync();
+                return rowsAffected > 0;
+>>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
             }
 
             public async Task<bool> DeleteAsync(string maPhieuMuon)

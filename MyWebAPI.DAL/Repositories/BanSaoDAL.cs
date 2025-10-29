@@ -1,6 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
-using System.Data;
+﻿using Azure.Core;
+using Microsoft.Data.SqlClient;
 using MyWebAPI.DTO;
+using System.Data;
 
 namespace MyWebAPI.DAL.Repositories
 {
@@ -72,8 +73,8 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@MaBanSao", maBanSao);
             cmd.Parameters.AddWithValue("@MaVach", banSao.MaVach);
             cmd.Parameters.AddWithValue("@MaSach", banSao.MaSach);
-            cmd.Parameters.AddWithValue("@MaKe", banSao.MaKe);
-            cmd.Parameters.AddWithValue("@TrangThai", banSao.TrangThai);
+            cmd.Parameters.Add(new SqlParameter("@MaKe", SqlDbType.NVarChar, 20) { Value = (object?)banSao.MaKe ?? DBNull.Value });
+            cmd.Parameters.Add(new SqlParameter("@TrangThai", SqlDbType.NVarChar, 20) { Value = (object?)banSao.TrangThai ?? DBNull.Value });
             return await cmd.ExecuteNonQueryAsync();
         }
         public async Task<int> UpdateAsync(string maBanSao, UpdateBanSaoRequest banSao)
@@ -85,8 +86,8 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@MaBanSao", maBanSao);
             cmd.Parameters.AddWithValue("@MaVach", banSao.MaVach);
             cmd.Parameters.AddWithValue("@MaSach", banSao.MaSach);
-            cmd.Parameters.AddWithValue("@MaKe", banSao.MaKe);
-            cmd.Parameters.AddWithValue("@TrangThai", banSao.TrangThai);
+            cmd.Parameters.Add(new SqlParameter("@MaKe", SqlDbType.NVarChar, 20) { Value = (object?)banSao.MaKe ?? DBNull.Value });
+            cmd.Parameters.Add(new SqlParameter("@TrangThai", SqlDbType.NVarChar, 20) { Value = (object?)banSao.TrangThai ?? DBNull.Value });
             return await cmd.ExecuteNonQueryAsync();
         }
         public async Task<int> DeleteAsync(string maBanSao)
@@ -95,7 +96,7 @@ namespace MyWebAPI.DAL.Repositories
             await con.OpenAsync();
             using var cmd = new SqlCommand("sp_DeleteBanSao", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@MaBanSao", maBanSao);
+            cmd.Parameters.Add(new SqlParameter("@MaBanSao", SqlDbType.NVarChar, 20) { Value = maBanSao });
             return await cmd.ExecuteNonQueryAsync();
         }
 

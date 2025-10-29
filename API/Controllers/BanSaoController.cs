@@ -1,7 +1,15 @@
 
+<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Mvc;
+=======
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+>>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
+using System.Data;
+using System.Reflection;
 
 namespace MyWebAPI.Controllers
 {
@@ -83,6 +91,7 @@ namespace MyWebAPI.Controllers
         }
     }
 }
+<<<<<<< HEAD
 ﻿//using Microsoft.AspNetCore.Http;
 //using Microsoft.AspNetCore.Mvc;
 //using System.Data;
@@ -338,3 +347,5 @@ namespace MyWebAPI.Controllers
 //    }
 //}
 
+=======
+>>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2

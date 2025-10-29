@@ -11,22 +11,22 @@ namespace MyWebAPI.DTO
         public string MaBanSao { get; set; }
         public string MaVach { get; set; }
         public string MaSach { get; set; }
-        public string MaKe { get; set; }
-        public string TrangThai { get; set; }
+        public string? MaKe { get; set; }
+        public string? TrangThai { get; set; }
     }
     public class CreateBanSaoRequest
     {
         public string MaVach { get; set; }
         public string MaSach { get; set; }
-        public string MaKe { get; set; }
-        public string TrangThai { get; set; }
+        public string? MaKe { get; set; }
+        public string? TrangThai { get; set; }
     }
 
     public class UpdateBanSaoRequest
     {
         public string MaVach { get; set; }
         public string MaSach { get; set; }
-        public string MaKe { get; set; }
-        public string TrangThai { get; set; }
+        public string? MaKe { get; set; }
+        public string? TrangThai { get; set; }
     }
 }
