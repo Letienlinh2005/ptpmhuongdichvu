@@ -15,12 +15,12 @@ namespace MyWebAPI.DTO
         public string HinhThuc { get; set; } = default!; 
         public string? GhiChu { get; set; }          
     }
-    public class ThanhToanCreateDTO
+    public class ThanhToanPhatDTO
     {
-        public string? MaThanhToan { get; set; }     
-        public string MaBanDoc { get; set; } = default!;
-        public decimal SoTien { get; set; }
+        public string MaPhat { get; set; } = default!;
+        public string MaThanhToan { get; set; } = default!;
         public string HinhThuc { get; set; } = default!;
         public string? GhiChu { get; set; }
     }
+
 }

@@ -30,7 +30,6 @@ namespace MyWebAPI.BLL
             if (string.IsNullOrWhiteSpace(req.MaSach)) throw new ArgumentException("Mã sách không được để trống.", nameof(req.MaSach));
             if (string.IsNullOrWhiteSpace(req.MaBanDoc)) throw new ArgumentException("Mã bạn đọc không được để trống.", nameof(req.MaBanDoc));
 
-            // ID: HC + 18 hex (tổng 20 ký tự)
             var id = "HC" + Guid.NewGuid().ToString("N")[..18];
 
             var dto = new DatChoDTO
@@ -45,7 +44,6 @@ namespace MyWebAPI.BLL
             {
                 await _storage.InsertAsync(dto);
             }
-            // Trùng UNIQUE (MaBanDoc, MaSach, TrangThai='Chờ hàng')
             catch (SqlException ex) when (ex.Number is 2601 or 2627)
             {
                 throw new InvalidOperationException("Bạn đã có một yêu cầu 'Chờ hàng' cho sách này.", ex);

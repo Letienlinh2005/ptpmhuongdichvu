@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
@@ -83,14 +83,12 @@ namespace MyWebAPI.Controllers
         }
     }
 }
-=======
 ﻿//using Microsoft.AspNetCore.Http;
 //using Microsoft.AspNetCore.Mvc;
 //using System.Data;
 //using Microsoft.Data.SqlClient;
 
 
-<<<<<<< HEAD
 //namespace API_BanSao.Controllers
 //{
 //    [Route("api/[controller]")]
@@ -140,7 +138,6 @@ namespace MyWebAPI.Controllers
 //            if (await rd.ReadAsync())
 //            {
 //                var sach = new Models.BanSaoModel
-=======
 
 //namespace API_BanSao.Controllers
 //{
@@ -167,14 +164,12 @@ namespace MyWebAPI.Controllers
 //            while (await rd.ReadAsync())
 //            {
 //                list.Add(new Models.BanSaoModel
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
 //                {
 //                    maBanSao = rd.GetString(0),
 //                    maVach = rd.GetString(1),
 //                    maSach = rd.GetString(2),
 //                    maKe = rd.GetString(3),
 //                    trangThai = rd.GetString(4)
-<<<<<<< HEAD
 //                };
 //                return Ok(sach);
 //            }
@@ -245,8 +240,6 @@ namespace MyWebAPI.Controllers
 //            if (rows > 0) return Ok(new { message = "Xoá thành công" });
 //            return NotFound(new { message = "Không tìm thấy bản sao" });
 //        }
-
-=======
 //                });
 //            }
 //            return Ok(list);
@@ -342,7 +335,6 @@ namespace MyWebAPI.Controllers
 //            return NotFound(new { message = "Không tìm thấy bản sao" });
 //        }
 
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
 //    }
 //}
->>>>>>> fa682c200526312ec03954f6141e3bf1a74a6f44
+

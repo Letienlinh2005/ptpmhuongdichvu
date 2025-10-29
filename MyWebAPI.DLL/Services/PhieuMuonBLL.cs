@@ -87,18 +87,10 @@ namespace MyWebAPI.BLL.Services
                     MaBanSao = request.MaBanSao,
                     MaBanDoc = request.MaBanDoc,
                     NgayMuon = request.NgayMuon,
-<<<<<<< HEAD
-                    HanTra = request.HanTra
-=======
-<<<<<<< HEAD
                     HanTra = request.HanTra,
                     NgayTraThucTe = request.NgayTraThucTe,
                     SoLanGiaHan = 0,
                     TrangThai = "Đang mượn"
-=======
-                    HanTra = request.HanTra
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
->>>>>>> fa682c200526312ec03954f6141e3bf1a74a6f44
                 };
                 var result = await _phieuMuonRepository.CreateAsync(newPhieuMuon);
                 if (result)
@@ -117,7 +109,7 @@ namespace MyWebAPI.BLL.Services
                     Data = null
                 };
             }
-            catch (SqlException ex) when (ex.Number == 2627) // Unique constraint error
+            catch (SqlException ex) when (ex.Number == 2627)
             {
                 return new ResponseDTO<PhieuMuonDTO>
                 {
@@ -221,8 +213,5 @@ namespace MyWebAPI.BLL.Services
             }
         }
     }
-<<<<<<< HEAD
 }   
-=======
-}
->>>>>>> fa682c200526312ec03954f6141e3bf1a74a6f44
+

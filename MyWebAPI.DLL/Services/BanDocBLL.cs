@@ -149,7 +149,8 @@ namespace MyWebAPI.BLL.Services
                 }
 
                 // Validate expiry date
-                if (request.HanThe < DateOnly.FromDateTime(DateTime.Now))
+                var today = DateTime.Today;
+                if (request.HanThe < today)
                 {
                     return new ResponseDTO<BanDocDTO>
                     {

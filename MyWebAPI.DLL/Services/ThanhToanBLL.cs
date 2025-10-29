@@ -1,33 +1,106 @@
-﻿using MyWebAPI.DAL.Repositories;
+﻿// ThanhToanService.cs
+using MyWebAPI.DAL.Repositories;
 using MyWebAPI.DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MyWebAPI.BLL.Services
-{
+{ 
+    
     public interface IThanhToanService
     {
-        Task<ResponseDTO<List<PhieuMuonDTO>>> GetAllAsync();
-        Task<ResponseDTO<PhieuMuonDTO>> GetByIdAsync(string maThanhToan);
-        Task<ResponseDTO<ThanhToanDTO>> PayAsync(ThanhToanCreateDTO request);
+        Task<ResponseDTO<List<ThanhToanDTO>>> GetAllAsync();
+        Task<ResponseDTO<ThanhToanDTO>> GetByIdAsync(string maThanhToan);
+        Task<ResponseDTO<bool>> ThanhToanPhatAsync(ThanhToanPhatDTO request);
     }
     public class ThanhToanService : IThanhToanService
     {
-        private readonly IThanhToanRepository _ThanhToanRepository;
-        public Task<ResponseDTO<List<PhieuMuonDTO>>> GetAllAsync()
+        private readonly IThanhToanRepository _thanhToanRepository;
+
+        public ThanhToanService(IThanhToanRepository thanhToanRepository)
         {
-            throw new NotImplementedException();
+            _thanhToanRepository = thanhToanRepository;
         }
-        public Task<ResponseDTO<PhieuMuonDTO>> GetByIdAsync(string maBanDoc)
+
+        public async Task<ResponseDTO<List<ThanhToanDTO>>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var list = await _thanhToanRepository.GetAllAsync();
+                return new ResponseDTO<List<ThanhToanDTO>> 
+                {
+                    Success = true, 
+                    Message = "Lấy danh sách thành công", 
+                    Data = list 
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDTO<List<ThanhToanDTO>> 
+                { 
+                    Success = false, 
+                    Message = $"Lỗi: {ex.Message}", 
+                    Data = null };
+            }
         }
-        public Task<ResponseDTO<ThanhToanDTO>> PayAsync(ThanhToanCreateDTO request)
+
+        public async Task<ResponseDTO<ThanhToanDTO>> GetByIdAsync(string maThanhToan)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var item = await _thanhToanRepository.GetByIdAsync(maThanhToan);
+                if (item == null)
+                {
+                    return new ResponseDTO<ThanhToanDTO> 
+                    { 
+                        Success = false, 
+                        Message = "Không tìm thấy bản ghi", 
+                        Data = null 
+                    };
+                }
+                else
+                {
+                    return new ResponseDTO<ThanhToanDTO> 
+                    { 
+                        Success = true, 
+                        Message = "Lấy thành công", 
+                        Data = item 
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDTO<ThanhToanDTO> 
+                { 
+                    Success = false, 
+                    Message = $"Lỗi: {ex.Message}", 
+                    Data = null 
+                };
+            }
+        }
+
+        public async Task<ResponseDTO<bool>> ThanhToanPhatAsync(ThanhToanPhatDTO request)
+        {
+            try
+            {
+                var ok = await _thanhToanRepository.ThanhToanPhatAsync(request);
+                return new ResponseDTO<bool>
+                {
+                    Success = ok,
+                    Message = ok ? "Thanh toán thành công" : "Thanh toán thất bại",
+                    Data = ok
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDTO<bool> 
+                { 
+                    Success = false, 
+                    Message = $"Lỗi: {ex.Message}", 
+                    Data = false 
+                };
+            }
         }
     }
 }

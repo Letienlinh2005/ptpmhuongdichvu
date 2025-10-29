@@ -1,21 +1,15 @@
-<<<<<<< HEAD
-﻿using MyWebAPI.BLL.Services;
-=======
-<<<<<<< HEAD
 ﻿using MyWebAPI.BLL;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DAL;
-=======
-﻿using MyWebAPI.BLL.Services;
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
->>>>>>> fa682c200526312ec03954f6141e3bf1a74a6f44
 using MyWebAPI.DAL.Repositories;
+using static MyWebAPI.BLL.Services.PhatBLL;
+using static MyWebAPI.DAL.Repositories.PhatDAL;
 using static MyWebAPI.DAL.Repositories.PhieuMuonDAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? throw new InvalidOperationException("Missing ConnectionStrings:DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -36,30 +30,27 @@ builder.Services.AddScoped<ITheLoaiService, TheLoaiService>();
 builder.Services.AddScoped<IKeSachRepository>(_ => new KeSachRepository(connectionString));
 builder.Services.AddScoped<IKeSachService, KeSachService>();
 
-<<<<<<< HEAD
 builder.Services.AddScoped<IPhieuMuonRepository>(_ => new PhieuMuonRepository(connectionString));
 builder.Services.AddScoped<IPhieuMuonService, PhieuMuonService>();
 
 builder.Services.AddScoped<IBanDocRepository>(_ => new BanDocRepository(connectionString));
 builder.Services.AddScoped<IBanDocService, BanDocService>();
-=======
-<<<<<<< HEAD
+
 builder.Services.AddScoped<IDatChoStorage>(_ => new SqlDatChoStorage(connectionString));
 builder.Services.AddScoped<IDatChoService, DatChoService>();
 
-// Nếu cần thêm các module khác, mở comment và đăng ký tại đây:
 builder.Services.AddScoped<IPhieuMuonRepository>(_ => new PhieuMuonRepository(connectionString));
 builder.Services.AddScoped<IPhieuMuonService, PhieuMuonService>();
-//builder.Services.AddScoped<IBanDocRepository>(_ => new BanDocRepository(connectionString));
-//builder.Services.AddScoped<IBanDocService, BanDocService>();
-=======
-// Nếu cần thêm các module khác, mở comment và đăng ký tại đây:
-builder.Services.AddScoped<IPhieuMuonRepository>(_ => new PhieuMuonRepository(connectionString));
-builder.Services.AddScoped<IPhieuMuonService, PhieuMuonService>();
+
+builder.Services.AddScoped<IPhatRepository>(_ => new PhatRepository(connectionString));
+builder.Services.AddScoped<IPhatService, PhatService>();
+
+builder.Services.AddScoped<IThanhToanRepository>(_ => new ThanhToanRepository(connectionString));
+builder.Services.AddScoped<IThanhToanService, ThanhToanService>();
+
 builder.Services.AddScoped<IBanDocRepository>(_ => new BanDocRepository(connectionString));
 builder.Services.AddScoped<IBanDocService, BanDocService>();
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
->>>>>>> fa682c200526312ec03954f6141e3bf1a74a6f44
+
 
 var app = builder.Build();
 
@@ -72,16 +63,4 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> fa682c200526312ec03954f6141e3bf1a74a6f44
 app.Run();
-
-
-
-
-
-=======
-app.Run();
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
