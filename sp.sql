@@ -259,7 +259,7 @@ BEGIN
   BEGIN TRY
     BEGIN TRAN;
 
-<<<<<<< HEAD
+
 /* ====== INDEX cần có cho DatCho ====== */
 IF NOT EXISTS (
   SELECT 1 FROM sys.indexes
@@ -404,7 +404,7 @@ IF NOT EXISTS (SELECT 1 FROM Sach WHERE MaSach='S001')
 IF NOT EXISTS (SELECT 1 FROM BanDoc WHERE MaBanDoc='BD05')
   INSERT INTO BanDoc(MaBanDoc, SoThe, HoTen, Email, DienThoai, HanThe, TrangThaiThe, DuNo)
   VALUES('BD05','ST00000005',N'Phạm B','b@example.com','0900000005','2026-12-31',N'Hoạt động',0);
-=======
+
     DECLARE @MaBanDoc NVARCHAR(20),
             @MaSach NVARCHAR(20),
             @HanTra DATETIME,
@@ -417,7 +417,7 @@ IF NOT EXISTS (SELECT 1 FROM BanDoc WHERE MaBanDoc='BD05')
            @HanTra   = HanTra
     FROM PhieuMuon WITH (UPDLOCK, ROWLOCK)
     WHERE MaPhieuMuon = @MaPhieuMuon;
->>>>>>> e4f0c2642b00fdb8eaf11ca7e3d59ede6e6b60e4
+
 
     IF @MaBanDoc IS NULL
       THROW 50001, N'Không tìm thấy phiếu mượn.', 1;

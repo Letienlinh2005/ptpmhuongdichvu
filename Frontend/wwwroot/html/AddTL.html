@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Admin</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden; 
+        }
+
+        #Add {
+            scroll-behavior: smooth;
+            width: calc(100% - 215px);
+            height: 95vh;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+
+        #ThueSach {
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/style_AddBD.css">
+</head>
+<body>
+    <div id="ThueSach">
+        <div id="Add">
+            <div id="header">
+                <p>Thêm sách</p>
+            </div>
+            <div id="container">
+                <div id="Ma">
+                    <label for="MaBD" class="f15px pa10px">Mã thể loại</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã thể loại" name="MaBD" id="MaBD" />
+                </div>
+                <div id="the">
+                    <label for="Sothe" class="f15px pa10px">Tên thể loại</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập tên thể loại" name="Sothe" id="Sothe" />
+                </div>
+                <div id="ten">
+                    <label for="Hoten" class="f15px pa10px">Mô tả</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Mô tả" name="Hoten" id="Hoten" />
+                </div>
+                
+            </div>
+            <div id="btn-save">
+                <button id = "saveBtn" type="button">+ Thêm</button>
+            </div>
+            <div id="btn-back">
+                <button id = "goBackbtn" type="button"><i class = "ti-angle-double-left"></i>Quay lại</button>
+            </div>
+            
+            
+        </div>
+    </div>
+
+</body>
+<script>
+    document.getElementById('goBackbtn').addEventListener('click', function(){
+
+    })
+</script>
+</html>
