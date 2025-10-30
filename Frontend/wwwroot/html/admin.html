@@ -6,6 +6,7 @@
     <title>Admin</title>
     <link rel="stylesheet" href="../css/style_admin.css">
     <link rel="stylesheet" href="../font/themify-icons-font/themify-icons/themify-icons.css">
+
     <style>
         *{
             margin: 0;
@@ -52,23 +53,29 @@
         </div>
     </div>
     <script>
-        document.querySelectorAll('#list-manage li a').forEach(link => {
-            link.addEventListener('click', function () {
-                document.querySelectorAll('#list-manage li').forEach(li => li.classList.remove('active'));
-                this.parentElement.classList.add('active');
-            });
-        });
-        function loadPage(page) {
-            fetch(page)
-                .then(res => res.text())
-                .then(html => {
-                    document.getElementById('content').innerHTML = html;
-                })
-                .catch(err => {
-                    document.getElementById('content').innerHTML = "<p style='color:red'>Không tải được trang.</p>";
-                });
-        }
-    </script>
+  async function loadPage(page) {
+    try {
+      const res  = await fetch(page, { cache: 'no-store' });
+      const html = await res.text();
 
+      // 1) Nhét nội dung trang con vào khung hiển thị bên phải
+      const host = document.getElementById('content'); // đúng với Admin bạn gửi
+      host.innerHTML = html;
+
+      // 2) Gọi init sau khi DOM được gắn xong
+      setTimeout(() => {
+        // chỉ gọi khi trang con có phần Reader/bd-body (tránh gọi nhầm ở trang khác)
+        if (document.getElementById('bd-body') && window.initReaderPage) {
+          window.initReaderPage();
+        }
+      }, 0);
+    } catch (e) {
+      const host = document.getElementById('content');
+      host.innerHTML = "<p style='color:red'>Không tải được trang.</p>";
+      console.error(e);
+    }
+  }
+</script>
+    <script src="../js/app.js"></script>
 </body>
 </html>

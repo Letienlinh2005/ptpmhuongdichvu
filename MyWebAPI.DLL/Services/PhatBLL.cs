@@ -1,21 +1,17 @@
-<<<<<<< HEAD
+
 ﻿using Microsoft.Data.SqlClient;
 using MyWebAPI.DAL.Repositories;
 using MyWebAPI.DTO;
 using static MyWebAPI.DAL.Repositories.PhatDAL;
-=======
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
->>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
 namespace MyWebAPI.BLL.Services
 {
     public class PhatBLL
     {
-<<<<<<< HEAD
         public interface IPhatService
         {
             Task<List<PhatDTO>> GetAllAsync();
@@ -44,7 +40,5 @@ namespace MyWebAPI.BLL.Services
                 };
             }
         }
-=======
->>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
     }
 }

@@ -9,15 +9,8 @@ using System.Threading.Tasks;
 
 namespace MyWebAPI.DAL.Repositories
 {
-<<<<<<< HEAD
-    public class PhatDAL
-=======
-
-
 
     public class PhatDAL
-
->>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
     {
         public interface IPhatRepository
         {

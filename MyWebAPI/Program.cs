@@ -14,6 +14,7 @@ builder.Logging.AddConsole();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+
 // Swagger + bearer support
 builder.Services.AddSwaggerGen(c =>
 {

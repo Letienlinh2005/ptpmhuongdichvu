@@ -29,6 +29,7 @@
         }
     </style>
     <link rel="stylesheet" href="../css/style_Readermanagement.css">
+    
 </head>
 <body>
     <div id="ThueSach">
@@ -72,24 +73,7 @@
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>12523003</td>
-                                    <td>12523W.4</td>
-                                    <td>Phạm Huy Anh</td>
-                                    <td>phamhuyanh44@gmail.com</td>
-                                    <td>0396830322</td>
-                                    <td>22/12/2025</td>
-                                    <td>Hoạt động</td>
-                                    <td>0đ  </td>
-                                    <td>
-                                        <a class="" onclick="loadPage('FixBD.html')">Sửa</a> 
-                                        <a class="">Xoá</a>
-                                    </td>
-                                </tr>
-
-                            </tbody>
+                            <tbody id = "bd-body"></tbody>
                         </table>
                     </div>
                 </div>
@@ -97,19 +81,24 @@
         </div>
     </div>
     <script>
-        
-        
-        
-        function loadPage(page) {
-            fetch(page)
-                .then(res => res.text())
-                .then(html => {
-                    document.getElementById('Reader').innerHTML = html;
-                })
-                .catch(err => {
-                    document.getElementById('Reader').innerHTML = "<p style='color:red'>Không tải được trang.</p>";
-                });
+        async function loadPage(page) {
+            try {
+                const res = await fetch(page);
+                const html = await res.text();
+                const reader = document.getElementById('Reader');
+                reader.innerHTML = html;
+
+                // Nhường 1 vòng event loop để DOM attach xong
+                setTimeout(() => {
+                if (window.initReaderPage) window.initReaderPage();
+                }, 0);
+            } catch {
+                document.getElementById('Reader').innerHTML =
+                "<p style='color:red'>Không tải được trang.</p>";
+            }
         }
+        
     </script>
+    <script src = "../js/app.js" defer></script>
 </body>
 </html>
