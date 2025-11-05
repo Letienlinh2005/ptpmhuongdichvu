@@ -30,6 +30,7 @@
     </style>
     <link rel="stylesheet" href="../css/style_Readermanagement.css">
     
+
 </head>
 <body>
     <div id="ThueSach">
@@ -81,24 +82,34 @@
         </div>
     </div>
     <script>
-        async function loadPage(page) {
+        // hàm load trang con vào #Reader
+        window.loadPage = async function (page, afterLoadFnName) {
             try {
                 const res = await fetch(page);
+                if (!res.ok) throw new Error('HTTP ' + res.status);
                 const html = await res.text();
                 const reader = document.getElementById('Reader');
                 reader.innerHTML = html;
 
-                // Nhường 1 vòng event loop để DOM attach xong
+                // gọi init của trang con nếu có
                 setTimeout(() => {
-                if (window.initReaderPage) window.initReaderPage();
-                }, 0);
-            } catch {
+                    if (afterLoadFnName && typeof window[afterLoadFnName] === 'function') {
+                    window[afterLoadFnName]();
+                }
+            }, 0);
+            } catch (err) {
+                console.error(err);
                 document.getElementById('Reader').innerHTML =
                 "<p style='color:red'>Không tải được trang.</p>";
             }
+        };
+
+        // lưu mã bạn đọc để trang sửa đọc lại
+        function setEditBD(ma) {
+            sessionStorage.setItem('editBD', ma);
         }
-        
     </script>
-    <script src = "../js/app.js" defer></script>
+    <script src = "../js/BanDoc.js" defer></script>
+    <script src="../js/FixBD.js" defer></script>
 </body>
 </html>

@@ -53,20 +53,25 @@
         </div>
     </div>
     <script>
-  async function loadPage(page) {
+  // loadPage GLOBAL cho tất cả trang con
+  async function loadPage(page, afterLoadFnName) {
     try {
       const res  = await fetch(page, { cache: 'no-store' });
       const html = await res.text();
 
-      // 1) Nhét nội dung trang con vào khung hiển thị bên phải
-      const host = document.getElementById('content'); // đúng với Admin bạn gửi
+      const host = document.getElementById('content');
       host.innerHTML = html;
 
-      // 2) Gọi init sau khi DOM được gắn xong
+      // đợi DOM của trang con gắn xong rồi mới gọi init
       setTimeout(() => {
-        // chỉ gọi khi trang con có phần Reader/bd-body (tránh gọi nhầm ở trang khác)
-        if (document.getElementById('bd-body') && window.initReaderPage) {
+        // nếu trang con là trang danh sách bạn đọc
+        if (document.getElementById('bd-body') && typeof window.initReaderPage === 'function') {
           window.initReaderPage();
+        }
+
+        // nếu lúc gọi loadPage có truyền tên hàm init thì gọi luôn
+        if (afterLoadFnName && typeof window[afterLoadFnName] === 'function') {
+          window[afterLoadFnName]();
         }
       }, 0);
     } catch (e) {
@@ -75,7 +80,14 @@
       console.error(e);
     }
   }
+
+  // để nút Sửa ở trang con gọi được
+  function setEditBD(ma) {
+    sessionStorage.setItem('editBD', ma);
+  }
 </script>
-    <script src="../js/app.js"></script>
+    <script src="../js/FixBD.js"></script>
+
+    <script src="../js/BanDoc.js"></script>
 </body>
 </html>

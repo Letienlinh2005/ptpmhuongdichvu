@@ -1,11 +1,11 @@
 // ===== cấu hình API =====
-const API_BANDOC = 'https://localhost:7151/api/BanDoc'; // dùng http nếu chưa trust cert
+const API_BANDOC = 'https://localhost:7151/api/BanDoc'; 
 
-// ===== helpers nhỏ =====
+
 const fmtDate = (v) => {
   if (!v) return '';
   const d = new Date(v);
-  if (isNaN(d)) return v; // nếu backend trả sẵn "dd/MM/yyyy" thì giữ nguyên
+  if (isNaN(d)) return v; 
   return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
 };
 const fmtMoney = (n) => {
@@ -31,13 +31,13 @@ async function fetchBanDoc(params = {}) {
 
 // ===== render vào đúng tbody#bd-body =====
 async function renderBanDoc(params = {}) {
-  const tbody = document.getElementById('bd-body');      // <-- đúng body bạn cần
-  if (!tbody) return;                                    // phòng khi DOM chưa gắn
+  const tbody = document.getElementById('bd-body');      
+  if (!tbody) return;                                 
 
   tbody.innerHTML = `<tr><td colspan="10">Đang tải...</td></tr>`;
   try {
     let data = await fetchBanDoc(params);
-    // Nếu API trả {data:[...]} thì bóc ra
+    
     if (data && Array.isArray(data.data)) data = data.data;
 
     if (!Array.isArray(data) || data.length === 0) {
@@ -45,34 +45,39 @@ async function renderBanDoc(params = {}) {
       return;
     }
 
-    const rows = data.map((bd, i) => {
-      const ma        = bd.maBanDoc ?? bd.ma ?? bd.maBD ?? '';
-      const soThe     = bd.soThe ?? '';
-      const hoTen     = bd.hoTen ?? bd.ten ?? bd.fullName ?? '';
-      const email     = bd.email ?? '';
-      const sdt       = bd.dienThoai ?? bd.sdt ?? '';
-      const hanThe    = fmtDate(bd.hanThe ?? bd.ngayHetHan);
-      const trangThai = fmtStatus(bd.trangThaiThe ?? bd.trangThai);
-      const duNo      = fmtMoney(bd.duNo ?? bd.soTienNo ?? 0);
+  const rows = data.map((bd, i) => {
+  const ma        = bd.maBanDoc ?? bd.ma ?? bd.maBD ?? '';
+  const soThe     = bd.soThe ?? '';
+  const hoTen     = bd.hoTen ?? bd.ten ?? bd.fullName ?? '';
+  const email     = bd.email ?? '';
+  const sdt       = bd.dienThoai ?? bd.sdt ?? '';
+  const hanThe    = fmtDate(bd.hanThe ?? bd.ngayHetHan);
+  const trangThai = fmtStatus(bd.trangThaiThe ?? bd.trangThai);
+  const duNo      = fmtMoney(bd.duNo ?? bd.soTienNo ?? 0);
 
-      return `
-        <tr>
-          <td>${i + 1}</td>
-          <td>${ma}</td>
-          <td>${soThe}</td>
-          <td>${hoTen}</td>
-          <td>${email}</td>
-          <td>${sdt}</td>
-          <td>${hanThe}</td>
-          <td>${trangThai}</td>
-          <td>${duNo}</td>
-          <td>
-            <button class="btn-sm" data-act="edit"   data-id="${ma}">Sửa</button>
-            <button class="btn-sm" data-act="delete" data-id="${ma}">Xoá</button>
-          </td>
-        </tr>
-      `;
-    }).join('');
+  return `
+    <tr>
+      <td>${i + 1}</td>
+      <td>${ma}</td>
+      <td>${soThe}</td>
+      <td>${hoTen}</td>
+      <td>${email}</td>
+      <td>${sdt}</td>
+      <td>${hanThe}</td>
+      <td>${trangThai}</td>
+      <td>${duNo}</td>
+      <td>
+        <a
+          class="btn-sm btn-edit"
+          data-id="${ma}"
+          onclick="setEditBD('${ma}'); loadPage('../html/FixBD.html','initFixBD')"
+          >Sửa</a>
+        <a class="btn-sm" data-act="delete" data-id="${ma}">Xoá</a>
+      </td>
+    </tr>
+  `;
+}).join('');
+
 
     tbody.innerHTML = rows;
   } catch (e) {
@@ -103,4 +108,46 @@ window.initReaderPage = function () {
   if (btnActive)   btnActive.onclick = () => renderBanDoc({ status: 'active' });   // đổi theo API thật
   if (btnNoActive) btnNoActive.onclick = () => renderBanDoc({ status: 'inactive' });
 };
-// Bản sao
+
+// Sửa Bạn đọc 
+function getQueryID() {
+  const p = new URLSearchParams(window.location.search)
+  return p.get('id')
+}
+
+async function loadDetail(ma) {
+  const res = await fetch(`${API_BANDOC}/${encodeURIComponent(ma)}`);
+  if (!res.ok) throw new Error('Không tải đc hehehe');
+  return res.json();
+} 
+var maBD = document.getElementById('MaBD')
+var soThe = document.getElementById('Sothe')
+var hoTen = document.getElementById('Hoten')
+var Email = document.getElementById('Email')
+var sodt = document.getElementById('sodt')
+var hanthe = document.getElementById('hanthe')
+var trangThai = document.getElementById('TrangThai')
+var duNo = document.getElementById('DuNo')
+
+
+function fillForm(bd) {
+  maBD.value = bd.MaBanDoc ?? '';
+  soThe.value = bd.SoThe ?? '';
+  hoTen.value = bd.HoTen ?? '';
+  Email.value = bd.Email ?? '';
+  sodt.value = bd.DienThoai ?? '';
+  hanthe.value = (bd.HanThe || '').slice(0,10);
+  trangThai.value = bd.trangThaiThe ?? 'Active';
+  duNo.value = bd.DuNo ?? 0;
+}
+async function init() {
+  const id = getQueryId();
+  if (!id) { alert('Thiếu id bạn đọc'); return; }
+  try {
+    const data = await loadDetail(id);
+    fillForm(data);
+  } catch (e) {
+    console.error(e);
+    alert('Lỗi tải dữ liệu');
+  }
+}
