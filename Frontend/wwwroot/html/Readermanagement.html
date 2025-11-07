@@ -47,16 +47,19 @@
                         <button class="btn-fil" id="All">Tất cả</button>
                         <button class="btn-fil" id="Active">Hoạt động</button>
                         <button class="btn-fil" id="No-active">Không hoạt động</button>
-                        <button class="btn-fil" id="en" style="background-color: green; color: white; float: right; margin-left:0px; margin-right: 10px; cursor:pointer">Tìm kiếm</button>
+                        <button class="btn-fil" id="en" 
+                        style="background-color: green; color: white; float: right; margin-left:0px; margin-right: 10px; cursor:pointer">
+                        Tìm kiếm</button>
                         <input type="search" placeholder="Tìm kiếm bạn đọc" id="search-bd" />
-                    </div>
+                    </div>  
                 </div>
                 <div class="box-fil">
                     <div id="fil">
                         <p class="f13px">Danh sách bạn đọc</p>
                     </div>
                     <div id="search">
-                        <button class="btn-fil" onclick="loadPage('AddBD.html')">+ Thêm mới</button>
+                        <button class="btn-fil" onclick="loadPage('../html/AddBD.html','initAddBD')">+ Thêm mới</button>
+
                     </div>
                     <div id="title-name">
                         <table class="table table-hover table-sm">
@@ -108,8 +111,11 @@
         function setEditBD(ma) {
             sessionStorage.setItem('editBD', ma);
         }
+        
     </script>
     <script src = "../js/BanDoc.js" defer></script>
     <script src="../js/FixBD.js" defer></script>
+    <script src ="../js/AddBD.js"></script>
+
 </body>
 </html>

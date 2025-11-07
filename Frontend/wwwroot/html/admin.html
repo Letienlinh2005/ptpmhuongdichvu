@@ -53,41 +53,43 @@
         </div>
     </div>
     <script>
-  // loadPage GLOBAL cho tất cả trang con
-  async function loadPage(page, afterLoadFnName) {
-    try {
-      const res  = await fetch(page, { cache: 'no-store' });
-      const html = await res.text();
+      // loadPage GLOBAL cho tất cả trang con
+      async function loadPage(page, afterLoadFnName) {
+        try {
+          const res  = await fetch(page, { cache: 'no-store' });
+          const html = await res.text();
 
-      const host = document.getElementById('content');
-      host.innerHTML = html;
+          const host = document.getElementById('content');
+          host.innerHTML = html;
 
-      // đợi DOM của trang con gắn xong rồi mới gọi init
-      setTimeout(() => {
-        // nếu trang con là trang danh sách bạn đọc
-        if (document.getElementById('bd-body') && typeof window.initReaderPage === 'function') {
-          window.initReaderPage();
-        }
+          // đợi DOM của trang con gắn xong rồi mới gọi init
+          setTimeout(() => {
+          // nếu trang con là trang danh sách bạn đọc
+          if (document.getElementById('bd-body') && typeof window.initReaderPage === 'function') {
+            window.initReaderPage();
+          }
 
-        // nếu lúc gọi loadPage có truyền tên hàm init thì gọi luôn
-        if (afterLoadFnName && typeof window[afterLoadFnName] === 'function') {
-          window[afterLoadFnName]();
-        }
-      }, 0);
-    } catch (e) {
-      const host = document.getElementById('content');
-      host.innerHTML = "<p style='color:red'>Không tải được trang.</p>";
-      console.error(e);
+          // nếu lúc gọi loadPage có truyền tên hàm init thì gọi luôn
+          if (afterLoadFnName && typeof window[afterLoadFnName] === 'function') {
+            window[afterLoadFnName]();
+          }
+        }, 0);
+      } catch (e) {
+        const host = document.getElementById('content');
+        host.innerHTML = "<p style='color:red'>Không tải được trang.</p>";
+        console.error(e);
+      } 
     }
-  }
 
-  // để nút Sửa ở trang con gọi được
-  function setEditBD(ma) {
-    sessionStorage.setItem('editBD', ma);
-  }
-</script>
-    <script src="../js/FixBD.js"></script>
-
-    <script src="../js/BanDoc.js"></script>
+    // để nút Sửa ở trang con gọi được
+    function setEditBD(ma) {
+      sessionStorage.setItem('editBD', ma);
+    }
+    
+  </script>
+  <script src="../js/BanDoc.js"></script>
+  <script src="../js/FixBD.js"></script>
+  <script src ="../js/AddBD.js"></script>
+  <script src="../js/XoaBD.js"></script> 
 </body>
 </html>

@@ -137,9 +137,30 @@ async function saveFixBD() {
   const trangThaiVal = document.getElementById('TrangThai').value; // "1" hoặc "0"
   const duNo      = document.getElementById('DuNo').value;
 
+  // === validate cơ bản ===
   if (!maBD) {
     alert('Thiếu mã bạn đọc');
     return;
+  }
+
+  // kiểm tra email nếu có nhập
+  if (email) {
+    // regex nhẹ, đủ dùng
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Email không hợp lệ');
+      return;
+    }
+  }
+
+  // kiểm tra số điện thoại VN kiểu 10 số, cho phép 0 đầu
+  if (sodt) {
+    // ví dụ: 0xxxxxxxxx hoặc 84xxxxxxxxx bạn có thể chỉnh
+    const phoneRegex = /^0\d{9}$/; 
+    if (!phoneRegex.test(sodt)) {
+      alert('Số điện thoại phải gồm 10 số và bắt đầu bằng 0');
+      return;
+    }
   }
 
   // map 1/0 -> chuỗi đúng theo DB
@@ -161,7 +182,7 @@ async function saveFixBD() {
 
   console.log('📤 gửi lên:', payload);
 
-   try {
+  try {
     const res = await fetch(`${window.API_BANDOC}/${encodeURIComponent(maBD)}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -176,15 +197,11 @@ async function saveFixBD() {
     }
 
     alert('Lưu thành công!');
-
-    // 👇 quay lại trang danh sách
     if (typeof window.loadPage === 'function') {
       window.loadPage('../html/Readermanagement.html', 'initReaderPage');
     }
-
   } catch (err) {
     console.error(err);
     alert('Có lỗi khi gọi API');
   }
-  
 }

@@ -1,5 +1,6 @@
 // ===== cấu hình API =====
 const API_BANDOC = 'https://localhost:7151/api/BanDoc'; 
+const API = window.API_BANDOC;
 
 
 const fmtDate = (v) => {
@@ -31,13 +32,16 @@ async function fetchBanDoc(params = {}) {
 
 // ===== render vào đúng tbody#bd-body =====
 async function renderBanDoc(params = {}) {
-  const tbody = document.getElementById('bd-body');      
-  if (!tbody) return;                                 
+  const tbody = document.getElementById('bd-body');
+  if (!tbody) return;
 
   tbody.innerHTML = `<tr><td colspan="10">Đang tải...</td></tr>`;
+
   try {
-    let data = await fetchBanDoc(params);
-    
+    // luôn gọi API lấy hết
+    let data = await fetchBanDoc();  // 👈 không truyền params lên server nữa
+
+    // nếu API bọc trong .data
     if (data && Array.isArray(data.data)) data = data.data;
 
     if (!Array.isArray(data) || data.length === 0) {
@@ -45,39 +49,62 @@ async function renderBanDoc(params = {}) {
       return;
     }
 
-  const rows = data.map((bd, i) => {
-  const ma        = bd.maBanDoc ?? bd.ma ?? bd.maBD ?? '';
-  const soThe     = bd.soThe ?? '';
-  const hoTen     = bd.hoTen ?? bd.ten ?? bd.fullName ?? '';
-  const email     = bd.email ?? '';
-  const sdt       = bd.dienThoai ?? bd.sdt ?? '';
-  const hanThe    = fmtDate(bd.hanThe ?? bd.ngayHetHan);
-  const trangThai = fmtStatus(bd.trangThaiThe ?? bd.trangThai);
-  const duNo      = fmtMoney(bd.duNo ?? bd.soTienNo ?? 0);
+    // nếu có params.q thì lọc ở đây
+    if (params.q) {
+      const key = params.q.toLowerCase();
+      data = data.filter(bd => {
+        const ma    = (bd.maBanDoc ?? bd.ma ?? bd.maBD ?? '').toString().toLowerCase();
+        const soThe = (bd.soThe ?? '').toString().toLowerCase();
+        const hoTen = (bd.hoTen ?? bd.ten ?? bd.fullName ?? '').toString().toLowerCase();
+        const email = (bd.email ?? '').toString().toLowerCase();
+        const sdt   = (bd.dienThoai ?? bd.sdt ?? '').toString().toLowerCase();
+        return (
+          ma.includes(key) ||
+          soThe.includes(key) ||
+          hoTen.includes(key) ||
+          email.includes(key) ||
+          sdt.includes(key)
+        );
+      });
+    }
 
-  return `
-    <tr>
-      <td>${i + 1}</td>
-      <td>${ma}</td>
-      <td>${soThe}</td>
-      <td>${hoTen}</td>
-      <td>${email}</td>
-      <td>${sdt}</td>
-      <td>${hanThe}</td>
-      <td>${trangThai}</td>
-      <td>${duNo}</td>
-      <td>
-        <a
-          class="btn-sm btn-edit"
-          data-id="${ma}"
-          onclick="setEditBD('${ma}'); loadPage('../html/FixBD.html','initFixBD')"
-          >Sửa</a>
-        <a class="btn-sm" data-act="delete" data-id="${ma}">Xoá</a>
-      </td>
-    </tr>
-  `;
-}).join('');
+    if (data.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="10">Không có dữ liệu phù hợp</td></tr>`;
+      return;
+    }
 
+    const rows = data.map((bd, i) => {
+      const ma        = bd.maBanDoc ?? bd.ma ?? bd.maBD ?? '';
+      const soThe     = bd.soThe ?? '';
+      const hoTen     = bd.hoTen ?? bd.ten ?? bd.fullName ?? '';
+      const email     = bd.email ?? '';
+      const sdt       = bd.dienThoai ?? bd.sdt ?? '';
+      const hanThe    = fmtDate(bd.hanThe ?? bd.ngayHetHan);
+      const trangThai = fmtStatus(bd.trangThaiThe ?? bd.trangThai);
+      const duNo      = fmtMoney(bd.duNo ?? bd.soTienNo ?? 0);
+
+      return `
+        <tr>
+          <td>${i + 1}</td>
+          <td>${ma}</td>
+          <td>${soThe}</td>
+          <td>${hoTen}</td>
+          <td>${email}</td>
+          <td>${sdt}</td>
+          <td>${hanThe}</td>
+          <td>${trangThai}</td>
+          <td>${duNo}</td>
+          <td>
+            <a
+              class="btn-sm btn-edit"
+              data-id="${ma}"
+              onclick="setEditBD('${ma}'); loadPage('../html/FixBD.html','initFixBD')"
+            >Sửa</a>
+            <a class="btn-sm" data-act="delete" data-id="${ma}">Xoá</a>
+          </td>
+        </tr>
+      `;
+    }).join('');
 
     tbody.innerHTML = rows;
   } catch (e) {
@@ -86,29 +113,39 @@ async function renderBanDoc(params = {}) {
   }
 }
 
+
 // ===== gọi sau khi trang con được inject vào Admin =====
 window.initReaderPage = function () {
-  // lần đầu: tải tất cả
   renderBanDoc();
 
-  // hook tìm kiếm & filter nếu có
   const btnSearch = document.getElementById('en');
   const inpSearch = document.getElementById('search-bd');
+
   if (btnSearch && inpSearch) {
     btnSearch.onclick = () => {
       const q = inpSearch.value.trim();
-      renderBanDoc(q ? { q } : {}); // đổi key param theo API nếu cần
+      renderBanDoc(q ? { q } : {});
     };
   }
 
+  if (inpSearch) {
+    inpSearch.onkeyup = (e) => {
+      if (e.key === 'Enter') {
+        const q = inpSearch.value.trim();
+        renderBanDoc(q ? { q } : {});
+      }
+    };
+  }
+
+  // mấy nút lọc
   const btnAll = document.getElementById('All');
   const btnActive = document.getElementById('Active');
   const btnNoActive = document.getElementById('No-active');
-  if (btnAll)      btnAll.onclick = () => renderBanDoc();
-  if (btnActive)   btnActive.onclick = () => renderBanDoc({ status: 'active' });   // đổi theo API thật
+  if (btnAll)      btnAll.onclick    = () => renderBanDoc();
+  if (btnActive)   btnActive.onclick = () => renderBanDoc({ status: 'active' });
   if (btnNoActive) btnNoActive.onclick = () => renderBanDoc({ status: 'inactive' });
+  
 };
-
 // Sửa Bạn đọc 
 function getQueryID() {
   const p = new URLSearchParams(window.location.search)
