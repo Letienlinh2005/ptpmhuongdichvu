@@ -213,10 +213,6 @@ namespace MyWebAPI.BLL.Services
             }
         }
     }
-<<<<<<< HEAD
 }   
-=======
 
-}
->>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
 

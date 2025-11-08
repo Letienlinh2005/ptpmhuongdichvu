@@ -1,105 +1,81 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Tokens;
-using System.Data;
+﻿using Microsoft.AspNetCore.Mvc;
+using MyWebAPI.BLL.Services;
+using MyWebAPI.DTO;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Text.Json.Serialization;
-
+using Microsoft.IdentityModel.Tokens;
 namespace MyWebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class DangNhapController : ControllerBase
     {
-        private readonly string _connStr;
+        private readonly ITaiKhoanService _taiKhoanService;
         private readonly IConfiguration _config;
 
-        public DangNhapController(IConfiguration config)
+        public DangNhapController(ITaiKhoanService taiKhoanService, IConfiguration config)
         {
+            _taiKhoanService = taiKhoanService;
             _config = config;
-            _connStr = config.GetConnectionString("DefaultConnection")!;
         }
 
-        public record LoginDto(
-            [property: JsonPropertyName("tenDangNhap")] string TenDangNhap,
-            [property: JsonPropertyName("matKhau")] string MatKhau
-        );
-
+        // POST: api/DangNhap/login
         [HttpPost("login")]
-        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginDto req)
         {
-            if (string.IsNullOrWhiteSpace(req.TenDangNhap) || string.IsNullOrWhiteSpace(req.MatKhau))
-                return BadRequest(new { message = "Thiếu tên đăng nhập hoặc mật khẩu" });
+            if (req == null || string.IsNullOrWhiteSpace(req.TenDangNhap) || string.IsNullOrWhiteSpace(req.MatKhau))
+                return BadRequest("Thiếu thông tin đăng nhập");
 
-            using var con = new SqlConnection(_connStr);
-            await con.OpenAsync();
+            // gọi BLL để nó tự gọi SP + verify bcrypt
+            var result = await _taiKhoanService.DangNhapAsync(req.TenDangNhap, req.MatKhau);
 
-            using var cmd = new SqlCommand("sp_Login", con) { CommandType = CommandType.StoredProcedure };
-            cmd.Parameters.Add("@TenDangNhap", SqlDbType.NVarChar, 100).Value = req.TenDangNhap;
+            if (!result.Success || result.Data == null)
+                return Unauthorized(result);
 
-            using var rd = await cmd.ExecuteReaderAsync();
-            if (!await rd.ReadAsync())
-                return Unauthorized(new { message = "Sai thông tin đăng nhập" });
+            var user = result.Data;
 
-            var hashCol = rd.GetOrdinal("MatKhau");
-            var hash = rd.IsDBNull(hashCol) ? "" : rd.GetString(hashCol);
-            if (!BCrypt.Net.BCrypt.Verify(req.MatKhau, hash))
-                return Unauthorized(new { message = "Sai thông tin đăng nhập" });
+            // tạo JWT
+            var token = GenerateAccessToken(user.MaTaiKhoan, user.TenDangNhap, user.VaiTro);
 
-            var id = rd.GetString(rd.GetOrdinal("MaTaiKhoan"));
-            var role = rd.GetString(rd.GetOrdinal("VaiTro"));
-
-            var accessToken = GenerateAccessToken(id, req.TenDangNhap, role);
-
-            return Ok(new
+            return Ok(new ResponseDTO<object>
             {
-                message = "Đăng nhập thành công",
-                maTaiKhoan = id,
-                tenDangNhap = req.TenDangNhap,
-                vaiTro = role,
-                accessToken
+                Success = true,
+                Message = "Đăng nhập thành công",
+                Data = new
+                {
+                    token,
+                    user
+                }
             });
         }
 
-        // Ví dụ 1 API cần token
-        [Authorize]
-        [HttpGet("me")]
-        public IActionResult Me()
+        private string GenerateAccessToken(string maTaiKhoan, string tenDangNhap, string vaiTro)
         {
-            var uid = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var name = User.Identity?.Name;
-            var roles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value);
-            return Ok(new { uid, name, roles });
-        }
+            var key = _config["Jwt:Key"];
+            var issuer = _config["Jwt:Issuer"];
+            var audience = _config["Jwt:Audience"];
 
-        private string GenerateAccessToken(string userId, string username, string role)
-        {
-            var jwt = _config.GetSection("Jwt");
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt["Key"]!));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            if (string.IsNullOrWhiteSpace(key))
+                throw new InvalidOperationException("Thiếu Jwt:Key trong appsettings.json");
+
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, userId),
-                new Claim(JwtRegisteredClaimNames.UniqueName, username),
-                new Claim(ClaimTypes.NameIdentifier, userId),
-                new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Role, role)
+                new Claim(JwtRegisteredClaimNames.Sub, maTaiKhoan),
+                new Claim("username", tenDangNhap),
+                new Claim(ClaimTypes.Role, string.IsNullOrEmpty(vaiTro) ? "User" : vaiTro),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
-            var expires = DateTime.UtcNow.AddMinutes(double.Parse(jwt["AccessTokenMinutes"]!));
-
             var token = new JwtSecurityToken(
-                issuer: jwt["Issuer"],
-                audience: jwt["Audience"],
+                issuer: issuer,
+                audience: audience,
                 claims: claims,
-                notBefore: DateTime.UtcNow,
-                expires: expires,
-                signingCredentials: creds
+                expires: DateTime.UtcNow.AddHours(2),
+                signingCredentials: credentials
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);

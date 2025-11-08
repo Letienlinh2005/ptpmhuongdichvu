@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Admin</title>
@@ -12,7 +13,7 @@
 
         html {
             font-family: Arial, Helvetica, sans-serif;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
         #Add {
@@ -27,9 +28,18 @@
         #ThueSach {
             overflow: hidden;
         }
+        #previewImg {
+            display: none;
+            width: 160px;
+            height: auto;
+            margin: 10px;
+            border: 1px solid #ccc;
+            object-fit: cover;
+        }
     </style>
     <link rel="stylesheet" href="../css/style_AddBD.css">
 </head>
+
 <body>
     <div id="ThueSach">
         <div id="Add">
@@ -37,50 +47,130 @@
                 <p>Thêm sách</p>
             </div>
             <div id="container">
-                <div id="Ma">
-                    <label for="MaBD" class="f15px pa10px">Mã sách</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã sách" name="MaBD" id="MaBD" />
+                <div>
+                    <label class="f15px pa10px">Mã sách</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã sách" id="maSach" />
                 </div>
-                <div id="the">
-                    <label for="Sothe" class="f15px pa10px">Tiêu đề</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập tiêu đề" name="Sothe" id="Sothe" />
+                <div>
+                    <label class="f15px pa10px">Tiêu đề</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập tiêu đề" id="tieuDe" />
                 </div>
-                <div id="ten">
-                    <label for="Hoten" class="f15px pa10px">Tác giả</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập tác giả" name="Hoten" id="Hoten" />
+                <div>
+                    <label class="f15px pa10px">Tác giả</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập tác giả" id="tacGia" />
                 </div>
-                <div id="mail">
-                    <label for="Email" class="f15px pa10px">Mã thể loại</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã thể loại " name="Email" id="Email" />
+                <div>
+                    <label class="f15px pa10px">Mã thể loại</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã thể loại" id="maTheLoai" />
                 </div>
-                <div id="mail">
-                    <label for="Email" class="f15px pa10px">Năm sản xuất</label> <br />
-                    <input type="number" class="ma10px input-btn" placeholder="Nhập năm xuất bản" name="Email" id="Email" />
+                <div>
+                    <label class="f15px pa10px">Năm xuất bản</label> <br />
+                    <input type="number" class="ma10px input-btn" placeholder="Nhập năm xuất bản" id="namXuatBan" />
                 </div>
-                <div id="mail">
-                    <label for="Email" class="f15px pa10px">Ngôn ngữ</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập ngôn ngữ" name="Email" id="Email" />
+                <div>
+                    <label class="f15px pa10px">Ngôn ngữ</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập ngôn ngữ" id="ngonNgu" />
                 </div>
-                <div id="ten">
-                    <label for="Hoten" class="f15px pa10px">Tóm tắt</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Tóm tắt" name="Hoten" id="Hoten" />
+                <div>
+                    <label class="f15px pa10px">Tóm tắt</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Tóm tắt" id="tomTat" />
+                </div>
+                <div>
+                    <label class="f15px pa10px">Ảnh bìa</label> <br />
+                    <input type="file" class="ma10px input-btn" id="fileAnh" accept="image/*" />
+                </div>
+                <div>
+                    <img id="previewImg" src="" alt="Xem trước ảnh bìa">
                 </div>
             </div>
             <div id="btn-save">
-                <button id = "saveBtn" type="button">+ Thêm</button>
+                <button id="saveBtn" type="button">+ Thêm</button>
             </div>
             <div id="btn-back">
-                <button id = "goBackbtn" type="button"><i class = "ti-angle-double-left"></i>Quay lại</button>
+                <button id="goBackbtn" type="button"><i class="ti-angle-double-left"></i>Quay lại</button>
             </div>
-            
-            
+
+
         </div>
     </div>
 
 </body>
 <script>
-    document.getElementById('goBackbtn').addEventListener('click', function(){
+    const API_URL = "https://localhost:7159/api/Sach/create-with-image";
 
+    const fileInput = document.getElementById('fileAnh');
+    const previewImg = document.getElementById('previewImg');
+
+    fileInput.addEventListener('change', function () {
+        const file = this.files[0];
+        if (file) {
+            const imgURL = URL.createObjectURL(file);
+            previewImg.src = imgURL;
+            previewImg.style.display = 'block';
+        } else {
+            previewImg.src = "";
+            previewImg.style.display = 'none';
+        }
+    });
+
+document.getElementById('saveBtn').addEventListener('click', function () {
+    const maSach    = document.getElementById('maSach').value.trim();
+    const tieuDe    = document.getElementById('tieuDe').value.trim();
+    const tacGia    = document.getElementById('tacGia').value.trim();
+    const maTheLoai = document.getElementById('maTheLoai').value.trim();
+    const namXuatBan= document.getElementById('namXuatBan').value;
+    const ngonNgu   = document.getElementById('ngonNgu').value.trim();
+    const tomTat    = document.getElementById('tomTat').value.trim();
+    const file      = document.getElementById('fileAnh').files[0];
+
+    if (!tieuDe) {
+        alert("Tiêu đề không được để trống");
+        return;
+    }
+    if (!tacGia) {
+        alert("Tác giả không được để trống");
+        return;
+    }
+
+    const fd = new FormData();
+    // mấy tên này phải trùng với [FromForm] ở controller
+    fd.append("tieuDe", tieuDe);
+    fd.append("tacGia", tacGia);
+    fd.append("theLoai", maTheLoai);
+    fd.append("namXuatBan", namXuatBan);
+    fd.append("ngonNgu", ngonNgu);
+    fd.append("tomTat", tomTat);
+    if (file) {
+        fd.append("file", file);
+    }
+
+    // nếu bạn muốn gửi cả mã sách tự nhập
+    // fd.append("maSach", maSach);
+
+    fetch(API_URL, {
+        method: "POST",
+        body: fd
     })
+    .then(r => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+    })
+    .then(data => {
+        console.log(data);
+        if (data.success === false) {
+            alert(data.message || "Thêm sách thất bại");
+        } else {
+            alert("Thêm sách thành công!");
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Lỗi khi gọi API: " + err.message);
+    });
+});
+
+document.getElementById('goBackbtn').addEventListener('click', function () {
+    history.back();
+});
 </script>
 </html>

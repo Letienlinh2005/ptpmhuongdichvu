@@ -12,6 +12,10 @@ namespace MyWebAPI.BLL.Services
         Task<ResponseDTO<TaiKhoanDTO>> CreateAsync(CreateTaiKhoanRequest request);
         Task<ResponseDTO<bool>> UpdateAsync(string maTaiKhoan, UpdateTaiKhoanRequest request);
         Task<ResponseDTO<bool>> DeleteAsync(string maTaiKhoan);
+        Task<ResponseDTO<TaiKhoanDTO>> DangNhapAsync(string username, string password);
+
+
+
     }
 
     // Implementation - Class thực thi
@@ -263,6 +267,46 @@ namespace MyWebAPI.BLL.Services
                     Data = false
                 };
             }
+        }
+        public async Task<ResponseDTO<TaiKhoanDTO>> DangNhapAsync(string tenDangNhap, string matKhauNhap)
+        {
+            var tk = await _taiKhoanRepository.GetByTenDangNhapAsync(tenDangNhap);
+            if (tk == null)
+            {
+                return new ResponseDTO<TaiKhoanDTO>
+                {
+                    Success = false,
+                    Message = "Tài khoản không tồn tại",
+                    Data = null
+                };
+            }
+
+            // tk.MatKhau là bcrypt trong DB
+            // so sánh mật khẩu người dùng nhập
+            var ok = BCrypt.Net.BCrypt.Verify(matKhauNhap, tk.MatKhau);
+            if (!ok)
+            {
+                return new ResponseDTO<TaiKhoanDTO>
+                {
+                    Success = false,
+                    Message = "Sai mật khẩu",
+                    Data = null
+                };
+            }
+
+            var dto = new TaiKhoanDTO
+            {
+                MaTaiKhoan = tk.MaTaiKhoan,
+                TenDangNhap = tk.TenDangNhap,
+                VaiTro = tk.VaiTro
+            };
+
+            return new ResponseDTO<TaiKhoanDTO>
+            {
+                Success = true,
+                Message = "Đăng nhập thành công",
+                Data = dto
+            };
         }
     }
 }

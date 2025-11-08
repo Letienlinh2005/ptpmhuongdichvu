@@ -10,36 +10,40 @@ namespace MyWebAPI.DTO
     public class SachDTO
     {
         public string? MaSach { get; set; }
-        public string TenSach { get; set; } = default!;
+        public string TieuDe { get; set; } = default!;
         public string TacGia { get; set; } = default!;
         public int? NamXuatBan { get; set; }
         public string? TheLoai { get; set; }
         public string? NgonNgu { get; set; }
         public string? TomTat { get; set; }
+        public string? LienKetAnh { get; set; }
     }
 
     // DTO cho tạo mới sách
     public class CreateSachRequest
     {
         public string? MaSach { get; set; }
-        public string TenSach { get; set; } = default!;
+        public string TieuDe { get; set; } = default!;
         public string TacGia { get; set; } = default!;
         public int? NamXuatBan { get; set; }
         public string? TheLoai { get; set; }
         public string? NgonNgu { get; set; }
         public string? TomTat { get; set; }
+        public string? LienKetAnh { get; set; }
     }
 
     // DTO cho cập nhật sách
     public class UpdateSachRequest
     {
-        public string TenSach { get; set; } = default!;
+        public string TieuDe { get; set; } = default!;
         public string TacGia { get; set; } = default!;
         public int? NamXuatBan { get; set; }
         public string? TheLoai { get; set; }
         public string? NgonNgu { get; set; }
         public string? TomTat { get; set; }
+        public string? LienKetAnh { get; set; }
     }
+ 
 
     // DTO chung cho response
     public class ResponseDTO<T>

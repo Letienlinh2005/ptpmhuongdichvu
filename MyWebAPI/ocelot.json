@@ -8,7 +8,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7286
+          "Port": 7159
         }
       ],
       "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
@@ -21,7 +21,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7286
+          "Port": 7159
         }
       ],
       "Priority": 1,
@@ -36,7 +36,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7241
+          "Port": 7159
         }
       ],
       "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
@@ -49,7 +49,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7241
+          "Port": 7159
         }
       ],
       "Priority": 1,
@@ -64,7 +64,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7110
+          "Port": 7159
         }
       ],
       "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
@@ -77,7 +77,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7110
+          "Port": 7159
         }
       ],
       "Priority": 1,
@@ -92,7 +92,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7198
+          "Port": 7159
         }
       ],
       "Priority": 1,
@@ -106,7 +106,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7198
+          "Port": 7159
         }
       ],
       "Priority": 2,
@@ -121,7 +121,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7121
+          "Port": 7159
         }
       ],
       "Priority": 1,
@@ -135,12 +135,186 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7121
+          "Port": 7159
         }
       ],
       "Priority": 2,
       "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+
+    /* DatCho */
+    {
+      "UpstreamPathTemplate": "/api/datcho",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/DatCho",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+    {
+      "UpstreamPathTemplate": "/api/datcho/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/DatCho/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "Priority": 1,
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+
+    /* KeSach */
+    {
+      "UpstreamPathTemplate": "/api/kesach",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/KeSach",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+    {
+      "UpstreamPathTemplate": "/api/kesach/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/KeSach/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "Priority": 1,
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+
+    /* Phat */
+    {
+      "UpstreamPathTemplate": "/api/phat",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/Phat",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+    {
+      "UpstreamPathTemplate": "/api/phat/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/Phat/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "Priority": 1,
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+
+    /* PhieuMuon */
+    {
+      "UpstreamPathTemplate": "/api/phieumuon",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/PhieuMuon",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+    {
+      "UpstreamPathTemplate": "/api/phieumuon/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/PhieuMuon/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "Priority": 1,
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+
+    /* ThanhToan */
+    {
+      "UpstreamPathTemplate": "/api/thanhtoan",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/ThanhToan",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+    {
+      "UpstreamPathTemplate": "/api/thanhtoan/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/ThanhToan/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "Priority": 1,
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+
+    /* TheLoai */
+    {
+      "UpstreamPathTemplate": "/api/theloai",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamPathTemplate": "/api/TheLoai",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
+    },
+    {
+      "UpstreamPathTemplate": "/api/theloai/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/TheLoai/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7159
+        }
+      ],
+      "Priority": 1,
+      "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
     }
   ],
-  "GlobalConfiguration": { "BaseUrl": "https://localhost:7150" }
+  "GlobalConfiguration": { "BaseUrl": "https://localhost:7151/" }
 }

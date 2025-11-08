@@ -11,6 +11,8 @@ namespace MyWebAPI.DAL.Repositories
         Task<int> CreateAsync(CreateTaiKhoanRequest taiKhoan, string maTaiKhoan, string hashedPassword);
         Task<int> UpdateAsync(string maTaiKhoan, UpdateTaiKhoanRequest taiKhoan, string hashedPassword);
         Task<int> DeleteAsync(string maTaiKhoan);
+        Task<TaiKhoanDTO?> GetByTenDangNhapAsync(string tenDangNhap);
+
     }
 
     public class TaiKhoanRepository : ITaiKhoanRepository
@@ -105,6 +107,28 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@MaTaiKhoan", maTaiKhoan);
 
             return await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async Task<TaiKhoanDTO?> GetByTenDangNhapAsync(string tenDangNhap)
+        {
+            using var conn = new SqlConnection(_connStr);
+            using var cmd = new SqlCommand("sp_Login", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+
+            await conn.OpenAsync();
+            using var rd = await cmd.ExecuteReaderAsync();
+            if (await rd.ReadAsync())
+            {
+                return new TaiKhoanDTO
+                {
+                    MaTaiKhoan = rd["MaTaiKhoan"].ToString() ?? "",
+                    TenDangNhap = rd["TenDangNhap"].ToString() ?? "",
+                    VaiTro = rd["VaiTro"].ToString() ?? "",
+                    MatKhau = rd["MatKhau"].ToString() ?? ""   
+                };
+            }
+            return null;
         }
     }
 }

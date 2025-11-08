@@ -11,6 +11,7 @@ namespace MyWebAPI.BLL.Services
         Task<ResponseDTO<SachDTO>> CreateAsync(CreateSachRequest request);
         Task<ResponseDTO<bool>> UpdateAsync(string maSach, UpdateSachRequest request);
         Task<ResponseDTO<bool>> DeleteAsync(string maSach);
+        Task<ResponseDTO<bool>> UpdateLienKetAnhAsync(string maSach, string lienKetAnh);
     }
 
     public class SachService : ISachService
@@ -83,7 +84,7 @@ namespace MyWebAPI.BLL.Services
             try
             {
                 // Validate input
-                if (string.IsNullOrWhiteSpace(request.TenSach))
+                if (string.IsNullOrWhiteSpace(request.TieuDe))
                 {
                     return new ResponseDTO<SachDTO>
                     {
@@ -113,12 +114,13 @@ namespace MyWebAPI.BLL.Services
                     var sachDTO = new SachDTO
                     {
                         MaSach = newId,
-                        TenSach = request.TenSach,
+                        TieuDe = request.TieuDe,
                         TacGia = request.TacGia,
                         NamXuatBan = request.NamXuatBan,
                         TheLoai = request.TheLoai,
                         NgonNgu = request.NgonNgu,
-                        TomTat = request.TomTat
+                        TomTat = request.TomTat,
+                        LienKetAnh = request.LienKetAnh
                     };
 
                     return new ResponseDTO<SachDTO>
@@ -160,7 +162,7 @@ namespace MyWebAPI.BLL.Services
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(request.TenSach))
+                if (string.IsNullOrWhiteSpace(request.TieuDe))
                 {
                     return new ResponseDTO<bool>
                     {
@@ -226,6 +228,37 @@ namespace MyWebAPI.BLL.Services
                     };
                 }
 
+                return new ResponseDTO<bool>
+                {
+                    Success = false,
+                    Message = "Không tìm thấy sách",
+                    Data = false
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDTO<bool>
+                {
+                    Success = false,
+                    Message = $"Lỗi: {ex.Message}",
+                    Data = false
+                };
+            }
+        }
+        public async Task<ResponseDTO<bool>> UpdateLienKetAnhAsync(string maSach, string lienKetAnh)
+        {
+            try
+            {
+                var updated = await _sachRepository.UpdateLienKetAnhAsync(maSach, lienKetAnh);
+                if (updated)
+                {
+                    return new ResponseDTO<bool>
+                    {
+                        Success = true,
+                        Message = "Cập nhật liên kết ảnh thành công",
+                        Data = true
+                    };
+                }
                 return new ResponseDTO<bool>
                 {
                     Success = false,

@@ -32,10 +32,6 @@ namespace MyWebAPI.DTO
         public DateTime? NgayTraThucTe { get; set; }
         public int SoLanGiaHan { get; set; }
         public string TrangThai { get; set; }
-<<<<<<< HEAD
-=======
-
->>>>>>> 03c0194f215dea2f4a6e12e7c2473f2d8a6a88d2
     }
 
     public class UpdatePhieuMuonRequest

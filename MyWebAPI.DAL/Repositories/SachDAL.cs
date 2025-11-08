@@ -11,6 +11,7 @@ namespace MyWebAPI.DAL.Repositories
         Task<int> CreateAsync(CreateSachRequest sach, string maSach);
         Task<int> UpdateAsync(string maSach, UpdateSachRequest sach);
         Task<int> DeleteAsync(string maSach);
+        Task<bool> UpdateLienKetAnhAsync(string maSach, string lienKetAnh);
     }
 
     public class SachRepository : ISachRepository
@@ -36,10 +37,13 @@ namespace MyWebAPI.DAL.Repositories
                 list.Add(new SachDTO
                 {
                     MaSach = rd.GetString(0),
-                    TenSach = rd.GetString(1),
+                    TieuDe = rd.GetString(1),
                     TacGia = rd.GetString(2),
                     NamXuatBan = rd.IsDBNull(3) ? null : rd.GetInt32(3),
-                    TheLoai = rd.IsDBNull(4) ? null : rd.GetString(4)
+                    TheLoai = rd.IsDBNull(4) ? null : rd.GetString(4),
+                    NgonNgu = rd.IsDBNull(5) ? null : rd.GetString(5),
+                    TomTat = rd.IsDBNull(6) ? null : rd.GetString(6),
+                    LienKetAnh = rd.IsDBNull(7) ? null : rd.GetString(7)
                 });
             }
             return list;
@@ -59,10 +63,13 @@ namespace MyWebAPI.DAL.Repositories
                 return new SachDTO
                 {
                     MaSach = rd.GetString(0),
-                    TenSach = rd.GetString(1),
+                    TieuDe = rd.GetString(1),
                     TacGia = rd.GetString(2),
                     NamXuatBan = rd.IsDBNull(3) ? null : rd.GetInt32(3),
-                    TheLoai = rd.IsDBNull(4) ? null : rd.GetString(4)
+                    TheLoai = rd.IsDBNull(4) ? null : rd.GetString(4),
+                    NgonNgu = rd.IsDBNull(5) ? null : rd.GetString(5),
+                    TomTat = rd.IsDBNull(6) ? null : rd.GetString(6),
+                    LienKetAnh = rd.IsDBNull(7) ? null : rd.GetString(7)
                 };
             }
             return null;
@@ -76,10 +83,13 @@ namespace MyWebAPI.DAL.Repositories
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@MaSach", maSach);
-            cmd.Parameters.AddWithValue("@TieuDe", sach.TenSach);
+            cmd.Parameters.AddWithValue("@TieuDe", sach.TieuDe);
             cmd.Parameters.AddWithValue("@TacGia", sach.TacGia);
             cmd.Parameters.AddWithValue("@NamXuatBan", (object?)sach.NamXuatBan ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@MaTheLoai", (object?)sach.TheLoai ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@NgonNgu", (object?)sach.NgonNgu ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@TomTat", (object?)sach.TomTat ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@LienKetAnh", (object?)sach.LienKetAnh ?? DBNull.Value);
 
             return await cmd.ExecuteNonQueryAsync();
         }
@@ -92,10 +102,13 @@ namespace MyWebAPI.DAL.Repositories
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@MaSach", maSach);
-            cmd.Parameters.AddWithValue("@TieuDe", sach.TenSach);
+            cmd.Parameters.AddWithValue("@TieuDe", sach.TieuDe);
             cmd.Parameters.AddWithValue("@TacGia", sach.TacGia);
             cmd.Parameters.AddWithValue("@NamXuatBan", (object?)sach.NamXuatBan ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@MaTheLoai", (object?)sach.TheLoai ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@NgonNgu", (object?)sach.NgonNgu ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@TomTat", (object?)sach.TomTat ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@LienKetAnh", (object?)sach.LienKetAnh ?? DBNull.Value);
 
             return await cmd.ExecuteNonQueryAsync();
         }
@@ -109,6 +122,18 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@MaSach", maSach);
 
             return await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async Task<bool> UpdateLienKetAnhAsync(string maSach, string lienKetAnh)
+        {
+            using var con = new SqlConnection(_connStr);
+            await con.OpenAsync();
+            using var cmd = new SqlCommand("sp_UpdateSachLienKetAnh", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MaSach", maSach);
+            cmd.Parameters.AddWithValue("@LienKetAnh", lienKetAnh);
+            var rowsAffected = await cmd.ExecuteNonQueryAsync();
+            return rowsAffected > 0;
         }
     }
 }
