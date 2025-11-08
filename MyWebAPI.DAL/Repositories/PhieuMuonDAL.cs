@@ -100,6 +100,17 @@ namespace MyWebAPI.DAL.Repositories
 
                 await cmd.ExecuteNonQueryAsync();
                 return true;
+<<<<<<< HEAD
+=======
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
+                cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
+                cmd.Parameters.AddWithValue("@TrangThai", phieuMuon.TrangThai);
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
+                cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
+                cmd.Parameters.AddWithValue("@TrangThai", phieuMuon.TrangThai);
+                var rowsAffected = await cmd.ExecuteNonQueryAsync();
+                return rowsAffected >= 0;
+>>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
             }
 
             public async Task<bool> UpdateAsync(string maPhieuMuon, PhieuMuonDTO phieuMuon)
@@ -121,7 +132,17 @@ namespace MyWebAPI.DAL.Repositories
                 cmd.Parameters.AddWithValue("@TrangThai", (object?)phieuMuon.TrangThai ?? DBNull.Value);
 
                 var rows = await cmd.ExecuteNonQueryAsync();
+<<<<<<< HEAD
                 return rows > 0 || rows == -1;
+=======
+                return rows > 0 || rows == -1; 
+                cmd.Parameters.AddWithValue("@NgayTraThucTe", phieuMuon.NgayTraThucTe);
+                cmd.Parameters.AddWithValue("@NgayTraThucTe",(object?)phieuMuon.NgayTraThucTe ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@SoLanGiaHan", phieuMuon.SoLanGiaHan);
+                cmd.Parameters.AddWithValue("@TrangThai",(object?)phieuMuon.TrangThai ?? DBNull.Value);
+                var rowsAffected = await cmd.ExecuteNonQueryAsync();
+                return rowsAffected > 0;
+>>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
             }
 
             public async Task<bool> DeleteAsync(string maPhieuMuon)

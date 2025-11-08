@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
 ﻿using Microsoft.AspNetCore.Mvc;
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Data.SqlClient;
@@ -88,6 +91,7 @@ namespace MyWebAPI.Controllers
         }
     }
 }
+<<<<<<< HEAD
 ﻿//using Microsoft.AspNetCore.Http;
 //using Microsoft.AspNetCore.Mvc;
 //using System.Data;
@@ -343,3 +347,5 @@ namespace MyWebAPI.Controllers
 //    }
 //}
 
+=======
+>>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0

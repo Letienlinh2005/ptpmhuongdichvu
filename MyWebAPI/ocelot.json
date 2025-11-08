@@ -316,5 +316,10 @@
       "HttpHandlerOptions": { "DangerousAcceptAnyServerCertificateValidator": true }
     }
   ],
+<<<<<<< HEAD
   "GlobalConfiguration": { "BaseUrl": "https://localhost:7151/" }
 }
+=======
+  "GlobalConfiguration": { "BaseUrl": "https://localhost:7151" }
+}
+>>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0

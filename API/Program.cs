@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 using MyWebAPI.BLL;
+=======
+
+﻿using MyWebAPI.BLL;
+>>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DAL;
 using MyWebAPI.DAL.Repositories;
@@ -56,14 +61,21 @@ builder.Services.AddScoped<IBanDocService, BanDocService>();
 builder.Services.AddScoped<IDatChoStorage>(_ => new SqlDatChoStorage(connectionString));
 builder.Services.AddScoped<IDatChoService, DatChoService>();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
 builder.Services.AddScoped<IPhatRepository>(_ => new PhatRepository(connectionString));
 builder.Services.AddScoped<IPhatService, PhatService>();
 
 builder.Services.AddScoped<IThanhToanRepository>(_ => new ThanhToanRepository(connectionString));
 builder.Services.AddScoped<IThanhToanService, ThanhToanService>();
 
+<<<<<<< HEAD
 builder.Services.AddScoped<ISachRepository>(_ => new SachRepository(connectionString));
 builder.Services.AddScoped<ISachService, SachService> ();
+=======
+>>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
 
 var app = builder.Build();
 
@@ -84,5 +96,17 @@ app.UseCors(CorsPolicy);
 app.UseAuthorization();
 
 app.MapControllers();
+<<<<<<< HEAD
 
 app.Run(); // <-- Chỉ để 1 lần
+=======
+
+app.Run();
+
+
+app.Run();
+
+
+
+
+>>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0

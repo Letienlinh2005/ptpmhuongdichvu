@@ -29,6 +29,9 @@
         }
     </style>
     <link rel="stylesheet" href="../css/style_AddBD.css">
+    <script src="../js/FixBD.js" defer></script>
+    <script src="../js/AddBD.js" defer></script>
+
 </head>
 <body>
     <div id="ThueSach">
@@ -39,7 +42,7 @@
             <div id="container">
                 <div id="Ma">
                     <label for="MaBD" class="f15px pa10px">Mã bạn đọc</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã bạn đọc" name="MaBD" id="MaBD" />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã bạn đọc" name="MaBD" id="MaBD" readonly />
                 </div>
                 <div id="the">
                     <label for="Sothe" class="f15px pa10px">Số thẻ</label> <br />
@@ -71,7 +74,7 @@
                 </div>
                 <div id="no">
                     <label for="DuNo" class="f15px pa10px">Dư nợ</label>
-                    <input type="text" id="DuNo" name="DuNo" value="0đ" class="ma10px input-btn">
+                    <input type="number" id="DuNo" name="DuNo" value="0" class="ma10px input-btn">
                 </div>
             </div>
             <div id="btn-save">
@@ -80,9 +83,8 @@
             <div id="btn-back">
                 <button id = "goBackbtn" type="button"><i class = "ti-angle-double-left"></i>Quay lại</button>
             </div>
-
-
         </div>
     </div>
+    
 </body>
-</html>
+</html> 
