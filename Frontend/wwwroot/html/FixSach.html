@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Sửa sách</title>
@@ -39,40 +40,49 @@
     </style>
     <link rel="stylesheet" href="../css/style_AddBD.css">
 </head>
+
 <body>
     <div id="ThueSach">
         <div id="Fix">
             <div id="header">
                 <p>Sửa sách</p>
             </div>
+
+            <!-- chỗ hiện thông báo -->
+            <p id="fix-msg" style="margin: 8px 16px; color: #666;"></p>
+
             <div id="container">
                 <div>
                     <label class="f15px pa10px">Mã sách</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã sách" id="maSach" readonly />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã sách" id="MaSach" readonly />
                 </div>
                 <div>
                     <label class="f15px pa10px">Tiêu đề</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập tiêu đề" id="tieuDe" />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập tiêu đề" id="TieuDe" />
                 </div>
                 <div>
                     <label class="f15px pa10px">Tác giả</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập tác giả" id="tacGia" />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập tác giả" id="TacGia" />
                 </div>
+
                 <div>
-                    <label class="f15px pa10px">Mã thể loại</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã thể loại " id="maTheLoai" />
+                    <label class="f15px pa10px">Thể loại</label> <br />
+                    <select id="MaTheLoai" class="ma10px input-btn">
+                        <option value="">-- Chọn thể loại --</option>
+                    </select>
                 </div>
+
                 <div>
                     <label class="f15px pa10px">Năm xuất bản</label> <br />
-                    <input type="number" class="ma10px input-btn" placeholder="Nhập năm xuất bản" id="namXuatBan" />
+                    <input type="number" class="ma10px input-btn" placeholder="Nhập năm xuất bản" id="NamXuatBan" />
                 </div>
                 <div>
                     <label class="f15px pa10px">Ngôn ngữ</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập ngôn ngữ" id="ngonNgu" />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập ngôn ngữ" id="NgonNgu" />
                 </div>
                 <div>
                     <label class="f15px pa10px">Tóm tắt</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Tóm tắt" id="tomTat" />
+                    <input type="text" class="ma10px input-btn" placeholder="Tóm tắt" id="TomTat" />
                 </div>
                 <div>
                     <label class="f15px pa10px">Ảnh bìa hiện tại</label> <br />
@@ -83,6 +93,7 @@
                     <input type="file" class="ma10px input-btn" id="fileAnh" accept="image/*" />
                 </div>
             </div>
+
             <div id="btn-save">
                 <button id="saveBtn" type="button"><i class="ti-download"></i>Lưu</button>
             </div>
@@ -92,110 +103,8 @@
         </div>
     </div>
 
-    <script>
-        // ---- CONFIG API ----
-        // lấy id từ query: .../FixSach.html?id=MS01
-        const params = new URLSearchParams(window.location.search);
-        const maSachParam = params.get('id'); // bạn nhớ truyền ?id=... khi load trang
-        const API_URL_GET = "https://localhost:7159/api/Sach/";              // + maSach
-        const API_URL_UPDATE = "https://localhost:7159/api/Sach/update-with-image"; // đổi đúng tên action của bạn
-
-        const fileInput = document.getElementById('fileAnh');
-        const previewImg = document.getElementById('previewImg');
-
-        // ====== LOAD DỮ LIỆU SÁCH ======
-        if (maSachParam) {
-            fetch(API_URL_GET + maSachParam)
-                .then(r => {
-                    if (!r.ok) throw new Error("Không lấy được sách");
-                    return r.json();
-                })
-                .then(book => {
-                    // tùy theo DTO của bạn mà map
-                    document.getElementById('maSach').value = book.maSach || "";
-                    document.getElementById('tieuDe').value = book.tieuDe || "";
-                    document.getElementById('tacGia').value = book.tacGia || "";
-                    document.getElementById('maTheLoai').value = book.maTheLoai || book.theLoai || "";
-                    document.getElementById('namXuatBan').value = book.namXuatBan || "";
-                    document.getElementById('ngonNgu').value = book.ngonNgu || "";
-                    document.getElementById('tomTat').value = book.tomTat || "";
-
-                    // ảnh bìa
-                    if (book.anhBiaUrl || book.anhBia) {
-                        previewImg.src = book.anhBiaUrl || book.anhBia;
-                    } else {
-                        previewImg.src = "";
-                    }
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert("Không load được thông tin sách");
-                });
-        }
-
-        // ====== PREVIEW ẢNH MỚI ======
-        fileInput.addEventListener('change', function () {
-            const file = this.files[0];
-            if (file) {
-                const imgURL = URL.createObjectURL(file);
-                previewImg.src = imgURL;
-            }
-        });
-
-        // ====== LƯU / UPDATE ======
-        document.getElementById('saveBtn').addEventListener('click', function () {
-            const maSach    = document.getElementById('maSach').value.trim();
-            const tieuDe    = document.getElementById('tieuDe').value.trim();
-            const tacGia    = document.getElementById('tacGia').value.trim();
-            const maTheLoai = document.getElementById('maTheLoai').value.trim();
-            const namXuatBan= document.getElementById('namXuatBan').value;
-            const ngonNgu   = document.getElementById('ngonNgu').value.trim();
-            const tomTat    = document.getElementById('tomTat').value.trim();
-            const file      = document.getElementById('fileAnh').files[0];
-
-            if (!maSach) {
-                alert("Không có mã sách để sửa");
-                return;
-            }
-
-            const fd = new FormData();
-            // tên phải trùng [FromForm] bên Controller
-            fd.append("maSach", maSach);
-            fd.append("tieuDe", tieuDe);
-            fd.append("tacGia", tacGia);
-            fd.append("theLoai", maTheLoai);
-            fd.append("namXuatBan", namXuatBan);
-            fd.append("ngonNgu", ngonNgu);
-            fd.append("tomTat", tomTat);
-            if (file) {
-                fd.append("file", file); // chỉ gửi khi chọn ảnh mới
-            }
-
-            fetch(API_URL_UPDATE, {
-                method: "POST",              // hoặc "POST" nếu bạn thiết kế vậy
-                body: fd
-            })
-            .then(r => {
-                if (!r.ok) throw new Error("HTTP " + r.status);
-                return r.json();
-            })
-            .then(data => {
-                if (data.success === false) {
-                    alert(data.message || "Sửa sách thất bại");
-                } else {
-                    alert("Cập nhật sách thành công!");
-                }
-            })
-            .catch(err => {
-                console.error(err);
-                alert("Lỗi khi gọi API: " + err.message);
-            });
-        });
-
-        // ====== QUAY LẠI ======
-        document.getElementById('goBackbtn').addEventListener('click', function () {
-            history.back();
-        });
-    </script>
+    <!-- dùng JS FixSach.js bên ngoài -->
+    <script src="../js/FixSach.js"></script>
 </body>
+
 </html>

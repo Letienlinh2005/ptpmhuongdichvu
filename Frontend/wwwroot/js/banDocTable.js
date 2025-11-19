@@ -3,7 +3,7 @@
   if (!tbody) return;
 
   // Đổi URL này cho đúng nơi bạn gọi (gateway hay API trực tiếp)
-  const API_URL = 'https://localhost:7159/api/BanDoc';
+  const API_URL = 'https://localhost:7151/api/BanDoc';
   // Ví dụ nếu đi qua Ocelot: const API_URL = 'https://localhost:7053/api/bandoc';
 
   const fmtDate = (val) => {

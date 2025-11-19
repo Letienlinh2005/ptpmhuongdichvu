@@ -3,18 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
-
-=======
->>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
 namespace MyWebAPI.DTO
 {
     public class PhatDTO
     {
-<<<<<<< HEAD
-=======
-
->>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
         public string MaPhat { get; set; }
         public string MaPhieuMuon { get; set; }
         public decimal SoTien { get; set; }

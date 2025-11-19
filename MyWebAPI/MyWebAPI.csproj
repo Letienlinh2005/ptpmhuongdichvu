@@ -47,11 +47,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <None Include="wwwroot\Javascript\index.js" />
-=======
-<None Include="wwwroot\Javascript\index.js" />
->>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
+    	<None Include="wwwroot\Javascript\index.js" />
+	<None Include="wwwroot\Javascript\index.js" />
   </ItemGroup>
 
 </Project>

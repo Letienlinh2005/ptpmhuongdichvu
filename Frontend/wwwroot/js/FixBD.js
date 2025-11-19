@@ -52,7 +52,7 @@ function attachBackHandler() {
       window.loadPage('../html/Readermanagement.html', 'initReaderPage');
     } else {
       // fallback: quay lại trình duyệt
-      history.back();
+      window.history.back();
     }
   };
 }

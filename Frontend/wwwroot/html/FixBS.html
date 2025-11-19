@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Sửa bản sao</title>
     <style>
         * {
             padding: 0;
@@ -38,42 +38,46 @@
             </div>
             <div id="container">
                 <div id="Ma">
-                    <label for="MaBD" class="f15px pa10px">Mã bản sao</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã bản sao" name="MaBD" id="MaBS" />
+                    <label for="MaBS" class="f15px pa10px">Mã bản sao</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã bản sao" id="MaBS" disabled />
                 </div>
                 <div id="the">
-                    <label for="Sothe" class="f15px pa10px">Mã vạch</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập vạch" name="Sothe" id="MaVach" />
+                    <label for="MaVach" class="f15px pa10px">Mã vạch</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập vạch" id="MaVach" />
                 </div>
                 <div id="ten">
-                    <label for="Hoten" class="f15px pa10px">Mã sách</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã sách" name="Hoten" id="MaSach" />
+                    <label for="MaSach" class="f15px pa10px">Mã sách</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã sách" id="MaSach" />
                 </div>
                 <div id="mail">
-                    <label for="Email" class="f15px pa10px">Mã kệ</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã kệ" name="Email" id="MaKe" />
+                    <label for="MaKe" class="f15px pa10px">Mã kệ</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã kệ" id="MaKe" />
                 </div>
                 <div id="TT">
                     <label class="f15px pa10px">Trạng thái</label> <br />
-                    <select id="TrangThai" name="TrangThai" class="ma10px input-btn">
+                    <select id="TrangThai" class="ma10px input-btn">
                         <option value="">-- Chọn trạng thái --</option>
-                        <option value="1">Có sẵn</option>
-                        <option value="0">Đang mượn</option>
-                        <option value="0">Hư hỏng</option>
-
+                        <option value="Có sẵn">Có sẵn</option>
+                        <option value="Đang mượn">Đang mượn</option>
+                        <option value="Hư hỏng">Hư hỏng</option>
                     </select>
                 </div>
-                
             </div>
             <div id="btn-save">
-                <button id = "saveBtn" type="button"><i class = "ti-download"></i>Lưu</button>
+                <button id="saveBtn" type="button"><i class="ti-download"></i>Lưu</button>
             </div>
             <div id="btn-back">
-                <button id = "goBackbtn" type="button"><i class = "ti-angle-double-left"></i>Quay lại</button>
+                <button id="goBackbtn" type="button"><i class="ti-angle-double-left"></i>Quay lại</button>
             </div>
-
-
+            <p id="bs-fix-msg" class="f13px pa10px" style="color:red;"></p>
         </div>
     </div>
+
+    <script src="../js/FixBS.js"></script>
+    <script>
+        if (typeof window.initFixBS === 'function') {
+            window.initFixBS();
+        }
+    </script>
 </body>
 </html>

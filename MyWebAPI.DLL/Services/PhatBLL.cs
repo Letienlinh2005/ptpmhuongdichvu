@@ -8,10 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
-
-=======
->>>>>>> 2e50a061e88c396942f9de0b63b0b553660fd4f0
 namespace MyWebAPI.BLL.Services
 {
     public class PhatBLL

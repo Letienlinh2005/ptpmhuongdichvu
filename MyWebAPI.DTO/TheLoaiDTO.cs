@@ -13,7 +13,7 @@ namespace MyWebAPI.DTO
     {
         public string? MaTheLoai { get; set; }
         public string TenTheLoai { get; set; } = null!;
-        public string? MoTa { get; set; }
+        public string MoTa { get; set; }
 
     }
     public class UpdateTheLoaiRequest
