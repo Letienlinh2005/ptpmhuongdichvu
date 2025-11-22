@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
 using static MyWebAPI.BLL.Services.PhatBLL;
@@ -15,6 +16,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll() => Ok(await _service.GetAllAsync());
 
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpGet("{maPhat}")]
         public async Task<IActionResult> GetById(string maPhat)
         {
@@ -22,6 +24,7 @@ namespace API.Controllers
             return data is null ? NotFound() : Ok(data);
         }
 
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPost("TraSachVaTinhPhat")]
         public async Task<IActionResult> TraSachVaTinhPhat([FromBody] TraSachDTO dto)
         {

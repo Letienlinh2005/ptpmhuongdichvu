@@ -59,7 +59,7 @@ window.initTaiKhoanPage = function () {
     render(filtered);
   };
 
-  fetch(API_TK)
+  authFetch(API_TK)
     .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
     .then(p => {
       allAccounts = normalize(p);
@@ -88,7 +88,7 @@ window.initTaiKhoanPage = function () {
     if (btn.dataset.act === 'delete') {
       if (typeof window.deleteTK === 'function') {
         window.deleteTK(id, () => {
-          fetch(API_TK)
+          authFetch(API_TK)
             .then(r => r.json())
             .then(p => {
               allAccounts = normalize(p);

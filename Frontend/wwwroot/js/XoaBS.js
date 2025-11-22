@@ -15,7 +15,7 @@ if (!window.API_BANSAO) {
     if (!confirm(`Bạn có chắc muốn xoá bản sao "${id}" không?`)) return;
 
     try {
-      const res = await fetch(`${window.API_BANSAO}/${encodeURIComponent(id)}`, {
+      const res = await authFetch(`${window.API_BANSAO}/${encodeURIComponent(id)}`, {
         method: 'DELETE'
       });
 

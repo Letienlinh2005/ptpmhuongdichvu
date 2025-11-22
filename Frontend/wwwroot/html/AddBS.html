@@ -45,22 +45,31 @@
                     <label for="Sothe" class="f15px pa10px">Mã vạch</label> <br />
                     <input type="text" class="ma10px input-btn" placeholder="Nhập vạch" name="Sothe" id="MaVach" />
                 </div>
-                <div id="ten">
-                    <label for="Hoten" class="f15px pa10px">Mã sách</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã sách" name="Hoten" id="MaSach" />
+                <div>
+                  <label class="f15px pa10px">Sách</label><br />
+                  <!-- COMBOBOX THỂ LOẠI -->
+                  <select id="MaSach" class="ma10px input-btn">
+                    <option value="">-- Chọn sách --</option>
+                  </select>
                 </div>
-                <div id="mail">
-                    <label for="Email" class="f15px pa10px">Mã kệ</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã kệ" name="Email" id="MaKe" />
+                <div>
+                  <label class="f15px pa10px">Kệ</label><br />
+                  <!-- COMBOBOX THỂ LOẠI -->
+                  <select id="MaKe" class="ma10px input-btn">
+                    <option value="">-- Chọn Kệ --</option>
+                  </select>
                 </div>
-                <div id="TT">
-                    <label class="f15px pa10px">Trạng thái</label> <br />
-                    <select id="TrangThai" name="TrangThai" class="ma10px input-btn">
+                <div id="the">
+                    <label for="Soluong" class="f15px pa10px">Số lượng</label> <br />
+                    <input type="text" class="ma10px input-btn" placeholder="Nhập số lượng" name="Soluong" id="Soluong" />
+                </div>
+                <div>
+                  <label class="f15px pa10px">Trạng thái</label><br />
+                    <select id="TrangThai" class="ma10px input-btn">
                         <option value="">-- Chọn trạng thái --</option>
-                        <option value="1">Có sẵn</option>
-                        <option value="0">Đang mượn</option>
-                        <option value="0">Hư hỏng</option>
-
+                        <option value="Có sẵn">Có sẵn</option>
+                        <option value="Đang mượn">Đang mượn</option>
+                        <option value="Hư hỏng">Hư hỏng</option>
                     </select>
                 </div>
                 
@@ -75,7 +84,7 @@
             
         </div>
     </div>
-
+    <script src="../js/AddBS.js"></script>
 </body>
 <script>
     document.getElementById('goBackbtn').addEventListener('click', function(){

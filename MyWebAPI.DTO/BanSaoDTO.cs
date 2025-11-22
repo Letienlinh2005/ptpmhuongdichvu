@@ -12,6 +12,7 @@ namespace MyWebAPI.DTO
         public string MaVach { get; set; }
         public string MaSach { get; set; }
         public string? MaKe { get; set; }
+        public int SoLuong { get; set; }
         public string? TrangThai { get; set; }
     }
     public class CreateBanSaoRequest
@@ -19,6 +20,8 @@ namespace MyWebAPI.DTO
         public string MaVach { get; set; }
         public string MaSach { get; set; }
         public string? MaKe { get; set; }
+        public int SoLuong { get; set; }
+
         public string? TrangThai { get; set; }
     }
 
@@ -27,6 +30,8 @@ namespace MyWebAPI.DTO
         public string MaVach { get; set; }
         public string MaSach { get; set; }
         public string? MaKe { get; set; }
+        public int SoLuong { get; set; }
+
         public string? TrangThai { get; set; }
     }
 }

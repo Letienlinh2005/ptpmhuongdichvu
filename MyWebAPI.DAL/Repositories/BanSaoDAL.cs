@@ -38,7 +38,8 @@ namespace MyWebAPI.DAL.Repositories
                     MaVach = rd.GetString(1),
                     MaSach = rd.GetString(2),
                     MaKe = rd.GetString(3),
-                    TrangThai = rd.GetString(4)
+                    SoLuong = rd.GetInt32(4),
+                    TrangThai = rd.GetString(5)
                 });
             }
             return list;
@@ -59,7 +60,8 @@ namespace MyWebAPI.DAL.Repositories
                     MaVach = rd.GetString(1),
                     MaSach = rd.GetString(2),
                     MaKe = rd.GetString(3),
-                    TrangThai = rd.GetString(4)
+                    SoLuong = rd.GetInt32(4),
+                    TrangThai = rd.GetString(5)
                 };
             }
             return null;
@@ -74,6 +76,7 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@MaVach", banSao.MaVach);
             cmd.Parameters.AddWithValue("@MaSach", banSao.MaSach);
             cmd.Parameters.Add(new SqlParameter("@MaKe", SqlDbType.NVarChar, 20) { Value = (object?)banSao.MaKe ?? DBNull.Value });
+            cmd.Parameters.AddWithValue("@SoLuong", banSao.SoLuong);
             cmd.Parameters.Add(new SqlParameter("@TrangThai", SqlDbType.NVarChar, 20) { Value = (object?)banSao.TrangThai ?? DBNull.Value });
             return await cmd.ExecuteNonQueryAsync();
         }
@@ -87,6 +90,7 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@MaVach", banSao.MaVach);
             cmd.Parameters.AddWithValue("@MaSach", banSao.MaSach);
             cmd.Parameters.Add(new SqlParameter("@MaKe", SqlDbType.NVarChar, 20) { Value = (object?)banSao.MaKe ?? DBNull.Value });
+            cmd.Parameters.AddWithValue("@SoLuong", banSao.SoLuong);
             cmd.Parameters.Add(new SqlParameter("@TrangThai", SqlDbType.NVarChar, 20) { Value = (object?)banSao.TrangThai ?? DBNull.Value });
             return await cmd.ExecuteNonQueryAsync();
         }

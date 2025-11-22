@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyWebAPI.BLL;
 using MyWebAPI.DTO;
 
@@ -40,6 +41,7 @@ namespace MyWebAPI.Controllers
         }
 
         // POST api/DatCho/ready
+        [AllowAnonymous]
         [HttpPost("ready")]
         public async Task<ActionResult<string?>> SetReady(DatChoReadyRequest req)
         {
@@ -48,6 +50,7 @@ namespace MyWebAPI.Controllers
         }
 
         // POST api/DatCho/{id}/cancel
+        [AllowAnonymous]
         [HttpPost("{id}/cancel")]
         public async Task<ActionResult> Cancel(string id)
         {
@@ -57,6 +60,7 @@ namespace MyWebAPI.Controllers
         }
 
         // POST api/DatCho/expire
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPost("expire")]
         public async Task<ActionResult<int>> Expire()
         {

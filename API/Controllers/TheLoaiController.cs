@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
 
@@ -15,6 +16,7 @@ namespace API_TheLoai.Controllers
         }
 
         // GET api/theloai
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -25,6 +27,7 @@ namespace API_TheLoai.Controllers
         }
 
         // GET api/theloai/{id}
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
@@ -35,6 +38,7 @@ namespace API_TheLoai.Controllers
         }
 
         // POST api/theloai
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateTheLoaiRequest request)
         {
@@ -47,6 +51,7 @@ namespace API_TheLoai.Controllers
         }
 
         // PUT api/theloai/{id}
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateTheLoaiRequest request)
         {
@@ -59,6 +64,7 @@ namespace API_TheLoai.Controllers
         }
 
         // DELETE api/theloai/{id}
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {

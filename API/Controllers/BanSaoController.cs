@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
@@ -44,6 +45,7 @@ namespace MyWebAPI.Controllers
         }
 
         // POST api/bansao
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateBanSaoRequest request)
         {
@@ -59,6 +61,7 @@ namespace MyWebAPI.Controllers
         }
 
         // PUT api/bansao/{id}
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateBanSaoRequest request)
         {
@@ -74,6 +77,7 @@ namespace MyWebAPI.Controllers
         }
 
         // DELETE api/bansao/{id}
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {

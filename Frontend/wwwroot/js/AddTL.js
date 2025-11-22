@@ -1,44 +1,64 @@
-// ../js/AddTL.js
-const API_THE_LOAI = 'https://localhost:7151/api/theloai';
+if (!window.API_THELOAI) {
+    window.API_THELOAI = "https://localhost:7151/api/theloai";
+}
 
 window.initAddTL = function () {
-  const form = document.getElementById('form-add-tl');
-  const msg  = document.getElementById('tl-add-msg');
-  if (!form) return;
+    console.log("🔥 initAddTL() đã chạy");
 
-  form.onsubmit = async (e) => {
-    e.preventDefault();
-    msg.textContent = 'Đang lưu...';
+    const btnSave = document.getElementById("saveBtn");
+    const btnBack = document.getElementById("goBackbtn");
+    const msg = document.getElementById("tl-add-msg");
 
-    const body = {
-      maTheLoai:  document.getElementById('maTheLoai').value.trim(),
-      tenTheLoai: document.getElementById('tenTheLoai').value.trim(),
-      moTa:       document.getElementById('moTa').value.trim() || null
+    btnBack.onclick = () => {
+        window.loadPage("../html/TheLoai.html", "initTheLoaiPage");
     };
 
-    try {
-      const res = await fetch(API_THE_LOAI, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      });
-      const data = await res.json().catch(() => ({}));
+    btnSave.onclick = async () => {
+        const ma = document.getElementById("MaBD").value.trim();
+        const ten = document.getElementById("Sothe").value.trim();
 
-      if (!res.ok || data.success === false) {
-        msg.style.color = 'red';
-        msg.textContent = data.message || 'Thêm thể loại thất bại';
-        return;
-      }
+        if (!ma || !ten) {
+            msg.style.color = "red";
+            msg.textContent = "Mã và tên thể loại bắt buộc.";
+            return;
+        }
 
-      msg.style.color = 'green';
-      msg.textContent = 'Thêm thành công';
-      setTimeout(() => {
-        loadPage('../html/TheLoai.html', 'initTheLoaiPage');
-      }, 500);
-    } catch (err) {
-      console.error(err);
-      msg.style.color = 'red';
-      msg.textContent = 'Lỗi kết nối API';
-    }
-  };
+        const body = {
+            maTheLoai: ma,
+            tenTheLoai: ten,
+
+        };
+
+        msg.style.color = "black";
+        msg.textContent = "Đang gửi dữ liệu...";
+
+        try {
+            const res = await authFetch(window.API_THELOAI, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            });
+
+            const text = await res.text();
+            console.log("Kết quả API:", text);
+
+            if (!res.ok) {
+                msg.style.color = "red";
+                msg.textContent = "Thêm không thành công: " + text;
+                return;
+            }
+
+            msg.style.color = "green";
+            msg.textContent = "✔ Thêm thể loại thành công";
+
+            setTimeout(() => {
+                window.loadPage("../html/TheLoai.html", "initTheLoaiPage");
+            }, 600);
+
+        } catch (err) {
+            msg.style.color = "red";
+            msg.textContent = "❌ Lỗi kết nối API";
+            console.error(err);
+        }
+    };
 };

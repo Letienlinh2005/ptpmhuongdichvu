@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Admin</title>
+    <title>Admin - Quản lý bạn đọc</title>
     <style>
         * {
             padding: 0;
@@ -22,6 +22,7 @@
             position: fixed;
             bottom: 0;
             right: 0;
+            overflow-y: auto;
         }
 
         #ThueSach {
@@ -29,7 +30,6 @@
         }
     </style>
     <link rel="stylesheet" href="../css/style_Readermanagement.css">
-    
 </head>
 <body>
     <div id="ThueSach">
@@ -38,6 +38,7 @@
                 <p>Quản lý bạn đọc</p>
             </div>
             <div id="container">
+                <!-- Bộ lọc -->
                 <div class="box-fil">
                     <div id="fil">
                         <p class="f13px">Bộ lọc và tìm kiếm</p>
@@ -46,19 +47,21 @@
                         <button class="btn-fil" id="All">Tất cả</button>
                         <button class="btn-fil" id="Active">Hoạt động</button>
                         <button class="btn-fil" id="No-active">Không hoạt động</button>
-                        <button class="btn-fil" id="en" 
-                        style="background-color: green; color: white; float: right; margin-left:0px; margin-right: 10px; cursor:pointer">
-                        Tìm kiếm</button>
+                        <button class="btn-fil" id="en"
+                            style="background-color: green; color: white; float: right; margin-left:0px; margin-right: 10px; cursor:pointer">
+                            Tìm kiếm
+                        </button>
                         <input type="search" placeholder="Tìm kiếm bạn đọc" id="search-bd" />
-                    </div>  
+                    </div>
                 </div>
+
+                <!-- Danh sách bạn đọc -->
                 <div class="box-fil">
                     <div id="fil">
                         <p class="f13px">Danh sách bạn đọc</p>
                     </div>
                     <div id="search">
                         <button class="btn-fil" onclick="loadPage('../html/AddBD.html','initAddBD')">+ Thêm mới</button>
-
                     </div>
                     <div id="title-name">
                         <table class="table table-hover table-sm">
@@ -69,23 +72,24 @@
                                     <th>Số thẻ</th>
                                     <th>Họ tên</th>
                                     <th>Email</th>
-                                    <th>Số điện thoại</th>
+                                    <th>SĐT</th>
                                     <th>Hạn thẻ</th>
-                                    <th>Trạng thái thẻ</th>
-                                    <th>Dư nợ</th>
+                                    <th>Trạng thái</th>
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
-                            <tbody id = "bd-body"></tbody>
+                            <tbody id="bd-body"></tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- loadPage chung cho admin -->
     <script>
-        // hàm load trang con vào #Reader
         window.loadPage = async function (page, afterLoadFnName) {
+            console.log(`📄 Loading page: ${page}, callback: ${afterLoadFnName}`);
             try {
                 const res = await fetch(page);
                 if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -93,28 +97,31 @@
                 const reader = document.getElementById('Reader');
                 reader.innerHTML = html;
 
-                // gọi init của trang con nếu có
                 setTimeout(() => {
                     if (afterLoadFnName && typeof window[afterLoadFnName] === 'function') {
-                    window[afterLoadFnName]();
-                }
-            }, 0);
+                        console.log(`✅ Gọi callback: ${afterLoadFnName}()`);
+                        window[afterLoadFnName]();
+                    } else {
+                        console.warn(`⚠️ Không tìm thấy function: ${afterLoadFnName}`);
+                    }
+                }, 50);
             } catch (err) {
-                console.error(err);
+                console.error('❌ Lỗi load page:', err);
                 document.getElementById('Reader').innerHTML =
-                "<p style='color:red'>Không tải được trang.</p>";
+                    "<p style='color:red'>Không tải được trang.</p>";
             }
         };
-
-        // lưu mã bạn đọc để trang sửa đọc lại
-        function setEditBD(ma) {
-            sessionStorage.setItem('editBD', ma);
-        }
-        
     </script>
-    <script src = "../js/BanDoc.js" defer></script>
-    <script src="../js/FixBD.js" defer></script>
-    <script src ="../js/AddBD.js"></script>
 
+    <script>
+        // Tự động khởi tạo khi load trang
+        if (typeof window.initReaderPage === 'function') {
+            window.initReaderPage();
+        }
+    </script>
+
+    <!-- JS quản lý bạn đọc + xoá + thanh toán -->
+    <script src="../js/BanDoc.js" defer></script>
+    <script src="../js/XoaBD.js" defer></script>
 </body>
 </html>

@@ -84,6 +84,12 @@ namespace MyWebAPI.BLL.Services
         {
             try
             {
+                // Nếu client không truyền MaThanhToan thì tự sinh
+                if (string.IsNullOrWhiteSpace(request.MaThanhToan))
+                {
+                    request.MaThanhToan = "TT" + DateTime.Now.ToString("yyyyMMddHHmmssfff");
+                }
+
                 var ok = await _thanhToanRepository.ThanhToanPhatAsync(request);
                 return new ResponseDTO<bool>
                 {
@@ -94,13 +100,14 @@ namespace MyWebAPI.BLL.Services
             }
             catch (Exception ex)
             {
-                return new ResponseDTO<bool> 
-                { 
-                    Success = false, 
-                    Message = $"Lỗi: {ex.Message}", 
-                    Data = false 
+                return new ResponseDTO<bool>
+                {
+                    Success = false,
+                    Message = $"Lỗi: {ex.Message}",
+                    Data = false
                 };
             }
         }
+
     }
 }

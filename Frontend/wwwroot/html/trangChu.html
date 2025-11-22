@@ -3,687 +3,227 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenBoox - Thuê Sách Không Giới Hạn</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        color: #333;
-      }
-
-      /* Header */
-      header {
-        background: white;
-        padding: 15px 50px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        font-size: 28px;
-        font-weight: bold;
-      }
-
-      .logo-icon {
-        width: 50px;
-        height: 50px;
-        background: #2c3e50;
-        border-radius: 50%;
-        margin-right: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 24px;
-      }
-
-      .logo-text span:first-child {
-        color: #2c3e50;
-      }
-
-      .logo-text span:last-child {
-        color: #27ae60;
-      }
-
-      .header-right {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .search-box {
-        display: flex;
-        align-items: center;
-        background: #f5f5f5;
-        padding: 8px 15px;
-        border-radius: 25px;
-        width: 300px;
-      }
-
-      .search-box input {
-        border: none;
-        background: transparent;
-        outline: none;
-        width: 100%;
-        padding: 5px;
-      }
-
-      .btn-register {
-        background: #e67e22;
-        color: white;
-        padding: 10px 25px;
-        border-radius: 25px;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-      }
-
-      /* Navigation */
-      nav {
-        background: #34495e;
-        padding: 15px 50px;
-      }
-
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 30px;
-      }
-
-      nav a {
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-
-      nav a:hover {
-        color: #3498db;
-      }
-
-      /* Hero Section */
-      .hero {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 60px 50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: white;
-      }
-
-      .hero-content {
-        flex: 1;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-        margin-bottom: 20px;
-        line-height: 1.2;
-      }
-
-      .hero p {
-        font-size: 18px;
-        margin-bottom: 30px;
-      }
-
-      .hero-features {
-        display: flex;
-        gap: 40px;
-        margin-top: 30px;
-      }
-
-      .feature {
-        text-align: center;
-      }
-
-      .feature-title {
-        color: #e67e22;
-        font-weight: bold;
-        font-size: 16px;
-      }
-
-      .feature-desc {
-        font-size: 14px;
-      }
-
-      .hero-image {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-
-      /* Promotion Banner */
-      .promo-banner {
-        background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
-        padding: 30px 50px;
-        color: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .promo-text {
-        font-size: 32px;
-        font-weight: bold;
-      }
-
-      .promo-text small {
-        font-size: 18px;
-      }
-
-      .btn-register-now {
-        background: white;
-        color: #e67e22;
-        padding: 15px 30px;
-        border-radius: 10px;
-        border: none;
-        font-weight: bold;
-        font-size: 16px;
-        cursor: pointer;
-      }
-
-      /* Books Section */
-      .books-section {
-        padding: 50px;
-      }
-
-      .section-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-      }
-
-      .section-header h2 {
-        font-size: 28px;
-        color: #2c3e50;
-      }
-
-      .view-more {
-        color: #3498db;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .books-container {
-        position: relative;
-      }
-
-      .books-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
-        overflow-x: auto;
-      }
-
-      .book-card {
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-        cursor: pointer;
-      }
-
-      .book-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .book-cover {
-        width: 100%;
-        height: 250px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-        padding: 20px;
-      }
-
-      .book-info {
-        padding: 15px;
-      }
-
-      .book-title {
-        font-weight: bold;
-        font-size: 14px;
-        margin-bottom: 5px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .book-author {
-        color: #7f8c8d;
-        font-size: 12px;
-      }
-
-      .nav-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.9);
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        z-index: 10;
-      }
-
-      .nav-arrow.left {
-        left: -20px;
-      }
-
-      .nav-arrow.right {
-        right: -20px;
-      }
-
-      /* Info Section */
-      .info-section {
-        background: #2c3e50;
-        color: white;
-        padding: 50px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 50px;
-      }
-
-      .info-box h3 {
-        margin-bottom: 15px;
-        font-size: 18px;
-      }
-
-      .info-box p {
-        line-height: 1.6;
-        color: #bdc3c7;
-      }
-
-      /* Footer */
-      footer {
-        background: #34495e;
-        color: white;
-        padding: 40px 50px;
-      }
-
-      .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 40px;
-        margin-bottom: 30px;
-      }
-
-      .footer-column h4 {
-        margin-bottom: 15px;
-        font-size: 16px;
-      }
-
-      .footer-column ul {
-        list-style: none;
-      }
-
-      .footer-column a {
-        color: #bdc3c7;
-        text-decoration: none;
-        display: block;
-        margin-bottom: 8px;
-        transition: color 0.3s;
-      }
-
-      .footer-column a:hover {
-        color: white;
-      }
-
-      .social-icons {
-        display: flex;
-        gap: 15px;
-        margin-top: 15px;
-      }
-
-      .social-icon {
-        width: 40px;
-        height: 40px;
-        background: #3498db;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-decoration: none;
-      }
-
-      .footer-bottom {
-        border-top: 1px solid #4a5f7f;
-        padding-top: 20px;
-        font-size: 14px;
-        color: #bdc3c7;
-      }
-
-      @media (max-width: 768px) {
-        .books-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .hero {
-          flex-direction: column;
-        }
-
-        .info-section {
-          grid-template-columns: 1fr;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    <title>ThuVienXanh - Thuê Sách Online</title>
+    <link rel="stylesheet" href="../css/trangchu.css" />
   </head>
   <body>
-    <!-- Header -->
-    <header>
-      <div class="logo">
-        <div class="logo-icon">📚</div>
-        <div class="logo-text"><span>OPEN</span><span>BOOX</span></div>
-      </div>
-      <div class="header-right">
-        <div class="search-box">
-          <input type="text" placeholder="Nhập tiêu đề sách" />
-          <span>🔍</span>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-left">
+          <div class="logo">ThuVi<span>enXanh</span></div>
         </div>
-        <a href="TaiKhoan.html">
-          <button class="btn-register">Đăng nhập</button>
-        </a>
-      </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
-      <ul>
-        <li><a href="">Danh Mục Sách</a></li>
-        <li><a href="#gia-thue">Giá Thuê & Các Gói</a></li>
-        <li><a href="#cach-hoat-dong">Cách Hoạt Động</a></li>
-        <li><a href="#danh-gia">Đánh Giá</a></li>
-        <li><a href="#dang-ky">Đăng Ký</a></li>
-      </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>THUÊ SÁCH<br />KHÔNG GIỚI HẠN</h1>
-        <p>
-          Thuê sách giúp bạn tiết kiệm thời gian, tiền bạc, không gian và bảo vệ
-          môi trường!
-        </p>
-        <div class="hero-features">
-          <div class="feature">
-            <div class="feature-title">Miễn Phí</div>
-            <div class="feature-desc">Giao & Trả Sách</div>
+        <div class="header-right">
+          <div class="search-container">
+            <input type="text" placeholder="Nhập tiêu đề sách" />
+            <span class="search-icon">🔍</span>
           </div>
-          <div class="feature">
-            <div class="feature-title">Không Hạn Trả</div>
-            <div class="feature-desc">hay Phí Trễ Hạn</div>
-          </div>
-          <div class="feature">
-            <div class="feature-title">Hủy Bất Cứ</div>
-            <div class="feature-desc">Lúc Nào</div>
+          <div class="auth-buttons">
+            <div id="user-info"></div>
+            <a href="../html/DangNhap.html" class="login-btn">Đăng nhập</a>
+            <a href="../html//datcho.html" class="help-link">Trợ giúp</a>
           </div>
         </div>
       </div>
-      <div class="hero-image">
-        <div style="font-size: 120px">📖</div>
+
+      <!-- Menu -->
+      <div class="menu">
+        <a href="../html/thuesach.html">Danh Mục Sách</a>
+        <a href="../html/DatCho.html">Đặt Chỗ</a>
       </div>
-    </section>
 
-    <!-- Promotion Banner -->
-    <div class="promo-banner">
-      <div class="promo-text">
-        Giảm 50% <small>cho tất cả thành viên đăng ký gói tháng</small>
-      </div>
-      <button class="btn-register-now">Đăng Ký Ngay</button>
-      <div style="font-size: 14px">(Ưu đãi có thời hạn!)</div>
-    </div>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>THUÊ SÁCH<br />KHÔNG GIỚI HẠN</h1>
+            <p>
+              Thuê sách giúp bạn tiết kiệm thời gian, tiền bạc, không gian và bảo
+              vệ môi trường!
+            </p>
 
-    <!-- Books Section -->
-    <section class="books-section">
-      <div class="section-header">
-        <h2>Sách Được Thuê Nhiều</h2>
-        <a href="#" class="view-more">Xem Thêm ></a>
-      </div>
-      <div class="books-container">
-        <button class="nav-arrow left" onclick="scrollBooks('left')">‹</button>
-        <div class="books-grid" id="booksGrid">
-          <!-- sẽ được render bằng JS -->
-        </div>
-        <button class="nav-arrow right" onclick="scrollBooks('right')">
-          ›
-        </button>
-      </div>
-    </section>
-
-    <!-- Info Section -->
-    <section class="info-section" id="gia-thue">
-      <div class="info-box">
-        <h3>Dịch vụ thuê sách tại OpenBoox</h3>
-        <p>
-          Với dịch vụ thuê sách tại OpenBoox, bạn có thể thuê và đọc những cuốn
-          sách yêu thích mà không cần lo lắng về chi phí hay xử lý sách sau khi
-          đọc.
-        </p>
-      </div>
-      <div class="info-box" id="cach-hoat-dong">
-        <h3>Kho tàng sách phong phú</h3>
-        <p>
-          Kho tàng sách phong phú từ sách nghiên cứu, truyện thiếu nhi đến sách
-          kinh doanh hay phát triển bản thân.
-        </p>
-      </div>
-      <div class="info-box" id="danh-gia">
-        <h3>Cảm ơn OpenBoox</h3>
-        <p>
-          Cam ơn OpenBoox đã mang lại trải nghiệm độc đáo! ...
-        </p>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-grid">
-        <div class="footer-column">
-          <h4>Liên kết</h4>
-          <ul>
-            <li><a href="#">Liên Hệ Chúng Tôi</a></li>
-            <li><a href="#">Về Chúng Tôi</a></li>
-            <li><a href="#">Trợ Giúp/FAQ</a></li>
-            <li><a href="#">Blogs</a></li>
-            <li><a href="#">Affiliates</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Khác</h4>
-          <ul>
-            <li><a href="#">Duyệt Sách</a></li>
-            <li><a href="#">Chính Sách Sử Dụng</a></li>
-            <li><a href="#">Chính Sách Bảo Mật</a></li>
-            <li><a href="#">Hướng Dẫn Đặt Thuê Sách & Hủy Gói Thuê</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Đăng ký</h4>
-          <ul>
-            <li><a href="#">Thuê Sách</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Mạng Xã Hội</h4>
-          <div class="social-icons">
-            <a href="#" class="social-icon">f</a>
-            <a href="#" class="social-icon">📷</a>
-            <a href="#" class="social-icon">♪</a>
-            <a href="#" class="social-icon">💬</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p><strong>CÔNG TY TNHH OPENBOOX</strong></p>
-        <p>© 2025 OpenBoox. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <!-- upload test -->
-    <div style="padding:20px;">
-      <input type="file" id="fileInput">
-      <input type="text" id="maSachInput" placeholder="Nhập mã sách, ví dụ S001">
-      <button onclick="uploadAnh()">Upload ảnh</button>
-    </div>
-
-    <script>
-      // 2 endpoint khác port
-      const API_BASE = "https://localhost:7159";            // API phục vụ ảnh + upload
-      const API_SACH = "https://localhost:7159/api/Sach";   // API lấy danh sách sách
-
-      // gọi API lấy sách
-      fetch(API_SACH)
-        .then((res) => res.json())
-        .then((json) => {
-          if (!json.success || !Array.isArray(json.data)) {
-            console.error("API trả về không đúng dạng:", json);
-            return;
-          }
-
-          const books = json.data;
-          const grid = document.getElementById("booksGrid");
-          grid.innerHTML = "";
-
-          books.forEach((sach) => {
-            // tên field tùy API của bạn
-            const coverText = sach.tenSach || sach.tieuDe || "Sách";
-            const tacGia = sach.tacGia || "Đang cập nhật";
-            const anh = sach.lienKetAnh;
-
-            const card = document.createElement("div");
-            card.className = "book-card";
-
-            let coverHtml = "";
-            if (anh && anh.trim() !== "") {
-              // ghép domain của API chứa ảnh
-              const imgUrl = API_BASE + anh;
-              coverHtml = `
-                <div class="book-cover" style="padding:0">
-                  <img src="${imgUrl}" alt="${coverText}"
-                       style="width:100%;height:250px;object-fit:cover;border-top-left-radius:10px;border-top-right-radius:10px;">
-                </div>
-              `;
-            } else {
-              coverHtml = `
-                <div class="book-cover">
-                  ${coverText}
-                </div>
-              `;
-            }
-
-            card.innerHTML = `
-              ${coverHtml}
-              <div class="book-info">
-                <div class="book-title" title="${coverText}">${coverText}</div>
-                <div class="book-author">${tacGia}</div>
+            <div class="features">
+              <div class="feature">
+                <h3>Miễn Phí</h3>
+                <p>Giao & Trả Sách</p>
               </div>
-            `;
+              <div class="feature">
+                <h3>Không Hạn Trả</h3>
+                <p>hay Phí Trễ Hạn</p>
+              </div>
+              <div class="feature">
+                <h3>Hủy Bất Cứ</h3>
+                <p>Lúc Nào</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Người phụ nữ đọc sách"
+            />
+          </div>
+        </div>
 
-            grid.appendChild(card);
-          });
-        })
-        .catch((err) => {
-          console.error("Lỗi fetch sách:", err);
-        });
+        <!-- Promotion Banner inside Hero -->
+        <div class="promo-content">
+          <div class="promo-text">
+            <span class="discount">Giảm 50%</span>
+            <span class="description"
+              >cho tất cả thành viên đăng ký gói tháng</span
+            >
+          </div>
+          <div class="promo-cta">
+            <a href="Login.html" class="signup-btn">Đăng Ký Ngay</a>
+            <span class="promo-note">(Ưu đãi có thời hạn!)</span>
+          </div>
+        </div>
+      </section>
 
-      function scrollBooks(direction) {
-        const grid = document.getElementById("booksGrid");
-        const scrollAmount = 300;
-        if (direction === "left") {
-          grid.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-        } else {
-          grid.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        }
-      }
+      <!-- Sách Được Thuê Nhiều -->
+      <section class="books">
+        <h2>Sách Được Thuê Nhiều</h2>
+        <div class="book-list">
+          <div class="book">
+            <img
+              src="https://openboox.vn/storage/books/lam-ban-voi-bau-troi-1742036547.jpg"
+              alt="Làm bạn với bầu trời"
+            />
+              <p class="book-title">Làm bạn với bầu trời</p>
+          </div>
+          <div class="book">
+            <img
+              src="https://openboox.vn/storage/books/nhung-vu-ky-an-cua-sherlock-holmestb-1742036550.jpg"
+              alt="Những vụ kỳ án của Sherlock Holmes"
+            />
+              <p class="book-title">Những vụ kỳ án của Sherlock Holmes</p>
+          </div>
+          <div class="book">
+            <img
+              src="https://openboox.vn/storage/books/mot-doi-thuong-thuyet-tai-ban-2020-1742036693.jpg"
+              alt="Một đời thương thuyết"
+            />
+              <p class="book-title">Một Đời Thương Thuyết</p>
+          </div>
+          <div class="book">
+            <img
+              src="https://openboox.vn/storage/books/plato-va-con-thu-mo-vit-buoc-vao-quan-bartai-ban-2018-1742036974.jpg"
+              alt="Plato và con thú mỏ vịt bước vào quán bar"
+            />
+              <p class="book-title">Plato và con thú mỏ vịt bước vào quán bar...</p>
+          </div>
+        </div>
+      </section>
 
-      // Smooth scroll cho menu
-      document.querySelectorAll("nav a").forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          const href = this.getAttribute("href");
-          if (href && href.startsWith("#")) {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-              target.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        });
-      });
+      <section class="info">
+        <div class="info-divider"></div>
 
-      // upload ảnh test
-      function uploadAnh() {
-        const fileInput = document.getElementById('fileInput');
-        const maSachInput = document.getElementById('maSachInput');
+        <div class="info-grid">
+          <div class="info-col">
+            <p>
+              Với dịch vụ thuê sách tại ThuVienXanh, bạn có thể thoải mái đọc những
+              cuốn sách yêu thích mà không cần lo lắng về chi phí hay xử lý sách
+              sau khi đọc. Những đầu sách mới nhất và các tác phẩm kinh điển sẽ
+              được giao tận tay bạn một cách nhanh chóng và tiện lợi, giúp tiết
+              kiệm thời gian và công sức.
+            </p>
+          </div>
 
-        const file = fileInput.files[0];
-        const maSach = maSachInput.value.trim();
+          <div class="info-col">
+            <p>
+              Kho tàng sách phong phú từ sách văn học, thiếu nhi đến sách kinh
+              doanh hay phát triển bản thân, tất cả đều sẵn sàng phục vụ bạn. Đặc
+              biệt, dịch vụ giao và trả sách miễn phí, không giới hạn thời gian trả
+              sách, và dễ dàng hủy bất cứ lúc nào giúp người Việt tiếp cận sách
+              một cách dễ dàng hơn.
+            </p>
+          </div>
 
-        if (!file) {
-          alert("Chọn ảnh trước đã");
-          return;
-        }
-        if (!maSach) {
-          alert("Nhập mã sách để lưu vào DB");
-          return;
-        }
+          <div class="info-col">
+            <p>
+              Cảm ơn ThuVienXanh đã mang lại trải nghiệm tuyệt vời! Tôi đã giới thiệu
+              dịch vụ này cho bạn bè, người thân và đồng nghiệp. Việc tiếp cận
+              những cuốn sách yêu thích trở nên dễ dàng hơn bao giờ hết. – Khách
+              hàng tại Hồ Chí Minh
+            </p>
+          </div>
+        </div>
+      </section>
+      <!--FOOTER-->
+      <footer class="site-footer">
+        <div class="ft-container">
+          <!-- Col 1: Brand -->
+          <div class="ft-col">
+            <a href="/" class="ft-brand">
+              <span>ThuVienXanh</span>
+            </a>
+            <p class="ft-desc">
+              Thuê sách nhanh – rẻ – tiện. Hơn 10.000 tựa sách được cập nhật liên tục.
+            </p>
+            <div class="ft-socials">
+              <a href="#" aria-label="Facebook" class="ft-social" title="Facebook">
+                <!-- FB SVG -->
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12.06C22 6.49 17.52 2 11.94 2 6.37 2 1.88 6.49 1.88 12.06c0 4.99 3.64 9.14 8.4 9.95v-7.04H7.9v-2.9h2.38V9.67c0-2.35 1.4-3.65 3.54-3.65 1.02 0 2.08.18 2.08.18v2.28h-1.17c-1.15 0-1.51.72-1.51 1.46v1.75h2.57l-.41 2.9h-2.16V22c4.76-.81 8.4-4.96 8.4-9.94Z"/></svg>
+              </a>
+              <a href="#" aria-label="YouTube" class="ft-social" title="YouTube">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.3.6 9.3.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.6-5.8ZM9.8 15.4V8.6L15.8 12l-6 3.4Z"/></svg>
+              </a>
+              <a href="#" aria-label="TikTok" class="ft-social" title="TikTok">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21 8.1c-2 0-4-1-5.2-2.6V18a6 6 0 1 1-6-6c.3 0 .6 0 .9.1v3.2A2.9 2.9 0 0 0 9 15a3 3 0 1 0 3 3V3h3a6.5 6.5 0 0 0 6 3v2.1Z"/></svg>
+              </a>
+            </div>
+          </div>
 
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("maSach", maSach);
+          <!-- Col 2: Danh mục -->
+          <div class="ft-col">
+            <h4>Danh mục</h4>
+            <ul class="ft-links">
+              <li><a href="#">Sách mới</a></li>
+              <li><a href="#">Bán chạy</a></li>
+              <li><a href="#">Thiếu nhi</a></li>
+              <li><a href="#">Kinh tế</a></li>
+              <li><a href="#">Kỹ năng sống</a></li>
+            </ul>
+          </div>
 
-        fetch(API_BASE + "/api/Sach/upload", {
-          method: "POST",
-          body: formData
-        })
-        .then(res => {
-          if (!res.ok) throw new Error("HTTP " + res.status);
-          return res.json();
-        })
-        .then(data => {
-          console.log(data);
-          if (data.success) {
-            alert("Upload OK: " + data.url);
+          <!-- Col 3: Chính sách/Hỗ trợ -->
+          <div class="ft-col">
+            <h4>Hỗ trợ</h4>
+            <ul class="ft-links">
+              <li><a href="#">Hướng dẫn thuê sách</a></li>
+              <li><a href="#">Chính sách đổi trả</a></li>
+              <li><a href="#">Bảo mật &amp; điều khoản</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+              <li><a href="#">Liên hệ hỗ trợ</a></li>
+            </ul>
+          </div>
 
-            const img = document.createElement("img");
-            img.src = API_BASE + data.url;   // quan trọng
-            img.style.width = "200px";
-            img.style.display = "block";
-            document.body.appendChild(img);
-          } else {
-            alert("Upload lỗi: " + (data.message || ""));
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          alert("Lỗi upload: " + err.message);
-        });
-      }
-    </script>
+          <!-- Col 4: Newsletter + Liên hệ -->
+          <div class="ft-col">
+            <h4>Nhận ưu đãi mỗi tuần</h4>
+            <form class="ft-newsletter" onsubmit="event.preventDefault(); alert('Đã đăng ký nhận tin!');">
+              <input type="email" placeholder="Nhập email của bạn" required />
+              <button type="submit">Đăng ký</button>
+            </form>
+            <ul class="ft-contact">
+              <li><span>Hotline:</span> 1900 0123</li>
+              <li><span>Email:</span> support@ThuVienXanh.vn</li>
+              <li><span>Địa chỉ:</span>Hưng Yên</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ft-bottom">
+          <p>© 2025 ThuVienXanh – All rights reserved.</p>
+          <div class="ft-pay">
+            <!-- Bạn có thể thay ảnh thật của cổng thanh toán -->
+            <span class="ft-paychip">VISA</span>
+            <span class="ft-paychip">Mastercard</span>
+            <span class="ft-paychip">Momo</span>
+            <span class="ft-paychip">ZaloPay</span>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

@@ -44,4 +44,18 @@ namespace MyWebAPI.DTO
         public int SoLanGiaHan { get; set; }
         public string TrangThai { get; set; }
     }
+
+    public class TraSachVaTinhPhatRequest
+    {
+        public string MaPhieuMuon { get; set; } = default!;
+        public DateTime NgayTraThucTe { get; set; }
+    }
+
+    public class TraSachVaTinhPhatResultDTO
+    {
+        public PhieuMuonDTO? PhieuMuon { get; set; }
+        public int SoNgayTre { get; set; }
+        public decimal TienPhat { get; set; }
+        public string? MaPhat { get; set; }   // null nếu không bị phạt
+    }
 }

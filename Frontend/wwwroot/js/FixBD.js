@@ -15,7 +15,7 @@ window.initFixBD = async function () {
   }
 
   try {
-    const res = await fetch(`${window.API_BANDOC}/${encodeURIComponent(id)}`, {
+    const res = await authFetch(`${window.API_BANDOC}/${encodeURIComponent(id)}`, {
       cache: 'no-store'
     });
     if (!res.ok) {

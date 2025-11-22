@@ -14,7 +14,7 @@ namespace MyWebAPI.BLL.Services
         Task<ResponseDTO<bool>> DeleteAsync(string maTaiKhoan);
         Task<ResponseDTO<TaiKhoanDTO>> DangNhapAsync(string username, string password);
 
-
+        Task<ResponseDTO<TaiKhoanDTO>> TaoTaiKhoanBanDoc(TaoTaiKhoanBanDoc request);
 
     }
 
@@ -27,7 +27,7 @@ namespace MyWebAPI.BLL.Services
         {
             _taiKhoanRepository = taiKhoanRepository;
         }
-
+        
         public async Task<ResponseDTO<List<TaiKhoanDTO>>> GetAllAsync()
         {
             try
@@ -131,7 +131,8 @@ namespace MyWebAPI.BLL.Services
                         MaTaiKhoan = newId,
                         TenDangNhap = request.TenDangNhap,
                         MatKhau = hashedPassword,
-                        VaiTro = request.VaiTro
+                        VaiTro = request.VaiTro,
+                        MaBanDoc = request.MaBanDoc
                     };
 
                     return new ResponseDTO<TaiKhoanDTO>
@@ -281,8 +282,6 @@ namespace MyWebAPI.BLL.Services
                 };
             }
 
-            // tk.MatKhau là bcrypt trong DB
-            // so sánh mật khẩu người dùng nhập
             var ok = BCrypt.Net.BCrypt.Verify(matKhauNhap, tk.MatKhau);
             if (!ok)
             {
@@ -298,7 +297,8 @@ namespace MyWebAPI.BLL.Services
             {
                 MaTaiKhoan = tk.MaTaiKhoan,
                 TenDangNhap = tk.TenDangNhap,
-                VaiTro = tk.VaiTro
+                VaiTro = tk.VaiTro,
+                MaBanDoc = tk.MaBanDoc
             };
 
             return new ResponseDTO<TaiKhoanDTO>
@@ -307,6 +307,86 @@ namespace MyWebAPI.BLL.Services
                 Message = "Đăng nhập thành công",
                 Data = dto
             };
+        }
+        public async Task<ResponseDTO<TaiKhoanDTO>> TaoTaiKhoanBanDoc(TaoTaiKhoanBanDoc request)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(request.HoTen))
+                {
+                    return new ResponseDTO<TaiKhoanDTO>
+                    {
+                        Success = false,
+                        Message = "Thiếu họ tên",
+                        Data = null
+                    };
+                }
+
+                if (string.IsNullOrWhiteSpace(request.Email))
+                {
+                    return new ResponseDTO<TaiKhoanDTO>
+                    {
+                        Success = false,
+                        Message = "Thiếu email",
+                        Data = null
+                    };
+                }
+
+                if (string.IsNullOrWhiteSpace(request.MatKhau) || request.MatKhau.Length < 6)
+                {
+                    return new ResponseDTO<TaiKhoanDTO>
+                    {
+                        Success = false,
+                        Message = "Mật khẩu phải có ít nhất 6 ký tự",
+                        Data = null
+                    };
+                }
+
+                var hoTen = request.HoTen.Trim();
+                var email = request.Email.Trim();
+                var dienThoai = request.DienThoai?.Trim() ?? "";
+
+                // hash mật khẩu
+                var hashed = BCrypt.Net.BCrypt.HashPassword(request.MatKhau, 10);
+
+                // gọi repository
+                var tk = await _taiKhoanRepository.RegisterReaderAsync(hoTen, email, dienThoai, hashed);
+
+                if (tk == null)
+                {
+                    return new ResponseDTO<TaiKhoanDTO>
+                    {
+                        Success = false,
+                        Message = "Không tạo được tài khoản bạn đọc",
+                        Data = null
+                    };
+                }
+
+                return new ResponseDTO<TaiKhoanDTO>
+                {
+                    Success = true,
+                    Message = "Tạo tài khoản bạn đọc thành công",
+                    Data = tk
+                };
+            }
+            catch (SqlException ex)
+            {
+                return new ResponseDTO<TaiKhoanDTO>
+                {
+                    Success = false,
+                    Message = "Lỗi database: " + ex.Message,
+                    Data = null
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDTO<TaiKhoanDTO>
+                {
+                    Success = false,
+                    Message = "Lỗi: " + ex.Message,
+                    Data = null
+                };
+            }
         }
     }
 }

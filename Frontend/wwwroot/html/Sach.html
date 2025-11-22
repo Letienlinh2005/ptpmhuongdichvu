@@ -22,6 +22,9 @@
             position: fixed;
             bottom: 0;
             right: 0;
+
+            overflow-y: auto;   /* cho phép cuộn dọc bên trong panel sách */
+            overflow-x: hidden;
         }
 
         #ThueSach {
@@ -68,10 +71,11 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
+                                    <th>Ảnh bìa</th>
                                     <th>Mã sách</th>
                                     <th>Tiêu đề</th>
-                                    <th>Tác giả</th>
                                     <th>Mã thể loại</th>
+                                    <th>Tác giả</th>
                                     <th>Năm xuất bản</th>
                                     <th>Ngôn ngữ</th>
                                     <th>Tóm tắt</th>

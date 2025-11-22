@@ -104,7 +104,7 @@ namespace MyWebAPI.BLL.Services
                     };
                 }
 
-                
+
                 var newId = request.MaSach ?? "S" + Guid.NewGuid().ToString("N")[..7].ToUpper();
 
                 var rows = await _sachRepository.CreateAsync(request, newId);
@@ -117,10 +117,11 @@ namespace MyWebAPI.BLL.Services
                         TieuDe = request.TieuDe,
                         TacGia = request.TacGia,
                         NamXuatBan = request.NamXuatBan,
+                        MaTheLoai = request.MaTheLoai,  // ← THÊM DÒNG NÀY
                         TheLoai = request.TheLoai,
                         NgonNgu = request.NgonNgu,
                         TomTat = request.TomTat,
-                        LienKetAnh = request.LienKetAnh
+                        AnhBiaUrl = request.AnhBiaUrl
                     };
 
                     return new ResponseDTO<SachDTO>

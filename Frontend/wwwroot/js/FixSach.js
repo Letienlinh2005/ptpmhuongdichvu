@@ -96,14 +96,53 @@ function fillFixSachForm(sach) {
     else previewImg.src = '';
   }
 
-  // preview ảnh mới
+  // ====== CHỌN ẢNH MỚI: PREVIEW + UPLOAD LÊN API/SACH/UPLOAD ======
   const fileInput = document.getElementById('fileAnh');
   if (fileInput && previewImg) {
-    fileInput.onchange = function () {
+    fileInput.onchange = async function () {
       const file = this.files[0];
-      if (file) {
-        const url = URL.createObjectURL(file);
-        previewImg.src = url;
+      if (!file) return;
+
+      // preview tạm bằng blob:
+      const blobUrl = URL.createObjectURL(file);
+      previewImg.src = blobUrl;
+
+      const maSachInput = getEl('MaSach', 'maSach');
+      const maSachVal = maSachInput?.value.trim();
+      if (!maSachVal) {
+        alert('Thiếu mã sách, không thể upload ảnh');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('MaSach', maSachVal);
+      formData.append('File', file);
+
+      try {
+        const res = await authFetch(`${window.API_SACH}/upload`, {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || data.success === false) {
+          console.error('Upload ảnh lỗi:', data);
+          alert(data.message || 'Upload ảnh thất bại');
+          return;
+        }
+
+        // server trả url thật, ví dụ: /images/sach/xxx.jpg
+        const fileUrl = data.url || data.Url || '';
+        if (fileUrl) {
+          previewImg.src = fileUrl;                    // dùng URL thật
+          const lkEl = getEl('LienKetAnh', 'lienKetAnh');
+          if (lkEl) lkEl.value = fileUrl;              // lưu vào input để lần sau load lại vẫn có
+        }
+
+      } catch (err) {
+        console.error(err);
+        alert('Có lỗi khi upload ảnh');
       }
     };
   }
@@ -167,6 +206,7 @@ async function saveFixSach() {
     return;
   }
 
+  // KHÔNG gửi LienKetAnh = null nữa
   const payload = {
     MaSach:     maSach,
     TieuDe:     tieuDe,
@@ -174,9 +214,13 @@ async function saveFixSach() {
     MaTheLoai:  maTheLoai || null,
     NamXuatBan: namXBVal ? Number(namXBVal) : null,
     NgonNgu:    ngonNgu || null,
-    TomTat:     tomTat || null,
-    LienKetAnh: lienAnh || null
+    TomTat:     tomTat || null
+    // LienKetAnh sẽ thêm bên dưới nếu có
   };
+
+  if (lienAnh) {
+    payload.LienKetAnh = lienAnh;  // chỉ gửi khi có link, tránh xóa ảnh cũ
+  }
 
   console.log('📤 gửi lên (Sách):', payload);
 
@@ -191,7 +235,7 @@ async function saveFixSach() {
   };
 
   try {
-    const res = await fetch(`${window.API_SACH}/${encodeURIComponent(maSach)}`, {
+    const res = await authFetch(`${window.API_SACH}/${encodeURIComponent(maSach)}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -231,7 +275,7 @@ window.initFixSach = async function () {
 
   try {
     // 1) load sách
-    const res = await fetch(`${window.API_SACH}/${encodeURIComponent(id)}`, {
+    const res = await authFetch(`${window.API_SACH}/${encodeURIComponent(id)}`, {
       cache: 'no-store'
     });
     if (!res.ok) {
@@ -256,8 +300,7 @@ window.initFixSach = async function () {
     // cố gắng suy ra mã TL hiện tại
     const maTL =
       sach.MaTheLoai  ?? sach.maTheLoai ??
-      sach.TheLoai    ?? sach.theLoai   ?? // nếu backend trả TheLoai = MaTheLoai
-      '';
+      sach.TheLoai    ?? sach.theLoai   ?? '';
 
     bindTheLoaiOptions(dsTheLoai, maTL);
 
@@ -269,5 +312,3 @@ window.initFixSach = async function () {
     alert('Lỗi tải dữ liệu sách');
   }
 };
-
-

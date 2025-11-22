@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.IdentityModel.Tokens;
 namespace MyWebAPI.Controllers
 {
     [ApiController]
@@ -21,6 +22,7 @@ namespace MyWebAPI.Controllers
         }
 
         // POST: api/DangNhap/login
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto req)
         {
@@ -36,7 +38,7 @@ namespace MyWebAPI.Controllers
             var user = result.Data;
 
             // tạo JWT
-            var token = GenerateAccessToken(user.MaTaiKhoan, user.TenDangNhap, user.VaiTro);
+            var token = GenerateAccessToken(user.MaTaiKhoan, user.TenDangNhap, user.VaiTro, user.MaBanDoc);
 
             return Ok(new ResponseDTO<object>
             {
@@ -49,15 +51,36 @@ namespace MyWebAPI.Controllers
                 }
             });
         }
+        [HttpPost("register-reader")]
+        public async Task<IActionResult> RegisterReader([FromBody] TaoTaiKhoanBanDoc req)
+        {
+            if (req == null
+                || string.IsNullOrWhiteSpace(req.HoTen)
+                || string.IsNullOrWhiteSpace(req.Email)
+                || string.IsNullOrWhiteSpace(req.DienThoai)
+                || string.IsNullOrWhiteSpace(req.MatKhau))
+            {
+                return BadRequest(new ResponseDTO<object>
+                {
+                    Success = false,
+                    Message = "Thiếu thông tin đăng ký."
+                });
+            }
 
-        private string GenerateAccessToken(string maTaiKhoan, string tenDangNhap, string vaiTro)
+            var result = await _taiKhoanService.TaoTaiKhoanBanDoc(req);
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+        private string GenerateAccessToken(string maTaiKhoan, string tenDangNhap, string vaiTro, string? maBanDoc)
         {
             var key = _config["Jwt:Key"];
             var issuer = _config["Jwt:Issuer"];
             var audience = _config["Jwt:Audience"];
-
-            if (string.IsNullOrWhiteSpace(key))
-                throw new InvalidOperationException("Thiếu Jwt:Key trong appsettings.json");
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -70,6 +93,11 @@ namespace MyWebAPI.Controllers
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
+            if (!string.IsNullOrWhiteSpace(maBanDoc))
+            {
+                claims.Add(new Claim("maBanDoc", maBanDoc));
+            }
+
             var token = new JwtSecurityToken(
                 issuer: issuer,
                 audience: audience,
@@ -80,5 +108,6 @@ namespace MyWebAPI.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
     }
 }

@@ -34,35 +34,35 @@
     <div id="ThueSach">
         <div id="Add">
             <div id="header">
-                <p>Thêm sách</p>
+                <p>Thêm thể loại</p>
             </div>
             <div id="container">
                 <div id="Ma">
-                    <label for="MaBD" class="f15px pa10px">Mã thể loại</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập mã thể loại" name="MaBD" id="MaBD" />
+                    <label class="f15px pa10px">Mã thể loại</label> <br />
+                    <input type="text" class="ma10px input-btn"
+                           placeholder="Nhập mã thể loại"
+                           id="MaBD" />
                 </div>
                 <div id="the">
-                    <label for="Sothe" class="f15px pa10px">Tên thể loại</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Nhập tên thể loại" name="Sothe" id="Sothe" />
+                    <label class="f15px pa10px">Tên thể loại</label> <br />
+                    <input type="text" class="ma10px input-btn"
+                           placeholder="Nhập tên thể loại"
+                           id="Sothe" />
                 </div>
-                <div id="ten">
-                    <label for="Hoten" class="f15px pa10px">Mô tả</label> <br />
-                    <input type="text" class="ma10px input-btn" placeholder="Mô tả" name="Hoten" id="Hoten" />
-                </div>
+                <!-- Thêm dòng này để AddTL.js dùng -->
+                <p id="tl-add-msg" style="margin-top:8px; font-size:13px;"></p>
             </div>
             <div id="btn-save">
-                <button id = "saveBtn" type="button">+ Thêm</button>
+                <button id="saveBtn" type="button">+ Thêm</button>
             </div>
             <div id="btn-back">
-                <button id = "goBackbtn" type="button"><i class = "ti-angle-double-left"></i>Quay lại</button>
+                <button id="goBackbtn" type="button">
+                    <i class="ti-angle-double-left"></i>Quay lại
+                </button>
             </div>
         </div>
     </div>
-
+    
+    <script src="../js/AddTL.js" defer></script>
 </body>
-<script>
-    document.getElementById('goBackbtn').addEventListener('click', function(){
-
-    })
-</script>
 </html>

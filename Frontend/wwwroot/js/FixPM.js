@@ -14,7 +14,7 @@ window.initFixPM = async function () {
 
   // load dữ liệu
   try {
-    const res  = await fetch(`${API_PHIEU_MUON}/${encodeURIComponent(id)}`);
+    const res  = await authFetch(`${API_PHIEU_MUON}/${encodeURIComponent(id)}`);
     const data = await res.json();
     const pm   = data.data || data;
 

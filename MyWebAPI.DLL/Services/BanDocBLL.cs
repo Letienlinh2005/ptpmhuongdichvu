@@ -13,6 +13,7 @@ namespace MyWebAPI.BLL.Services
         Task<ResponseDTO<BanDocDTO>> CreateAsync(CreateBanDocRequest request);
         Task<ResponseDTO<bool>> UpdateAsync(string maBanDoc, UpdateBanDocRequest request);
         Task<ResponseDTO<bool>> DeleteAsync(string maBanDoc);
+        Task<ResponseDTO<bool>> UpdateThongTinBanDocAsync(UpdateThongTinBanDocDto req);
     }
 
     // Implementation - Class thực thi
@@ -362,6 +363,41 @@ namespace MyWebAPI.BLL.Services
 
             // Check if it's 10 or 11 digits
             return Regex.IsMatch(phone, @"^\d{10,11}$");
+        }
+        public async Task<ResponseDTO<bool>> UpdateThongTinBanDocAsync(UpdateThongTinBanDocDto req)
+        {
+            try
+            {
+                var rows = await _banDocRepository.UpdateThongTinBanDocAsync(
+                    req.MaBanDoc, req.HoTen, req.Email, req.DienThoai);
+
+                // SP có SET NOCOUNT ON nên rows sẽ là -1 khi update OK
+                if (rows != 0)   // <<< sửa từ > 0 thành != 0
+                {
+                    return new ResponseDTO<bool>
+                    {
+                        Success = true,
+                        Message = "Cập nhật thông tin cá nhân thành công",
+                        Data = true
+                    };
+                }
+
+                return new ResponseDTO<bool>
+                {
+                    Success = false,
+                    Message = "Không tìm thấy bạn đọc",
+                    Data = false
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDTO<bool>
+                {
+                    Success = false,
+                    Message = "Lỗi: " + ex.Message,
+                    Data = false
+                };
+            }
         }
     }
 }

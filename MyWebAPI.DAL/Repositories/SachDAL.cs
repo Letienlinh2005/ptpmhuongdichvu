@@ -40,10 +40,11 @@ namespace MyWebAPI.DAL.Repositories
                     TieuDe = rd.GetString(1),
                     TacGia = rd.GetString(2),
                     NamXuatBan = rd.IsDBNull(3) ? null : rd.GetInt32(3),
-                    TheLoai = rd.IsDBNull(4) ? null : rd.GetString(4),
-                    NgonNgu = rd.IsDBNull(5) ? null : rd.GetString(5),
-                    TomTat = rd.IsDBNull(6) ? null : rd.GetString(6),
-                    LienKetAnh = rd.IsDBNull(7) ? null : rd.GetString(7)
+                    MaTheLoai = rd.IsDBNull(4) ? null : rd.GetString(4),
+                    TheLoai = rd.IsDBNull(5) ? null : rd.GetString(5),
+                    NgonNgu = rd.IsDBNull(6) ? null : rd.GetString(6),
+                    TomTat = rd.IsDBNull(7) ? null : rd.GetString(7),
+                    AnhBiaUrl = rd.IsDBNull(8) ? null : rd.GetString(8)
                 });
             }
             return list;
@@ -66,10 +67,11 @@ namespace MyWebAPI.DAL.Repositories
                     TieuDe = rd.GetString(1),
                     TacGia = rd.GetString(2),
                     NamXuatBan = rd.IsDBNull(3) ? null : rd.GetInt32(3),
-                    TheLoai = rd.IsDBNull(4) ? null : rd.GetString(4),
-                    NgonNgu = rd.IsDBNull(5) ? null : rd.GetString(5),
-                    TomTat = rd.IsDBNull(6) ? null : rd.GetString(6),
-                    LienKetAnh = rd.IsDBNull(7) ? null : rd.GetString(7)
+                    MaTheLoai = rd.IsDBNull(4) ? null : rd.GetString(4),
+                    TheLoai = rd.IsDBNull(5) ? null : rd.GetString(5),
+                    NgonNgu = rd.IsDBNull(6) ? null : rd.GetString(6),
+                    TomTat = rd.IsDBNull(7) ? null : rd.GetString(7),
+                    AnhBiaUrl = rd.IsDBNull(8) ? null : rd.GetString(8)
                 };
             }
             return null;
@@ -86,10 +88,10 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@TieuDe", sach.TieuDe);
             cmd.Parameters.AddWithValue("@TacGia", sach.TacGia);
             cmd.Parameters.AddWithValue("@NamXuatBan", (object?)sach.NamXuatBan ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@MaTheLoai", (object?)sach.TheLoai ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MaTheLoai", (object?)sach.MaTheLoai ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@NgonNgu", (object?)sach.NgonNgu ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@TomTat", (object?)sach.TomTat ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@LienKetAnh", (object?)sach.LienKetAnh ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@LienKetAnh", (object?)sach.AnhBiaUrl ?? DBNull.Value);
 
             return await cmd.ExecuteNonQueryAsync();
         }
@@ -105,10 +107,10 @@ namespace MyWebAPI.DAL.Repositories
             cmd.Parameters.AddWithValue("@TieuDe", sach.TieuDe);
             cmd.Parameters.AddWithValue("@TacGia", sach.TacGia);
             cmd.Parameters.AddWithValue("@NamXuatBan", (object?)sach.NamXuatBan ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@MaTheLoai", (object?)sach.TheLoai ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MaTheLoai", (object?)sach.MaTheLoai ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@NgonNgu", (object?)sach.NgonNgu ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@TomTat", (object?)sach.TomTat ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@LienKetAnh", (object?)sach.LienKetAnh ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@LienKetAnh", (object?)sach.AnhBiaUrl ?? DBNull.Value);
 
             return await cmd.ExecuteNonQueryAsync();
         }

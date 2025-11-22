@@ -12,6 +12,8 @@ namespace MyWebAPI.DAL.Repositories
         Task<int> CreateAsync(CreateBanDocRequest banDoc, string maBanDoc);
         Task<int> UpdateAsync(string maBanDoc, UpdateBanDocRequest banDoc);
         Task<int> DeleteAsync(string maBanDoc);
+
+        Task<int> UpdateThongTinBanDocAsync(string maBanDoc, string hoTen, string email, string dienThoai);
     }
 
     // Implementation - Class thực thi
@@ -124,5 +126,22 @@ namespace MyWebAPI.DAL.Repositories
 
             return await cmd.ExecuteNonQueryAsync();
         }
+
+        public async Task<int> UpdateThongTinBanDocAsync(string maBanDoc, string hoTen, string email, string dienThoai)
+        {
+            using var con = new SqlConnection(_connStr);
+            await con.OpenAsync();
+
+            using var cmd = new SqlCommand("sp_UpdateTTBanDoc", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@MaBanDoc", maBanDoc);
+            cmd.Parameters.AddWithValue("@HoTen", hoTen);
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@DienThoai", dienThoai);
+
+            return await cmd.ExecuteNonQueryAsync();
+        }
+
     }
 }

@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyWebAPI.Controllers
 {
@@ -16,6 +18,7 @@ namespace MyWebAPI.Controllers
         }
 
         // GET api/taikhoan
+        [Authorize(Roles = "Quản trị")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -28,6 +31,7 @@ namespace MyWebAPI.Controllers
         }
 
         // GET api/taikhoan/{id}
+        [Authorize(Roles = "Quản trị")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
@@ -40,6 +44,7 @@ namespace MyWebAPI.Controllers
         }
 
         // POST api/taikhoan
+        [Authorize(Roles = "Quản trị")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateTaiKhoanRequest request)
         {
@@ -55,6 +60,7 @@ namespace MyWebAPI.Controllers
         }
 
         // PUT api/taikhoan/{id}
+        [Authorize(Roles = "Quản trị")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateTaiKhoanRequest request)
         {
@@ -70,6 +76,7 @@ namespace MyWebAPI.Controllers
         }
 
         // DELETE api/taikhoan/{id}
+        [Authorize(Roles = "Quản trị")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
@@ -80,5 +87,20 @@ namespace MyWebAPI.Controllers
 
             return NotFound(response);
         }
+
+        [AllowAnonymous]
+        [HttpPost("register-reader")]
+        public async Task<IActionResult> RegisterReader([FromBody] TaoTaiKhoanBanDoc request)
+        {
+            if (request == null) return BadRequest("Thiếu dữ liệu");
+
+            var result = await _taiKhoanService.TaoTaiKhoanBanDoc(request);
+
+            if (!result.Success)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+
     }
 }

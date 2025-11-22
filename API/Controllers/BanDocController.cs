@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
 
@@ -16,6 +17,7 @@ namespace MyWebAPI.Controllers
         }
 
         // GET api/bandoc
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -28,6 +30,7 @@ namespace MyWebAPI.Controllers
         }
 
         // GET api/bandoc/{id}
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
@@ -40,6 +43,7 @@ namespace MyWebAPI.Controllers
         }
 
         // POST api/bandoc
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateBanDocRequest request)
         {
@@ -55,6 +59,7 @@ namespace MyWebAPI.Controllers
         }
 
         // PUT api/bandoc/{id}
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateBanDocRequest request)
         {
@@ -70,6 +75,7 @@ namespace MyWebAPI.Controllers
         }
 
         // DELETE api/bandoc/{id}
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
@@ -79,6 +85,30 @@ namespace MyWebAPI.Controllers
                 return Ok(response);
 
             return NotFound(response);
+        }
+
+        // PUT api/bandoc/update-info/{id}
+        // BanDocController.cs
+        
+        [HttpPut("update-info/{id}")]
+        public async Task<IActionResult> UpdateInfo(string id, [FromBody] UpdateThongTinBanDocDto req)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new ResponseDTO<bool>
+                {
+                    Success = false,
+                    Message = "Dữ liệu không hợp lệ",
+                    Data = false
+                });
+            }
+
+            // Đảm bảo luôn có MaBanDoc (lấy từ route, không tin body)
+            req.MaBanDoc = id;
+
+            var result = await _banDocService.UpdateThongTinBanDocAsync(req);
+
+            return result.Success ? Ok(result) : BadRequest(result);
         }
     }
 }

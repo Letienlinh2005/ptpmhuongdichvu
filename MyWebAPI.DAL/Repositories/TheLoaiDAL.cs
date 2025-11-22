@@ -33,8 +33,7 @@ namespace MyWebAPI.DAL.Repositories
                 list.Add(new TheLoaiDTO
                 {
                     MaTheLoai = rd.GetString(0),
-                    TenTheLoai = rd.GetString(1),
-                    MoTa = rd.IsDBNull(2) ? null : rd.GetString(2)
+                    TenTheLoai = rd.GetString(1)
                 });
             }
             return list;
@@ -53,8 +52,7 @@ namespace MyWebAPI.DAL.Repositories
                 theLoai = new TheLoaiDTO
                 {
                     MaTheLoai = rd.GetString(0),
-                    TenTheLoai = rd.GetString(1),
-                    MoTa = rd.IsDBNull(2) ? null : rd.GetString(2)
+                    TenTheLoai = rd.GetString(1)
                 };
             }
             return theLoai;
@@ -67,7 +65,6 @@ namespace MyWebAPI.DAL.Repositories
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@MaTheLoai", theLoai.MaTheLoai);
             cmd.Parameters.AddWithValue("@TenTheLoai", theLoai.TenTheLoai);
-            cmd.Parameters.AddWithValue("@MoTa", (object?)theLoai.MoTa ?? DBNull.Value);
             var rowsAffected = await cmd.ExecuteNonQueryAsync();
             return rowsAffected > 0;
         }
@@ -79,7 +76,6 @@ namespace MyWebAPI.DAL.Repositories
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@MaTheLoai", maTheLoai);
             cmd.Parameters.AddWithValue("@TenTheLoai", theLoai.TenTheLoai);
-            cmd.Parameters.AddWithValue("@MoTa", (object?)theLoai.MoTa ?? DBNull.Value);
             var rowsAffected = await cmd.ExecuteNonQueryAsync();
             return rowsAffected > 0;
         }

@@ -43,47 +43,40 @@
                     </div>
                     <div id="search">
                         <button class="btn-fil" id="All">Tất cả</button>
-                        <button class="btn-fil" id="Active">Hoạt động</button>
-                        <button class="btn-fil" id="No-active">Không hoạt động</button>
+                        <button class="btn-fil" id="Active">Đã trả</button>
+                        <button class="btn-fil" id="No-active">Trễ hẹn</button>
                         <button class="btn-fil" id="en" style="background-color: green; color: white; float: right; margin-left:0px; margin-right: 10px; cursor:pointer">Tìm kiếm</button>
-                        <input type="search" placeholder="Tìm kiếm bạn đọc" id="search-bd" />
+                        <input type="search" placeholder="Tìm theo mã phạt, phiếu mượn, lý do..." id="search-bd" />
                     </div>
                 </div>
                 <div class="box-fil">
                     <div id="fil">
                         <p class="f13px">Danh sách phạt</p>
                     </div>
-                    <div id="search">
-                        <button class="btn-fil" onclick="loadPage('AddPhat.html')">+ Thêm mới</button>
-                    </div>
+                    
                     <div id="title-name">
                         <table class="table table-hover table-sm">
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Mã kệ</th>
-                                    <th>Vị trí</th>
+                                    <th>Mã phạt</th>
+                                    <th>Mã phiếu mượn</th>
+                                    <th>Số tiền</th>
+                                    <th>Lý do</th>
+                                    <th>Ngày tính</th>
+                                    <th>Trạng thái</th>
+                                    <th>Mã thanh toán</th>
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>Tầng 1</td>
-                                    <td>
-                                        <a class="" onclick="loadPage('FixKS.html')">Sửa</a> 
-                                        <a class="">Xoá</a>
-                                    </td>
-                                </tr>
-
-                            </tbody>
+                            <tbody id="ph-body"></tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
         function loadPage(page) {
             fetch(page)
@@ -95,6 +88,16 @@
                     document.getElementById('Reader').innerHTML = "<p style='color:red'>Không tải được trang.</p>";
                 });
         }
+    </script>
+
+    <script src="../js/Phat.js"></script>
+    <script>
+        // gọi init giống PhieuMuon.js
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof window.initPhatPage === 'function') {
+                window.initPhatPage();
+            }
+        });
     </script>
 </body>
 </html>

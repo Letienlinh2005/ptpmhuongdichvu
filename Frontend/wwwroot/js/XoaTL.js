@@ -1,18 +1,24 @@
-// ../js/XoaTL.js
-const API_THE_LOAI = 'https://localhost:7151/api/theloai';
+const API_THE_LOAI = 'https://localhost:7151/api/TheLoai';
 
-window.deleteTL = async function (id, onDone) {
-  if (!id) return;
-  if (!confirm('Xoá thể loại ' + id + '?')) return;
+window.deleteTheLoai = async function (id, onDone) {
+    if (!id) return;
+    if (!confirm('Xoá thể loại ' + id + '?')) return;
 
-  try {
-    const res = await fetch(`${API_THE_LOAI}/${encodeURIComponent(id)}`, {
-      method: 'DELETE'
-    });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    if (typeof onDone === 'function') onDone();
-  } catch (err) {
-    console.error(err);
-    alert('Xoá thất bại');
-  }
+    try {
+        const res = await authFetch(`${API_THE_LOAI}/${encodeURIComponent(id)}`, { method: 'DELETE' });
+        const text = await res.text();
+
+        let msg = text;
+        try { msg = JSON.parse(text).message || text; } catch {}
+
+        if (res.ok) {
+            alert('Xoá thể loại thành công!');
+            if (typeof onDone === 'function') onDone();
+        } else {
+            alert('Xoá thất bại: ' + msg);
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Lỗi kết nối API hoặc xoá thất bại');
+    }
 };

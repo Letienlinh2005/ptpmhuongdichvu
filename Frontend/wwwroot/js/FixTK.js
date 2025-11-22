@@ -13,7 +13,7 @@ window.initFixTK = async function () {
   }
 
   try {
-    const res  = await fetch(`${API_TK}/${encodeURIComponent(id)}`);
+    const res  = await authFetch(`${API_TK}/${encodeURIComponent(id)}`);
     const data = await res.json();
     const tk   = data.data || data;
 
@@ -41,7 +41,7 @@ window.initFixTK = async function () {
     };
 
     try {
-      const res = await fetch(`${API_TK}/${encodeURIComponent(id)}`, {
+      const res = await authFetch(`${API_TK}/${encodeURIComponent(id)}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)

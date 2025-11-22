@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,12 @@ namespace MyWebAPI.DTO
         public string TieuDe { get; set; } = default!;
         public string TacGia { get; set; } = default!;
         public int? NamXuatBan { get; set; }
+        public string? MaTheLoai { get; set; }
         public string? TheLoai { get; set; }
         public string? NgonNgu { get; set; }
         public string? TomTat { get; set; }
-        public string? LienKetAnh { get; set; }
+
+        public string? AnhBiaUrl { get; set; }
     }
 
     // DTO cho tạo mới sách
@@ -26,10 +29,11 @@ namespace MyWebAPI.DTO
         public string TieuDe { get; set; } = default!;
         public string TacGia { get; set; } = default!;
         public int? NamXuatBan { get; set; }
+        public string? MaTheLoai { get; set; }
         public string? TheLoai { get; set; }
         public string? NgonNgu { get; set; }
         public string? TomTat { get; set; }
-        public string? LienKetAnh { get; set; }
+        public string? AnhBiaUrl { get; set; }
     }
 
     // DTO cho cập nhật sách
@@ -38,12 +42,13 @@ namespace MyWebAPI.DTO
         public string TieuDe { get; set; } = default!;
         public string TacGia { get; set; } = default!;
         public int? NamXuatBan { get; set; }
+        public string? MaTheLoai { get; set; }
         public string? TheLoai { get; set; }
         public string? NgonNgu { get; set; }
         public string? TomTat { get; set; }
-        public string? LienKetAnh { get; set; }
+        public string? AnhBiaUrl { get; set; }
     }
- 
+
 
     // DTO chung cho response
     public class ResponseDTO<T>

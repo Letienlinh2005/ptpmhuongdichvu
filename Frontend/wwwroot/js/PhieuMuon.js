@@ -1,8 +1,11 @@
 // ../js/PhieuMuon.js
-const API_PHIEU_MUON = 'https://localhost:7151/api/phieumuon';
+
+if (!window.API_KESACH) {
+  window.API_PHIEU_MUON = 'https://localhost:7151/api/phieumuon';
+}
 
 window.initPhieuMuonPage = function () {
-  const tbody     = document.getElementById('pm-body');
+  const tbody = document.getElementById('pm-body');
   const btnSearch = document.getElementById('en');
   const inpSearch = document.getElementById('search-bd');
   if (!tbody) return;
@@ -28,34 +31,36 @@ window.initPhieuMuonPage = function () {
     }
 
     tbody.innerHTML = rows.map((x, i) => {
-      const id  = x.maPhieuMuon ?? x.MaPhieuMuon ?? '';
-      const bs  = x.maBanSao ?? x.MaBanSao ?? '';
-      const bd  = x.maBanDoc ?? x.MaBanDoc ?? '';
-      const nm  = fmtDate(x.ngayMuon ?? x.NgayMuon);
-      const ht  = fmtDate(x.hanTra ?? x.HanTra);
+      const id = x.maPhieuMuon ?? x.MaPhieuMuon ?? '';
+      const bs = x.maBanSao ?? x.MaBanSao ?? '';
+      const bd = x.maBanDoc ?? x.MaBanDoc ?? '';
+      const nm = fmtDate(x.ngayMuon ?? x.NgayMuon);
+      const ht = fmtDate(x.hanTra ?? x.HanTra);
       const ntt = fmtDate(x.ngayTraThucTe ?? x.NgayTraThucTe);
       const slg = x.soLanGiaHan ?? x.SoLanGiaHan ?? 0;
-      const tt  = x.trangThai ?? x.TrangThai ?? '';
+      const tt = x.trangThai ?? x.TrangThai ?? '';
 
       return `
-        <tr data-id="${id}">
-          <td>${i + 1}</td>
-          <td>${id}</td>
-          <td>${bs}</td>
-          <td>${bd}</td>
-          <td>${nm}</td>
-          <td>${ht}</td>
-          <td>${ntt}</td>
-          <td>${slg}</td>
-          <td>${tt}</td>
-          <td>
-            <button class="btn-sm" data-act="edit" data-id="${id}">Sửa</button>
-            <button class="btn-sm" data-act="delete" data-id="${id}">Xoá</button>
-          </td>
-        </tr>
-      `;
+      <tr data-id="${id}">
+        <td>${i + 1}</td>
+        <td>${id}</td>
+        <td>${bs}</td>
+        <td>${bd}</td>
+        <td>${nm}</td>
+        <td>${ht}</td>
+        <td>${ntt}</td>
+        <td>${slg}</td>
+        <td>${tt}</td>
+        <td>
+          <a class="btn-sm" data-act="edit"   data-id="${id}">Sửa</a>
+          <a class="btn-sm" data-act="delete" data-id="${id}">Xoá</a>
+          <a class="btn-sm" data-act="return" data-id="${id}">Trả sách</a>
+        </td>
+      </tr>
+    `;
     }).join('');
   };
+
 
   const doSearch = () => {
     const key = (inpSearch?.value || '').trim().toLowerCase();
@@ -74,7 +79,7 @@ window.initPhieuMuonPage = function () {
   };
 
   // load lần đầu
-  fetch(API_PHIEU_MUON)
+  authFetch(API_PHIEU_MUON)
     .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
     .then(p => {
       allPM = normalize(p);
@@ -91,7 +96,7 @@ window.initPhieuMuonPage = function () {
 
   // hành động
   tbody.onclick = (e) => {
-    const btn = e.target.closest('button[data-act]');
+    const btn = e.target.closest('[data-act]');
     if (!btn) return;
     const id = btn.dataset.id;
 
@@ -103,10 +108,8 @@ window.initPhieuMuonPage = function () {
     }
 
     if (btn.dataset.act === 'delete') {
-      // tách xoá qua file XoaPM.js -> ở đây chỉ phát sự kiện
       if (typeof window.deletePM === 'function') {
         window.deletePM(id, () => {
-          // reload lại sau khi xoá
           fetch(API_PHIEU_MUON)
             .then(r => r.json())
             .then(p => {
@@ -114,6 +117,27 @@ window.initPhieuMuonPage = function () {
               doSearch();
             });
         });
+      }
+    }
+
+    // ====== THÊM HÀNH ĐỘNG TRẢ SÁCH ======
+    if (btn.dataset.act === 'return') {
+      const pm = allPM.find(x =>
+        (x.maPhieuMuon ?? x.MaPhieuMuon ?? '') === id
+      );
+      if (!pm) {
+        alert('Không tìm thấy dữ liệu phiếu mượn.');
+        return;
+      }
+
+      // Lưu full info phiếu mượn sang sessionStorage để trang kia đọc lại
+      sessionStorage.setItem('TRA_SACH_PM', JSON.stringify(pm));
+
+      // Nhảy sang trang Trả sách & tính phạt
+      if (typeof loadPage === 'function') {
+        loadPage('../html/ThanhToanPhat.html', 'initThanhToanPhatPage');
+      } else {
+        window.location.href = '../html/ThanhToanPhat.html';
       }
     }
   };

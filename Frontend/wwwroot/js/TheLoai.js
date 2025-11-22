@@ -1,5 +1,9 @@
 // ../js/TheLoai.js
-const API_THE_LOAI = 'https://localhost:7151/api/theloai';
+// ../js/FixTL.js
+if (!window.API_THE_LOAI) {
+    window.API_THE_LOAI = "https://localhost:7151/api/TheLoai";
+}
+
 
 window.initTheLoaiPage = function () {
   const tbody     = document.getElementById('tl-body');
@@ -24,17 +28,15 @@ window.initTheLoaiPage = function () {
     tbody.innerHTML = rows.map((x, i) => {
       const ma  = x.maTheLoai ?? x.MaTheLoai ?? '';
       const ten = x.tenTheLoai ?? x.TenTheLoai ?? '';
-      const mo  = x.moTa ?? x.MoTa ?? '';
 
       return `
         <tr data-id="${ma}">
           <td>${i + 1}</td>
           <td>${ma}</td>
           <td>${ten}</td>
-          <td>${mo}</td>
           <td>
-            <button class="btn-sm" data-act="edit" data-id="${ma}">Sửa</button>
-            <button class="btn-sm" data-act="delete" data-id="${ma}">Xoá</button>
+            <a class="btn-sm" onclick="setEditTL('${ma}'); loadPage('../html/FixTL.html','initFixTL')">Sửa</a>
+            <a class="btn-sm" data-act="delete-tl" data-id="${ma}">Xoá</a>
           </td>
         </tr>
       `;
@@ -55,7 +57,7 @@ window.initTheLoaiPage = function () {
     render(filtered);
   };
 
-  fetch(API_THE_LOAI)
+  authFetch(API_THE_LOAI)
     .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
     .then(p => {
       allTL = normalize(p);
@@ -70,28 +72,17 @@ window.initTheLoaiPage = function () {
   if (inpSearch) inpSearch.onkeyup = (e) => { if (e.key === 'Enter') doSearch(); };
 
   tbody.onclick = (e) => {
-    const btn = e.target.closest('button[data-act]');
-    if (!btn) return;
-    const id = btn.dataset.id;
+  const btn = e.target.closest('[data-act="delete-tl"]');
+  if (!btn) return;
+  const id = btn.dataset.id;
 
-    if (btn.dataset.act === 'edit') {
-      sessionStorage.setItem('editTL', id);
-      if (typeof loadPage === 'function') {
-        loadPage('../html/FixTL.html', 'initFixTL');
-      }
-    }
+  if (typeof window.deleteTheLoai === 'function') {
+    window.deleteTheLoai(id, () => {
+      authFetch(API_THE_LOAI)
+        .then(r => r.json())
+        .then(p => { allTL = normalize(p); doSearch(); });
+    });
+  }
+};
 
-    if (btn.dataset.act === 'delete') {
-      if (typeof window.deleteTL === 'function') {
-        window.deleteTL(id, () => {
-          fetch(API_THE_LOAI)
-            .then(r => r.json())
-            .then(p => {
-              allTL = normalize(p);
-              doSearch();
-            });
-        });
-      }
-    }
-  };
 };

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
 
@@ -16,6 +17,7 @@ namespace MyWebAPI.Controllers
         }
 
         // GET api/kesach
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -24,6 +26,7 @@ namespace MyWebAPI.Controllers
         }
 
         // GET api/kesach/{id}
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
@@ -32,6 +35,7 @@ namespace MyWebAPI.Controllers
         }
 
         // POST api/kesach
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateKeSachRequest request)
         {
@@ -42,6 +46,7 @@ namespace MyWebAPI.Controllers
         }
 
         // PUT api/kesach/{id}
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateKeSachRequest request)
         {
@@ -52,6 +57,7 @@ namespace MyWebAPI.Controllers
         }
 
         // DELETE api/kesach/{id}
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {

@@ -40,15 +40,17 @@
                 <!-- gọi kèm initReaderPage -->
                 <button onclick="loadPage('../html/Readermanagement.html','initReaderPage')"><li>Quản lý bạn đọc </li></button>
                 <button onclick="loadPage('../html/BanSao.html', 'initReaderPage')"><li>Quản lý bản sao </li></button>
-                <button onclick="loadPage('')"><li>Quản lý đặt chỗ </li></button>
                 <button onclick="loadPage('../html/KeSach.html','initKeSachPage')"><li>Quản lý kệ sách </li></button>
-                <button onclick="loadPage('../html/Phat.html')"><li>Quản lý phạt</li></button>
+                <button onclick="loadPage('../html/Phat.html', 'initPhatPage')"><li>Quản lý phạt</li></button>
                 <button onclick="loadPage('../html/PhieuMuon.html')"><li>Quản lý phiếu mượn</li></button>
                 <!-- gọi kèm initSachPage -->
                 <button onclick="loadPage('../html/Sach.html','initSachPage')"><li>Quản lý sách</li></button>
-                <button onclick="loadPage('../html/TheLoai.html')"><li>Quản lý thể loại</li></button>
-                <button onclick="loadPage('../html/TaiKhoan.html')"><li>Quản lý tài khoản</li></button>
-                <button onclick="loadPage('')"><li>Thanh toán</li></button>
+                <button onclick="loadPage('../html/TheLoai.html', 'initTheLoaiPage')"><li>Quản lý thể loại</li></button>
+                <button onclick="loadPage('../html/TaiKhoan.html', 'initTaiKhoanPage')"><li>Quản lý tài khoản</li></button>
+                <button onclick="loadPage('../html/DatCho.html','initDatChoPage')"><li>Đặt chỗ</li></button>
+                <button onclick="loadPage('../html/ThanhToanPhat.html', 'initThanhToanPhatPage')"><li>Thanh toán</li></button>
+                <button onclick="loadPage('../html/TonKho.html','initTonKhoPage')"><li>Báo cáo tồn kho</li></button>
+                
             </ul>
         </div>
         <div id="right">
@@ -113,6 +115,8 @@
         sessionStorage.setItem('editSach', ma);
       }
     </script>
+    <script src="../js/AuthGuard.js" defer></script>
+    <script src="../js/auth.js"></script>
 
     <!-- JS bạn đọc -->
     <script src="../js/BanDoc.js"></script>
@@ -155,6 +159,14 @@
     <script src="../js/AddBS.js"></script>
     <script src="../js/FixBS.js"></script>
     <script src="../js/XoaBS.js"></script>
+
+    <script src="../js/PhieuMuon.js" defer></script>
+    <script src="../js/ThanhToanPhat.js" defer></script>
+    
+    <!-- THÊM DÒNG NÀY -->
+    <script src="../js/Phat.js"></script>
+    <script src="../js/TonKho.js"></script>
+    <script src="../js/DatCho.js"></script>
 
 </body>
 </html>

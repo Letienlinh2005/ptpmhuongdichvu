@@ -15,7 +15,7 @@ async function fetchKeSach(params = {}) {
     }
   });
 
-  const res = await fetch(url.toString(), { cache: 'no-store' });
+  const res = await authFetch(url.toString(), { cache: 'no-store' });
   if (!res.ok) {
     throw new Error(`HTTP ${res.status}: ` + await res.text());
   }

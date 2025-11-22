@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyWebAPI.BLL.Services;
 using MyWebAPI.DTO;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace MyWebAPI.API.Controllers
         private readonly IThanhToanService _service;
         public ThanhToanController(IThanhToanService service) => _service = service;
 
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -19,6 +21,7 @@ namespace MyWebAPI.API.Controllers
             return res.Success ? Ok(res) : StatusCode(500, res);
         }
 
+        [Authorize(Roles = "Quản trị, Thủ thư")]
         [HttpGet("{maThanhToan}")]
         public async Task<IActionResult> GetById(string maThanhToan)
         {
@@ -28,18 +31,19 @@ namespace MyWebAPI.API.Controllers
         }
 
         // POST: /api/ThanhToan/Phat
-        [HttpPost("Phat")]
-        public async Task<IActionResult> ThanhToanPhat([FromBody] ThanhToanPhatDTO dto)
+        [Authorize(Roles = "Quản trị, Thủ thư")]
+        [HttpPost("phat")]
+        public async Task<IActionResult> ThanhToanPhat([FromBody] ThanhToanPhatDTO model)
         {
-            if (!ModelState.IsValid) return BadRequest(new ResponseDTO<bool>
-            {
-                Success = false,
-                Message = "Dữ liệu không hợp lệ",
-                Data = false
-            });
+            if (!ModelState.IsValid)
+                return BadRequest(new { success = false, message = "Dữ liệu không hợp lệ" });
 
-            var res = await _service.ThanhToanPhatAsync(dto);
-            return res.Success ? Ok(res) : BadRequest(res);
+            var res = await _service.ThanhToanPhatAsync(model);
+            if (!res.Success) return BadRequest(res);
+
+            return Ok(res);
         }
+
+
     }
 }

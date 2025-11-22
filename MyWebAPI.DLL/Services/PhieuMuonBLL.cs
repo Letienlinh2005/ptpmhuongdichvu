@@ -14,6 +14,8 @@ namespace MyWebAPI.BLL.Services
         Task<ResponseDTO<bool>> UpdateAsync(string maPhieuMuon, UpdatePhieuMuonRequest request);
         Task<ResponseDTO<bool>> DeleteAsync(string maPhieuMuon);
 
+        Task<ResponseDTO<TraSachVaTinhPhatResultDTO>> TraSachVaTinhPhatAsync(TraSachVaTinhPhatRequest request);
+
     }
 
     public class PhieuMuonService : IPhieuMuonService
@@ -209,6 +211,29 @@ namespace MyWebAPI.BLL.Services
                     Success = false,
                     Message = $"Lỗi: {ex.Message}",
                     Data = false
+                };
+            }
+        }
+        public async Task<ResponseDTO<TraSachVaTinhPhatResultDTO>> TraSachVaTinhPhatAsync(TraSachVaTinhPhatRequest request)
+        {
+            try
+            {
+                var result = await _phieuMuonRepository.TraSachVaTinhPhatAsync(request);
+
+                return new ResponseDTO<TraSachVaTinhPhatResultDTO>
+                {
+                    Success = true,
+                    Message = "Trả sách & tính phạt thành công",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDTO<TraSachVaTinhPhatResultDTO>
+                {
+                    Success = false,
+                    Message = $"Lỗi: {ex.Message}",
+                    Data = null
                 };
             }
         }
